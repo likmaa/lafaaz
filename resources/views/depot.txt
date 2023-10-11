@@ -1,0 +1,14 @@
+<!-- @extends('layouts.app') -->
+<!-- @section('content') -->
+
+<!-- <p class="text-center">Vérification de mail</p>
+
+<form>
+
+    <div class="mb-4">
+
+        <span> Vous allez recevoir un lien de vérification dans votre mail</span>
+    </div>
+
+</form>
+@endsection -->

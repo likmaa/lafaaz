@@ -1,0 +1,175 @@
+@extends('layouts.header')
+@section('title', 'Nous rejoindre')
+@section('content')
+<!-- SECTION 1 -->
+<section class="aboutSection1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 align-self-end">
+                <h2>
+                    Nous rejoindre <br>
+                    la Fondation les Amis de A à Z
+                </h2>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END SECTION 1 -->
+
+<section clas>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <form method="POST" action="" class="border-light">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="exampleInputtext1" class="form-label">Nom</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext1" aria-describedby="textHelp" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputtext1" class="form-label">Prenoms</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext1" aria-describedby="textHelp" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputtext1" class="form-label">Numéro de téléphone</label>
+                        <input type="number" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext1" aria-describedby="textHelp" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputtext1" class="form-label">Addresse</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext1" aria-describedby="textHelp" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputtext1" class="form-label">Code postale</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext1" aria-describedby="textHelp" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputtext1" class="form-label">Ville</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext1" aria-describedby="textHelp" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputtext1" class="form-label">Pays</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext1" aria-describedby="textHelp" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputtext1" class="form-label">Date de naissance</label>
+                        <input type="date" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext1" aria-describedby="textHelp" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputtext1" class="form-label">Profession</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext1" aria-describedby="textHelp" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputtext1" class="form-label">Photo de la CNI</label>
+                        <input type="file" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext1" aria-describedby="textHelp" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputtext1" class="form-label">Lettre de motivation à adresser au Président de CA de la fondation</label>
+                        <input type="file" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext1" aria-describedby="textHelp" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleInputtext1" class="form-label">Casier judiciaire</label>
+                        <input type="file" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext1" aria-describedby="textHelp" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <button class=" py-2 w-100">Rejoindre</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@endsection

@@ -1,0 +1,334 @@
+@extends('layouts.dash')
+@section('title', 'Adhésions')
+@section('content')
+
+
+<div class="row g-3 mb-4 align-items-center justify-content-between">
+    <div class="col-auto">
+        <h1 class="app-page-title mb-0">Gestion des utilisateurs</h1>
+    </div>
+    <!-- <div class="col-auto">
+        <div class="page-utilities">
+            <div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+                <div class="col-auto">
+                    <form class="table-search-form row gx-1 align-items-center">
+                        <div class="col-auto">
+                            <input type="text" id="search-orders" name="searchorders" class="form-control search-orders" placeholder="Search">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn app-btn-secondary">Rechercher</button>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="col-auto">
+
+                    <select class="form-select w-auto">
+                        <option selected value="option-1">All</option>
+                        <option value="option-2">Cette semaine</option>
+                        <option value="option-3">Ce mois</option>
+                        <option value="option-4">Les 3 derniers mois</option>
+
+                    </select>
+                </div>
+
+            </div>
+        </div>
+    </div> -->
+</div>
+
+<nav id="orders-table-tab" class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
+    <a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-bs-toggle="tab" href="#orders-all" role="tab" aria-controls="orders-all" aria-selected="true">Tout</a>
+    <a class="flex-sm-fill text-sm-center nav-link" id="orders-paid-tab" data-bs-toggle="tab" href="#orders-paid" role="tab" aria-controls="orders-paid" aria-selected="false"> Admin</a>
+    <a class="flex-sm-fill text-sm-center nav-link" id="orders-pending-tab" data-bs-toggle="tab" href="#orders-pending" role="tab" aria-controls="orders-pending" aria-selected="false">Contributeurs</a>
+    <a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-bs-toggle="tab" href="#orders-cancelled" role="tab" aria-controls="orders-cancelled" aria-selected="false">Abonnés</a>
+</nav>
+
+<div class="tab-content" id="orders-table-tab-content">
+    <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
+        <div class="app-card app-card-orders-table bg-white shadow-sm mb-5">
+            <div class="app-card-body">
+                <div class="table-responsive">
+                    <table class="table app-table-hover mb-0 text-left">
+                        <thead>
+                            <tr>
+                                <th class="cell">ID</th>
+                                <th class="cell">Nom - Prénoms</th>
+                                <th class="cell">Email</th>
+                                <th class="cell">Contact</th>
+                                <th class="cell">Profession</th>
+                                <th class="cell">Status</th>
+                                <th class="cell">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($utilisateurs as $user)
+                            <tr>
+                                <td class="cell">#15{{$user->id}}</td>
+                                <td class="cell">{{$user->name}}</td>
+                                <td class="cell">{{$user->email}}</td>
+                                <td class="cell">{{$user->contact}}</td>
+                                <td class="cell">{{$user->profession}}</td>
+                                @if(($user->rule== 'ADMIN'))
+                                <td class="cell"><span class="badge bg-success">{{$user->rule}}</span></td>
+                                @elseif(($user->rule== 'CONTRIBUTEUR'))
+                                <td class="cell"><span class="badge bg-warning">{{$user->rule}}</span></td>
+                                @else<td class="cell"><span class="badge bg-info">{{$user->rule}}</span></td>
+                                @endif<td class="cell"><a class="btn-sm app-btn-secondary" href="#">Voir</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <nav class="app-pagination">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+    <!-- Les administrateurs -->
+    <div class="tab-pane fade" id="orders-paid" role="tabpanel" aria-labelledby="orders-paid-tab">
+        <div class="app-card app-card-orders-table bg-white mb-5">
+            <div class="app-card-body">
+                <div class="table-responsive">
+
+                    <table class="table mb-0 text-left">
+                        <thead>
+                            <tr>
+                                <th class="cell">ID</th>
+                                <th class="cell">Nom - Prénoms</th>
+                                <th class="cell">Email</th>
+                                <th class="cell">Contact</th>
+                                <th class="cell">Profession</th>
+                                <th class="cell">Status</th>
+                                <th class="cell">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($admins as $admin)
+                            <tr>
+                                <td class="cell">#15{{$admin->id}}</td>
+                                <td class="cell">{{$admin->name}}</td>
+                                <td class="cell">{{$admin->email}}</td>
+                                <td class="cell">{{$admin->contact}}</td>
+                                <td class="cell">{{$admin->profession}}</td>
+                                <td class="cell"><span class="badge bg-success">{{$admin->rule}}</span></td>
+                                <td class="cell"><a class="btn-sm app-btn-secondary" href="#">Voir</a>
+                                </td>
+                            </tr>
+                            @endforeach
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Les contributeurs -->
+    <div class="tab-pane fade" id="orders-pending" role="tabpanel" aria-labelledby="orders-pending-tab">
+        <div class="app-card app-card-orders-table bg-white mb-5">
+            <div class="app-card-body">
+                <div class="table-responsive">
+                    <table class="table mb-0 text-left">
+                        <thead>
+                            <tr>
+                                <th class="cell">ID</th>
+                                <th class="cell">Nom - Prénoms</th>
+                                <th class="cell">Email</th>
+                                <th class="cell">Contact</th>
+                                <th class="cell">Profession</th>
+                                <th class="cell">Status</th>
+                                <th class="cell">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($contributeurs as $contributeur)
+                            <tr>
+                                <td class="cell">#15{{$contributeur->id}}</td>
+                                <td class="cell">{{$contributeur->name}}</td>
+                                <td class="cell">{{$contributeur->email}}</td>
+                                <td class="cell">{{$contributeur->contact}}</td>
+                                <td class="cell">{{$contributeur->profession}}</td>
+                                <td class="cell"><span class="badge bg-warning">{{$contributeur->rule}}</span></td>
+                                <td class="cell"><a class="btn-sm app-btn-secondary" href="#">Voir</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Les Abonnés -->
+    <div class="tab-pane fade" id="orders-cancelled" role="tabpanel" aria-labelledby="orders-cancelled-tab">
+        <div class="app-card app-card-orders-table bg-white mb-5">
+            <div class="app-card-body">
+                <div class="table-responsive">
+                    <table class="table mb-0 text-left">
+                        <thead>
+                            <tr>
+                                <th class="cell">ID</th>
+                                <th class="cell">Nom - Prénoms</th>
+                                <th class="cell">Email</th>
+                                <th class="cell">Contact</th>
+                                <th class="cell">Profession</th>
+                                <th class="cell">Status</th>
+                                <th class="cell">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($abonnes as $abonne)
+                            <tr>
+                                <td class="cell">#15{{$abonne->id}}</td>
+                                <td class="cell">{{$abonne->name}}</td>
+                                <td class="cell">{{$abonne->email}}</td>
+                                <td class="cell">{{$abonne->contact}}</td>
+                                <td class="cell">{{$abonne->profession}}</td>
+                                <td class="cell"><span class="badge bg-info">{{$abonne->rule}}</span></td>
+                                <td class="cell"><a class="btn-sm app-btn-secondary" href="#">Voir</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Informations de l'utilisateur #114552</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-4">
+                <div class="row py-2">
+                    <div class="col-lg-6">
+                        <div class="item border-bottom py-3">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="item-label mb-2"><strong>Photo</strong></div>
+                                <div class="item-data">
+                                    <img src="/asset/images/profile/user-1.jpg" alt="" width="65" height="65" class="rounded-circle">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item border-bottom py-3">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="item-label"><strong>Nom</strong></div>
+                                <div class="item-data">James</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="item border-bottom py-3">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="item-label"><strong>Prenoms</strong></div>
+                                <div class="item-data">Doe</div>
+                            </div>
+                        </div>
+                        <div class="item border-bottom py-3">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="item-label"><strong>Droit</strong></div>
+                                <div class="item-data">Admin</div>
+                            </div>
+                        </div>
+                        <div class="item border-bottom py-3">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="item-label"><strong>Email</strong></div>
+                                <div class="item-data">james.doe@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger">Retirer</button>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Ajout Faq</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{route('addfaq')}}" method="post">
+                <div class="modal-body px-4">
+                    <div class="row my-4">
+                        <div class="col-lg-12 mb-3">
+                            <label for="">Titre</label>
+                            <input type="text" name="titre" required class="form-control" placeholder="Titre" aria-label="">
+                        </div>
+
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-lg-12 mb-3">
+                            <label for="">Détails</label>
+                            <textarea class="form-control" required placeholder="Détails" name="description" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Témoignage Bénevole</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{route('addtbenevol')}}" method="post" enctype="multipart/form-data">
+                <div class="modal-body px-4">
+                    <div class="row my-4">
+                        <div class="col-lg-6 mb-3">
+                            <label for="">Nom - Prénoms</label>
+                            <input type="text" name="titre" class="form-control" placeholder="Titre" aria-label="">
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                            <label for="">Image</label>
+                            <input type="file" name="titre" class="form-control" placeholder="Titre" aria-label="">
+                        </div>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-lg-12 mb-3">
+                            <label for="">Temoignage</label>
+                            <textarea class="form-control" placeholder="Temoignage" name="" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Ajouter une réalisation</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
