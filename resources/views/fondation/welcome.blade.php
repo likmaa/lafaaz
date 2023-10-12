@@ -40,17 +40,20 @@
 <section id="services" class="services">
     <div class="container homeSection3" data-aos="fade-up">
 
-        <div class="mt-5 text-center row">
-            <h2 class="fw-500 text-center justify-content-center col-lg-4 offset-lg-4 col-12">
-                <img src="../assets/img/accueil2.png" alt="" srcset="" width="40" height="49">
-                <span>Nos causes</span>
+        <div class="mt-5 text-center">
+            <h2 class="fw-500 text-center col-lg-4 offset-lg-4 col-12">
+                <span>
+                    <img src="../assets/img/accueil2.png" alt="" srcset="" width="40" height="49">
+                    Nos causes
+                </span>
             </h2>
-
-            <svg class="" xmlns="http://www.w3.org/2000/svg" width="71" height="11" viewBox="0 0 151 11" fill="none">
-                <path d="M4 7L147 4" stroke="#0E7ABE" stroke-width="8" stroke-linecap="round" />
-            </svg>
-
+            <div class="underline_blue"></div>
         </div>
+
+
+
+
+
 
         <div class="row mt-4">
             <div class="col-lg-4 col-md-6 " data-aos="zoom-in" data-aos-delay="100">
@@ -145,19 +148,17 @@
 <!-- SECTION 4 -->
 <section class="homeSection4 mb-0">
     <div class="container" data-aos="fade-up">
-        <div class=" text-center row">
+        <div class=" text-center ">
             <h2 class="fw-500 text-center justify-content-center col-lg-4 offset-lg-4 col-12">
                 <img src="/assets/img/accueil8.png" alt="" srcset="" width="40" height="49">
                 <span>Projet récents</span>
             </h2>
-            <svg xmlns="http://www.w3.org/2000/svg" width="71" height="11" viewBox="0 0 151 11" fill="none">
-                <path d="M4 7L147 4" stroke="#01B044" stroke-width="8" stroke-linecap="round" />
-            </svg>
+            <div class="underline_green"></div>
         </div>
         <div class="row mt-5 ">
             @foreach($projets as $projet)
-            <div class="col-lg-3 col-6 mb-5">
-                <div class="card">
+            <div class="col  mb-5 m-3">
+                <div class="card ">
                     <img src="{{$projet->image}}" class="card-img-top" height="200" alt="...">
                     <div class="card-body">
                         <p class="card-text"><small class="text-body-secondary">
@@ -188,23 +189,23 @@
 <!-- END SECTION 4 -->
 
 <!-- SECTION 5 -->
-<section class="homeSection5">
+<section class="homeSection5 d-flex justify-content-center allign-items-center ">
     <div class="container" data-aos="fade-up">
 
-        <div class="text-center row">
+        <div class="text-center  ">
             <h2 class="fw-500 text-center justify-content-center col-lg-4 offset-lg-4 col-12">
-                <img src="../assets/img/accueil9.png" alt="" srcset="" width="40" height="49">
+                <img src="../assets/img/accueil9.png" alt="" srcset="" width="40" height="45">
                 <span>Actualités</span>
             </h2>
 
-            <svg class="" xmlns="http://www.w3.org/2000/svg" width="71" height="11" viewBox="0 0 151 11" fill="none">
-                <path d="M4 7L147 4" stroke="#0E7ABE" stroke-width="8" stroke-linecap="round" />
-            </svg>
+            <div class="underline_blue"></div>
         </div>
-        <div class="row mt-5 ">
+        <div class="row mt-5 m-5   ">
+            <!-- <div class="col-md-1"></div> -->
             @foreach($actus as $actu)
-            <div class="col-lg-4 mb-5">
-                <div class="card">
+
+            <div class="col mb-5 m-3">
+                <div class="card m-4 ">
                     <img src="{{$actu->image}}" class="card-img-top" height="200" alt="...">
                     <div class="card-body">
                         <p class="card-text"><small class="text-body-secondary">
@@ -222,7 +223,10 @@
                     </div>
                 </div>
             </div>
+
             @endforeach
+
+
         </div>
 
         <div class="row align-items-center mt-5 pt-2">
@@ -256,10 +260,14 @@
                 </defs>
             </svg>
             Que disent nos donateurs ?
+
+            
         </h2>
+
+        
     </div>
 
-    <div class="container pt-5" data-aos="fade-up">
+    <div class=" d-flex  justify-content-center   pt-5" data-aos="fade-up">
         <div class="row">
             @foreach($dons as $don)
             <div class="col-md-6 col-lg-4 mb-5 mb-5 mb-lg-0">
@@ -281,6 +289,8 @@
             @endforeach
         </div>
     </div>
+
+
 </section>
 <!-- END SECTION 6 -->
 @endsection
