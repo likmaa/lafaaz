@@ -37,13 +37,9 @@
             width: 100%;
             z-index: 15;
             background: white;
-        }
+        }        
 
-        @media screen and (max-width: 500px) {
-            display: none;
-        }
-        
-        .custom-border {
+         .custom-border {
             border-bottom: 0.2px solid #008d367c;
         }
 
@@ -53,6 +49,7 @@
             top: 2rem;
             font-size: xx-large;
         }
+        
 
     </style>
 
@@ -330,45 +327,6 @@
     
                 <!-- navbar -->
                 <nav id="navbar" class="navbar">
-                    {{-- <ul class="menu-container">
-                        <li>
-                            <a class="nav-link" href="#">Fondation 1<i
-                                class="bi bi-chevron-down"></i></a>
-                            <ul class="submenu">
-                                <li><a href="#">Sous-Menu 1</a></li>
-                                <li><a href="#">Sous-Menu 1</a></li>
-                                <li><a href="#">Sous-Menu 2</a></li>
-                                <li><a href="#">Sous-Menu 3</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#">Fondation 1<i
-                                class="bi bi-chevron-down"></i></a>
-                            <ul class="submenu">
-                                <li><a href="#">Sous-Menu 1</a></li>
-                                <li><a href="#">Sous-Menu 2</a></li>
-                                <li><a href="#">Sous-Menu 3</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#">Fondation 1<i
-                                class="bi bi-chevron-down"></i></a>
-                            <ul class="submenu">
-                                <li><a href="#">Sous-Menu 1</a></li>
-                                <li><a href="#">Sous-Menu 2</a></li>
-                                <li><a href="#">Sous-Menu 3</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="#">Fondation 1<i
-                                class="bi bi-chevron-down"></i></a>
-                            <ul class="submenu">
-                                <li><a href="#">Sous-Menu 1</a></li>
-                                <li><a href="#">Sous-Menu 2</a></li>
-                                <li><a href="#">Sous-Menu 3</a></li>
-                            </ul>
-                        </li> 
-                    </ul> --}}
                     <ul>
                         <li><a class="nav-link scrollto" href="{{ route('Accueil') }}">Accueil</a></li>
                         <li class="dropdown">
@@ -410,7 +368,7 @@
             
         </header>
     
-        <div class="px-5 nav-info">
+        <div class="px-5 nav-info fixed-top">
             <div class="close-navcontent">
                 <i class="bi bi-x" style="cursor: pointer;"></i>
             </div>
@@ -419,7 +377,7 @@
                 <div>
                     <ul class="list-unstyled">
                         <li class="custom-border ms-5 mt-4 my-2 me-5 pb-2"><a class="text-dark" href="{{ route('apropos') }}">A propos</a></li>
-                        <li class="custom-border ms-5 mt-4 my-2 pb-2"><a class="text-dark" href="{{ route('projet') }}">Nos projets</a></li>
+                        <li class="custom-border ms-5 mt-4 my-2 me-5 pb-2"><a class="text-dark" href="{{ route('projet') }}">Nos projets</a></li>
                         <li class="custom-border ms-5 mt-4 my-2 me-5 pb-2"><a class="text-dark" href="{{ route('realisation') }}">Nos réalisations et activités</a></li>
                         <li class="custom-border ms-5 mt-4 my-2 me-5 pb-2"><a class="text-dark" href="{{ route('travail') }}">Nous rejoindre</a></li>
                     </ul>
@@ -429,7 +387,7 @@
     
         </div>
         
-        <div class="px-5 nav-info">
+        <div class="px-5 nav-info fixed-top">
             <div class="close-navcontent">
                 <i class="bi bi-x" style="cursor: pointer;"></i>
             </div>
@@ -439,13 +397,13 @@
                     <ul class="list-unstyled">
                         <li class="custom-border my-2 me-5 ms-5 pb-2 mt-4" ><a class="text-dark" href="{{ route('progas2') }}">Enfance indigente</a></li>
                         <li class="custom-border my-2 me-5 ms-5 pb-2 mt-4" ><a class="text-dark"  href="{{ route('progas1') }}">Assistance personnes du troisième âge</a></li>
-                        <li class="custom-border my-2 ms-5 pb-2 mt-4"><a class="text-dark" href="{{ route('proged') }}">Coaching de la jeunesse</a></li>
+                        <li class="custom-border my-2 me-5 ms-5 pb-2 mt-4"><a class="text-dark" href="{{ route('proged') }}">Coaching de la jeunesse</a></li>
                     </ul>
                 </div>
             </div>
         </div>
             
-        <div class="px-5 nav-info">
+        <div class="px-5 nav-info fixed-top">
             <div class="close-navcontent">
                 <i class="bi bi-x" style="cursor: pointer;"></i>
             </div>
@@ -665,7 +623,7 @@
                                         d="M0.357251 9.66205C-0.119084 9.21144 -0.119084 8.48087 0.357251 8.03026L3.56054 5L0.357252 1.96974C-0.119083 1.51913 -0.119083 0.788558 0.357252 0.337954C0.833586 -0.112651 1.60588 -0.112651 2.08221 0.337954L5.2855 3.36822C6.23817 4.26942 6.23817 5.73057 5.2855 6.63178L2.08221 9.66205C1.60588 10.1127 0.833585 10.1127 0.357251 9.66205Z"
                                         fill="#F5F5F5" />
                                 </svg>
-                                <a class="menu__link" href="{{ route('benevol') }}">Devenir bénévolat</a>
+                                    <a class="menu__link" href="{{ route('benevol') }}">Devenir bénévole</a>
                             </li>
                             <li class="menu__item py-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10"
@@ -824,6 +782,22 @@
                     hide(liens);
                 }
             })
+
+            function handleScreenResize() { 
+                // Récupération de la largeur actuelle de l'écran
+                const currentWidth = window.innerWidth;
+
+                // Vérification sur la largeur
+                if (currentWidth <= 500) {
+                    hide(liens);
+                } 
+            }
+
+            // Ajout d'un gestionnaire d'événement pour l'événement de redimensionnement de la fenêtre
+            window.addEventListener('resize', handleScreenResize);
+
+            // Appel de la fonction de gestion initiale pour déterminer l'état initial de la fenêtre
+            handleScreenResize();
 
         </script>
     </body>

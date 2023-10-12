@@ -9,8 +9,7 @@
             <div class="row">
                 <div class="col-lg-12 align-self-end">
                     <h2>
-                        Assistance Personnes du troisième âge <br>
-                        la Fondation les Amis de A à Z
+                        Assistance Personnes du troisième âge de la Fondation les Amis de A à Z
                     </h2>
                 </div>
             </div>

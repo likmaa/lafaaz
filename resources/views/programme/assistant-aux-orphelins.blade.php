@@ -9,8 +9,7 @@
             <div class="row">
                 <div class="col-lg-12 align-self-end">
                     <h2>
-                        Assistance aux orphelins <br>
-                        la Fondation les Amis de A à Z
+                        Assistance aux orphelins de la Fondation les Amis de A à Z
                     </h2>
                 </div>
             </div>

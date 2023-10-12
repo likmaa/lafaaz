@@ -44,7 +44,7 @@ class Controllers extends Controller
     }
     public function realisation()
     {
-        $realisations = Grealisation::paginate(8);
+        $realisations = Grealisation::paginate(6);
         return view('fondation.realisation', ['realisations' => $realisations]);
     }
     public function emplois()
