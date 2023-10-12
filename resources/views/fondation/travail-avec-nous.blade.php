@@ -9,8 +9,7 @@
             <div class="row">
                 <div class="col-lg-12 align-self-end">
                     <h2>
-                        Travail avec nous <br>
-                        la Fondation les Amis de A à Z
+                        Travail avec la Fondation les Amis de A à Z
                     </h2>
                 </div>
             </div>
@@ -33,8 +32,8 @@
             <div class="col-lg-5 col-md-6">
                 <div class="content">
                     <h4 id="what-is-the-main-mission-of-mine-and-what-i-wanna-do">Nos offres d'emploi</h4>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-                        et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                    <p>
+                        Découvrez nos offres d'emploi exceptionnelles et trouvez l'opportunité parfaite pour faire partie de notre équipe talentueuse. Nous recherchons des individus passionnés et déterminés pour rejoindre notre entreprise. Consultez la liste complète des postes disponibles et postulez dès aujourd'hui pour donner un coup de pouce à votre carrière. 
                     </p>
                     <button class="float-end py-2 px-4"><a class="text-white" href="{{route('emplois')}}">Consulter</a></button>
 
@@ -46,8 +45,8 @@
             <div class="col-lg-5 col-md-6">
                 <div class="content py-4">
                     <h4 id="what-is-the-main-mission-of-mine-and-what-i-wanna-do">Bénévolat</h4>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-                        et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                    <p>
+                        Découvrez nos opportunités de bénévolat et engagez-vous dans des projets bénévoles impactants. Consultez la liste complète des offres et trouvez comment vous pouvez contribuer à des causes qui comptent.
                     </p>
                     <button class="float-end py-2 px-4"><a class="text-white" href="{{route('benevol')}}">Consulter</a></button>
 
@@ -69,8 +68,8 @@
             <div class="col-lg-5 col-md-6">
                 <div class="content p-4">
                     <h4 id="what-is-the-main-mission-of-mine-and-what-i-wanna-do">Nos offres de Stage</h4>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore
-                        et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+                    <p>
+                        Explorez nos opportunités de stage passionnantes pour acquérir une expérience précieuse dans votre domaine. Découvrez comment vous pouvez développer vos compétences et contribuer à notre équipe dynamique. Consultez la liste complète des offres de stage.
                     </p>
                     <button class="float-end py-2 px-4"><a class="text-white" href="{{route('stage')}}">Consulter</a></button>
 

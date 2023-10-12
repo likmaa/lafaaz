@@ -8,8 +8,7 @@
             <div class="row">
                 <div class="col-lg-12 ">
                     <h2>
-                        Foire aux Questions <br>
-                        la Fondation les Amis de A à Z
+                        Foire aux Questions de la Fondation les Amis de A à Z
                     </h2>
                 </div>
             </div>

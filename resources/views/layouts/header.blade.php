@@ -17,6 +17,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Vendor CSS Files -->
     <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
@@ -28,6 +29,29 @@
 
     <!-- Template Main CSS File -->
     <link href="/assets/css/style.css" rel="stylesheet">
+    <style>
+        /* Styles pour le menu */
+
+        .nav-info {
+            display: none;
+            width: 100%;
+            z-index: 15;
+            background: white;
+        }        
+
+         .custom-border {
+            border-bottom: 0.2px solid #008d367c;
+        }
+
+        .close-navcontent {
+            position: relative;
+            left: 98%;
+            top: 2rem;
+            font-size: xx-large;
+        }
+        
+
+    </style>
 
 </head>
 
@@ -60,7 +84,7 @@
 
                 <button class="button2 dropdown-toggle" type="button" id="dropdownMenuButton1"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    Faire un don
+                    Faire un don 
                 </button>
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -261,8 +285,6 @@
                                             href="mailto:info@lafaaz.org">info@lafaaz.org</a>
                                     </li>
 
-
-
                                 </ul>
                             </div>
 
@@ -291,61 +313,116 @@
             </div>
         </div>
     </div>
-
-    <header id="header" class="d-flex align-items-center">
-        <div class="container d-flex align-items-center justify-content-between">
-
-            <h1 class="logo deskt"></h1>
-            <h1 class="mobil">
-                <a href="{{ route('Accueil') }}">
-                    <img src="../assets/img/logo1.png" width="150" height="50" class="img-fluid">
-                </a>
-            </h1>
-
-            <nav id="navbar" class="navbar">
-
-                <ul>
-                    <li class="dropdown"><a class="nav-link" href="#"><span>Fondation</span> <i
-                                class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="{{ route('Accueil') }}">Accueil</a></li>
-                            <li><a href="{{ route('apropos') }}">A propos</a></li>
-                            <li><a href="{{ route('projet') }}">Nos projets</a></li>
-                            <li><a href="{{ route('realisation') }}">Nos réalisations</a></li>
-                            <li><a href="{{ route('travail') }}">Nous rejoindre</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a class="nav-link" href="#"><span>Programme</span> <i
-                                class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="{{ route('progas2') }}">Enfance indigente</a></li>
-                            <li><a href="{{ route('proged') }}">Coaching de la jeunesse</a></li>
-                            <li><a href="{{ route('progas1') }}">Assistance personnes du troisième âge</a></li>
-
-
-
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a class="nav-link" href="#"><span>Membre</span> <i
-                                class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="{{ route('membpa') }}">Nos partenaires</a></li>
-                            <li><a href="{{ route('membre') }}">Adhesion</a></li>
-                            @guest
-                                <li><a href="{{ route('login') }}">Connexion/Inscription</a></li>
-                            @else
-                                <li><a href="{{ route('home') }}">Tableau de bord</a></li>
-                            @endguest
-                        </ul>
-                    </li>
-                    <li><a class="nav-link scrollto" href="{{ route('actu1') }}">Actualités</a></li>
-                    <li><a class="nav-link scrollto" href="{{ route('faq') }}">FAQ</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-            <!-- navbar -->
+    
+    <div class="header-container">
+        <header id="header" class="d-flex align-items-center">
+            <div class="container d-flex align-items-center justify-content-between">
+    
+                <h1 class="logo deskt"></h1>
+                <h1 class="mobil">
+                    <a href="{{ route('Accueil') }}">
+                        <img src="../assets/img/logo1.png" width="150" height="50" class="img-fluid">
+                    </a>
+                </h1>
+    
+                <!-- navbar -->
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a class="nav-link scrollto" href="{{ route('Accueil') }}">Accueil</a></li>
+                        <li class="dropdown">
+                            <a class="nav-link" href="#"><span>Fondation</span> <i class="bi bi-chevron-down"></i></a>
+                            <ul class="d-lg-none d-md-none">
+                                <li><a href="{{ route('apropos') }}">A propos</a></li>
+                                <li><a href="{{ route('projet') }}">Nos projets</a></li>
+                                <li><a href="{{ route('realisation') }}">Nos réalisations</a></li>
+                                <li><a href="{{ route('travail') }}">Nous rejoindre</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a class="nav-link" href="#"><span>Programme</span> <i
+                                    class="bi bi-chevron-down"></i></a>
+                            <ul class="d-lg-none d-md-none">
+                                <li><a href="{{ route('progas2') }}">Enfance indigente</a></li>
+                                <li><a href="{{ route('proged') }}">Coaching de la jeunesse</a></li>
+                                <li><a href="{{ route('progas1') }}">Assistance personnes du troisième âge</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a class="nav-link" href="#"><span>Membre</span> <i
+                                    class="bi bi-chevron-down"></i></a>
+                            <ul class="d-lg-none d-md-none">
+                                <li><a href="{{ route('membpa') }}">Nos partenaires</a></li>
+                                <li><a href="{{ route('membre') }}">Adhesion</a></li>
+                                @guest
+                                    <li><a href="{{ route('login') }}">Connexion/Inscription</a></li>
+                                @else
+                                    <li><a href="{{ route('home') }}">Tableau de bord</a></li>
+                                @endguest
+                            </ul>
+                        </li>
+                        <li><a class="nav-link scrollto" href="{{ route('actu1') }}">Actualités</a></li>
+                        <li><a class="nav-link scrollto" href="{{ route('faq') }}">FAQ</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+                <!-- navbar -->
+            </div>
+            
+        </header>
+    
+        <div class="px-5 nav-info fixed-top">
+            <div class="close-navcontent">
+                <i class="bi bi-x" style="cursor: pointer;"></i>
+            </div>
+            <div class="my-5">
+                <h2 class="text-success custom-border pb-2"><i class="bi bi-arrow-right"></i> Fondation</h2>
+                <div>
+                    <ul class="list-unstyled">
+                        <li class="custom-border ms-5 mt-4 my-2 me-5 pb-2"><a class="text-dark" href="{{ route('apropos') }}">A propos</a></li>
+                        <li class="custom-border ms-5 mt-4 my-2 me-5 pb-2"><a class="text-dark" href="{{ route('projet') }}">Nos projets</a></li>
+                        <li class="custom-border ms-5 mt-4 my-2 me-5 pb-2"><a class="text-dark" href="{{ route('realisation') }}">Nos réalisations et activités</a></li>
+                        <li class="custom-border ms-5 mt-4 my-2 me-5 pb-2"><a class="text-dark" href="{{ route('travail') }}">Nous rejoindre</a></li>
+                    </ul>
+        
+                </div>
+            </div>
+    
         </div>
-    </header>
+        
+        <div class="px-5 nav-info fixed-top">
+            <div class="close-navcontent">
+                <i class="bi bi-x" style="cursor: pointer;"></i>
+            </div>
+            <div class="my-5">
+                <h2 class="text-success custom-border pb-2"><i class="bi bi-arrow-right"></i> Programme</h2>
+                <div>
+                    <ul class="list-unstyled">
+                        <li class="custom-border my-2 me-5 ms-5 pb-2 mt-4" ><a class="text-dark" href="{{ route('progas2') }}">Enfance indigente</a></li>
+                        <li class="custom-border my-2 me-5 ms-5 pb-2 mt-4" ><a class="text-dark"  href="{{ route('progas1') }}">Assistance personnes du troisième âge</a></li>
+                        <li class="custom-border my-2 me-5 ms-5 pb-2 mt-4"><a class="text-dark" href="{{ route('proged') }}">Coaching de la jeunesse</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            
+        <div class="px-5 nav-info fixed-top">
+            <div class="close-navcontent">
+                <i class="bi bi-x" style="cursor: pointer;"></i>
+            </div>
+            <div class="my-5">
+                <h2 class="text-success custom-border pb-2"><i class="bi bi-arrow-right"></i> Membre</h2>
+                <div>
+                    <ul class="list-unstyled">
+                        <li class="custom-border my-2 ms-5 mt-4 me-5 pb-2"><a class="text-dark" href="{{ route('membre') }}">Adhesion</a></li>
+                        @guest
+                            <li class="custom-border my-2 mt-4 ms-5 me-5 pb-2"><a class="text-dark" href="{{ route('login') }}">Connexion/Inscription</a></li>
+                        @else
+                            <li class="custom-border my-2 mt-4 ms-5 me-5 pb-2"><a class="text-dark" href="{{ route('home') }}">Tableau de bord</a></li>
+                        @endguest
+                        <li class="my-2 ms-5 mt-4 pb-2"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main id="main" data-aos="fade-up">
         @yield('content')
@@ -361,7 +438,7 @@
                    1 0 0 0 0  
                    0 1 0 0 0  
                    0 0 1 0 0  
-                   0 0 0 13 -9"
+                   0 0 0 13 - 9"
                         result="goo" />
                     <xfeBlend in="SourceGraphic" in2="goo" />
                 </filter>
@@ -546,7 +623,7 @@
                                         d="M0.357251 9.66205C-0.119084 9.21144 -0.119084 8.48087 0.357251 8.03026L3.56054 5L0.357252 1.96974C-0.119083 1.51913 -0.119083 0.788558 0.357252 0.337954C0.833586 -0.112651 1.60588 -0.112651 2.08221 0.337954L5.2855 3.36822C6.23817 4.26942 6.23817 5.73057 5.2855 6.63178L2.08221 9.66205C1.60588 10.1127 0.833585 10.1127 0.357251 9.66205Z"
                                         fill="#F5F5F5" />
                                 </svg>
-                                <a class="menu__link" href="{{ route('benevol') }}">Devenir bénévolat</a>
+                                    <a class="menu__link" href="{{ route('benevol') }}">Devenir bénévole</a>
                             </li>
                             <li class="menu__item py-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10"
@@ -669,9 +746,66 @@
             src="https://www.paypal.com/sdk/js?client-id=AX7Ktk5ONRdhBYWFFZTzYjw7wFOZXfgpepQD__diAmPTn4WjKTjkH-IB7iNTn-ajosAo84xMaqoruvMJ&currency=USD">
         </script>
         <script src="app.js"></script>
+<<<<<<< HEAD
        
 
 
+=======
+        
+        <script>
+            var liens = document.querySelectorAll(".navbar li.dropdown");
+            var liensScrollTo = document.querySelectorAll(".navbar li .scrollto");
+            var navInfos = document.querySelectorAll(".nav-info");
+            var closeNavContents = document.querySelectorAll(".close-navcontent");
+
+            console.log(liensScrollTo);
+            function hide(liens) {
+                navInfos.forEach(element => {
+                    element.style.display = "none";     
+                });
+            }
+
+            for(const cle in liens) { 
+                liens[cle].onmouseenter = function () {
+                    hide(liens);
+                    navInfos[cle].style.display = "block";
+                }
+
+                liens[cle].onclick = function () {
+                    hide(liens);
+                }
+            }
+
+            for (const cle in liensScrollTo) {
+                liensScrollTo[cle].onmouseenter = () => {
+                    hide(liens);
+                }
+            }
+
+            closeNavContents.forEach(element => {
+                element.onclick = () => {
+                    hide(liens);
+                }
+            })
+
+            function handleScreenResize() { 
+                // Récupération de la largeur actuelle de l'écran
+                const currentWidth = window.innerWidth;
+
+                // Vérification sur la largeur
+                if (currentWidth <= 500) {
+                    hide(liens);
+                } 
+            }
+
+            // Ajout d'un gestionnaire d'événement pour l'événement de redimensionnement de la fenêtre
+            window.addEventListener('resize', handleScreenResize);
+
+            // Appel de la fonction de gestion initiale pour déterminer l'état initial de la fenêtre
+            handleScreenResize();
+
+        </script>
+>>>>>>> 22d55aedeec80f2eb37268bfc2973ad99439fe95
     </body>
 
     </html>

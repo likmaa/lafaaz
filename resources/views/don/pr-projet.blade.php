@@ -35,7 +35,7 @@
                         <div class="mb-3 col-lg-6">
                             <label for="tel" class="form-label">Numéro de téléphone*</label>
                             <input type="tel" placeholder="Ex: 00229 60000000" class="form-control @error('tel') is-invalid @enderror" id="tel" aria-describedby="textHelp" name="tel" value="{{ old('tel') }}" required autocomplete="tel" autofocus>
-input:te
+
                             @error('tel')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

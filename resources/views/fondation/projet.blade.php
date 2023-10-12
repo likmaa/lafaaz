@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row mb-3">
             @foreach($projets as $projet)
-            <div class="col-lg-4 mb-4">
+            <div class="col mb-5 m-3">
                 <div class="card">
                     <img src="{{$projet->image}}" class="card-img-top" height="200" alt="...">
                     <div class="card-body">

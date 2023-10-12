@@ -8,8 +8,7 @@
             <div class="row">
                 <div class="col-lg-12 align-self-end">
                     <h2>
-                        A propos de <br>
-                        la Fondation les Amis de A à Z
+                        A propos de la Fondation les Amis de A à Z
                     </h2>
                 </div>
             </div>
@@ -134,9 +133,9 @@
                     <img src="{{$benevol->image}}">
                     <div class="card-body pt-5">
                         <h5 class="card-title text-center ">{{$benevol->titre}}</h5>
-                        <p class="card-text pt-3 text-center pb-5">
-                            {{$benevol->description}}
-                        </p>
+                        <div class="card-text pt-3 text-justify pb-5">
+                            {{ $benevol->description }}
+                        </div>
                     </div>
                 </div>
             </div>

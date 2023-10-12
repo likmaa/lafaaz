@@ -9,8 +9,7 @@
             <div class="row">
                 <div class="col-lg-12 align-self-end">
                     <h2>
-                        Education & Jeunesse <br>
-                        la Fondation les Amis de A à Z
+                        Education & Jeunesse de la Fondation les Amis de A à Z
                     </h2>
                 </div>
             </div>
