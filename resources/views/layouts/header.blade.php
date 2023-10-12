@@ -669,6 +669,9 @@
             src="https://www.paypal.com/sdk/js?client-id=AX7Ktk5ONRdhBYWFFZTzYjw7wFOZXfgpepQD__diAmPTn4WjKTjkH-IB7iNTn-ajosAo84xMaqoruvMJ&currency=USD">
         </script>
         <script src="app.js"></script>
+       
+
+
     </body>
 
     </html>
