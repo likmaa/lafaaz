@@ -47,6 +47,13 @@
             border-bottom: 0.2px solid #008d367c;
         }
 
+        .close-navcontent {
+            position: relative;
+            left: 98%;
+            top: 2rem;
+            font-size: xx-large;
+        }
+
     </style>
 
 </head>
@@ -363,9 +370,9 @@
                         </li> 
                     </ul> --}}
                     <ul>
-                        <li><a class="nav-link scrollto" href="{{ route('actu1') }}">Accueil</a></li>
-                        <li class="dropdown"><a class="nav-link" href="#"><span>Fondation</span> <i
-                                    class="bi bi-chevron-down"></i></a>
+                        <li><a class="nav-link scrollto" href="{{ route('Accueil') }}">Accueil</a></li>
+                        <li class="dropdown">
+                            <a class="nav-link" href="#"><span>Fondation</span> <i class="bi bi-chevron-down"></i></a>
                             <ul class="d-lg-none d-md-none">
                                 <li><a href="{{ route('apropos') }}">A propos</a></li>
                                 <li><a href="{{ route('projet') }}">Nos projets</a></li>
@@ -404,6 +411,9 @@
         </header>
     
         <div class="px-5 nav-info">
+            <div class="close-navcontent">
+                <i class="bi bi-x" style="cursor: pointer;"></i>
+            </div>
             <div class="my-5">
                 <h2 class="text-success custom-border pb-2"><i class="bi bi-arrow-right"></i> Fondation</h2>
                 <div>
@@ -420,6 +430,9 @@
         </div>
         
         <div class="px-5 nav-info">
+            <div class="close-navcontent">
+                <i class="bi bi-x" style="cursor: pointer;"></i>
+            </div>
             <div class="my-5">
                 <h2 class="text-success custom-border pb-2"><i class="bi bi-arrow-right"></i> Programme</h2>
                 <div>
@@ -433,6 +446,9 @@
         </div>
             
         <div class="px-5 nav-info">
+            <div class="close-navcontent">
+                <i class="bi bi-x" style="cursor: pointer;"></i>
+            </div>
             <div class="my-5">
                 <h2 class="text-success custom-border pb-2"><i class="bi bi-arrow-right"></i> Membre</h2>
                 <div>
@@ -777,6 +793,7 @@
             var liens = document.querySelectorAll(".navbar li.dropdown");
             var liensScrollTo = document.querySelectorAll(".navbar li .scrollto");
             var navInfos = document.querySelectorAll(".nav-info");
+            var closeNavContents = document.querySelectorAll(".close-navcontent");
 
             console.log(liensScrollTo);
             function hide(liens) {
@@ -801,6 +818,12 @@
                     hide(liens);
                 }
             }
+
+            closeNavContents.forEach(element => {
+                element.onclick = () => {
+                    hide(liens);
+                }
+            })
 
         </script>
     </body>
