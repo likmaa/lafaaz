@@ -16,7 +16,8 @@ use Illuminate\Http\Request;
 
 class Controllers extends Controller
 {
-    //Fondation
+    //Fondation 
+    
     public function index()
     {
         $projets = Gprojet::orderBy('created_at', 'DESC')->limit(4)->get();
@@ -24,6 +25,7 @@ class Controllers extends Controller
         $dons = Gtdona::orderBy('created_at', 'DESC')->limit(3)->get();
         return view('fondation.welcome', ['projets' => $projets, 'actus' => $actus, 'dons' => $dons,]);
     }
+
     public function detail($id)
     {
         $projet = Gprojet::findOrFail($id);
@@ -99,12 +101,15 @@ class Controllers extends Controller
         return view('actualite.2023');
     }
 
-    //Don
+    // Don
+
     public function donpr()
     {
         $projets = Gprojet::all();
         return view('don.pr-projet', ['projets' => $projets]);
     }
+
+
     public function addproj(Request $request)
     {
         $kkiapay = new \Kkiapay\Kkiapay(

@@ -43,7 +43,7 @@
         <div class="mt-5 text-center row">
             <h2 class="fw-500 text-center justify-content-center col-lg-4 offset-lg-4 col-12">
                 <img src="../assets/img/accueil2.png" alt="" srcset="" width="40" height="49">
-                <span>Nos causes </span>
+                <span>Nos causes</span>
             </h2>
 
             <svg class="" xmlns="http://www.w3.org/2000/svg" width="71" height="11" viewBox="0 0 151 11" fill="none">

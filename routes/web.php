@@ -21,6 +21,7 @@ Route::get('/actualite', [App\Http\Controllers\Controllers::class, 'actu1'])->na
 Route::get('/detail-de-l\'actualite/{id}', [App\Http\Controllers\Controllers::class, 'actu2'])->name('actu2');
 
 // Route::get('/actualite/2023', [App\Http\Controllers\Controllers::class, 'actu4'])->name('actu4');
+
 //Fondation
 Route::get('/', [App\Http\Controllers\Controllers::class, 'index'])->name('Accueil');
 Route::get('/projets', [App\Http\Controllers\Controllers::class, 'projet'])->name('projet');
@@ -93,6 +94,7 @@ Route::middleware(['checkRole:ADMIN'])->group(function () {
     Route::post('/presentation-de-la-fondations', [App\Http\Controllers\Dashboard::class, 'addfaq'])->name('addfaq');
     Route::post('/presentation-de-la-fondation', [App\Http\Controllers\Dashboard::class, 'addtbenevol'])->name('addtbenevol');
 });
+
 //Zone des contributeurs
 Route::middleware(['checkRole:CONTRIBUTEUR'])->group(function () {
 
