@@ -2284,7 +2284,7 @@ footer svg {
 	font-size: 0.9em;
   }
   .services .card .content-card {
-	border:   black 5px  solid;
+	/* border:   black 5px  solid; */
 	height: 600px;
   }
   .services .carousel-control-prev,

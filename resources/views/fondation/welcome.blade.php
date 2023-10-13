@@ -53,102 +53,103 @@
             <div class="underline_blue"></div>
         </div>
         <div id="carouselExampleControls2" class="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div  class="card ">
-                        <div    class="col-md-12 content-card" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="icon-box justify-content-center align-items-center">
-                                <div class="icon">
-                                    <img src="../assets/img/accueil3.png" width="87" height="87">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <div  class="card">
+                            <div class="col-md-12 content-card" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="icon-box justify-content-center align-items-center">
+                                    <div class="icon">
+                                        <img src="../assets/img/accueil3.png" width="87" height="87">
+                                    </div>
+                                    <h4>Aide à l’enfance indigente</h4>
+                                    <p>
+                                        Nous fournissons une aide essentielle aux enfants indigents en leur offrant des
+                                        soins de
+                                        santé, une éducation, un soutien émotionnel et d'autres ressources nécessaires pour
+                                        x& les
+                                        aider à surmonter les défis liés à leur situation
+                                    </p>
                                 </div>
-                                <h4>Aide à l’enfance indigente</h4>
-                                <p>
-                                    Nous fournissons une aide essentielle aux enfants indigents en leur offrant des
-                                    soins de
-                                    santé, une éducation, un soutien émotionnel et d'autres ressources nécessaires pour
-                                    x& les
-                                    aider à surmonter les défis liés à leur situation
-                                </p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card">
-
-                        <div class="col-md-12 content-card" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <img src="../assets/img/accueil4.png" width="87" height="87">
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="col-md-12 content-card" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="icon-box">
+                                    <div class="icon">
+                                        <img src="../assets/img/accueil4.png" width="87" height="87">
+                                    </div>
+                                    <h4>Promotion de l'excellence
+                                        en milieu scolaire</h4>
+                                    <p>
+                                        Nous nous engageons à promouvoir l'excellence chez les enfants en leur fournissant
+                                        des
+                                        opportunités d'apprentissage et de développement, des outils et des ressources pour
+                                        cultiver leur créativité, leur curiosité et leur passion, ainsi qu'un environnement
+                                        stimulant pour atteindre leur plein potentiel
+                                    </p>
                                 </div>
-                                <h4>Promotion de l'excellence
-                                    en milieu scolaire</h4>
-                                <p>
-                                    Nous nous engageons à promouvoir l'excellence chez les enfants en leur fournissant
-                                    des
-                                    opportunités d'apprentissage et de développement, des outils et des ressources pour
-                                    cultiver leur créativité, leur curiosité et leur passion, ainsi qu'un environnement
-                                    stimulant pour atteindre leur plein potentiel
-                                </p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card">
-                        <div class="col-md-12 content-card " data-aos="zoom-in" data-aos-delay="100">
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <img src="../assets/img/accueil5.png" width="87" height="87">
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="col-md-12 content-card " data-aos="zoom-in" data-aos-delay="100">
+                                <div class="icon-box">
+                                    <div class="icon">
+                                        <img src="../assets/img/accueil5.png" width="87" height="87">
+                                    </div>
+                                    <h4>Coaching de la jeunesse
+                                        et leadership transformationnel</h4>
+                                    <p>
+                                        Nous offrons un coaching en leadership transformationnel pour les jeunes, en les
+                                        aidant
+                                        à développer les compétences de communication, de collaboration et de pensée
+                                        critique
+                                        nécessaires pour devenir des leaders efficaces et inspirants, capables de
+                                        transformer
+                                        leur environnement et de créer un impact positif dans le monde
+                                    </p>
                                 </div>
-                                <h4>Coaching de la jeunesse
-                                    et leadership transformationnel</h4>
-                                <p>
-                                    Nous offrons un coaching en leadership transformationnel pour les jeunes, en les
-                                    aidant
-                                    à développer les compétences de communication, de collaboration et de pensée
-                                    critique
-                                    nécessaires pour devenir des leaders efficaces et inspirants, capables de
-                                    transformer
-                                    leur environnement et de créer un impact positif dans le monde
-                                </p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card">
-                        <div class="col-md-12 content-card offset-lg-1  mt-3" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <img src="../assets/img/accueil6.png" width="87" height="87">
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="col-md-12 content-card offset-lg-1  mt-3" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="icon-box">
+                                    <div class="icon">
+                                        <img src="../assets/img/accueil6.png" width="87" height="87">
+                                    </div>
+                                    <h4>Coaching conjugal</h4>
+                                    <p>
+                                        Nous offrons un coaching personnalisé pour aider les couples à améliorer leur
+                                        communication, à renforcer leur lien émotionnel et à résoudre les conflits de
+                                        manière
+                                        constructive, afin de construire des relations durables et épanouissantes
+                                    </p>
                                 </div>
-                                <h4>Coaching conjugal</h4>
-                                <p>
-                                    Nous offrons un coaching personnalisé pour aider les couples à améliorer leur
-                                    communication, à renforcer leur lien émotionnel et à résoudre les conflits de
-                                    manière
-                                    constructive, afin de construire des relations durables et épanouissantes
-                                </p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card">
-                        <div class="col-md-12 content-card offset-lg-1  mt-3" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="icon-box">
-                                <div class="icon">
-                                    <img src="../assets/img/accueil7.png" width="87" height="87">
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="col-md-12 content-card offset-lg-1  mt-3" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="icon-box">
+                                    <div class="icon">
+                                        <img src="../assets/img/accueil7.png" width="87" height="87">
+                                    </div>
+                                    <h4>Assistance aux personnes
+                                        du troisième âge</h4>
+                                    <p>
+                                        Nous offrons un coaching personnalisé pour aider les couples à améliorer leur
+                                        communication, à renforcer leur lien émotionnel et à résoudre les conflits de
+                                        manière
+                                        constructive, afin de construire des relations durables et épanouissantes
+                                    </p>
                                 </div>
-                                <h4>Assistance aux personnes
-                                    du troisième âge</h4>
-                                <p>
-                                    Nous offrons un coaching personnalisé pour aider les couples à améliorer leur
-                                    communication, à renforcer leur lien émotionnel et à résoudre les conflits de
-                                    manière
-                                    constructive, afin de construire des relations durables et épanouissantes
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -164,6 +165,125 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+
+        <div id="carouselExampleControls2" class="p-carousel-container">
+                <div class="p-carousel">
+                    <div class="content">
+                        <div  class="card">
+                            <div class="col-md-12 content-card" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="icon-box justify-content-center align-items-center">
+                                    <div class="icon">
+                                        <img src="../assets/img/accueil3.png" width="87" height="87">
+                                    </div>
+                                    <h4>Aide à l’enfance indigente</h4>
+                                    <p>
+                                        Nous fournissons une aide essentielle aux enfants indigents en leur offrant des
+                                        soins de
+                                        santé, une éducation, un soutien émotionnel et d'autres ressources nécessaires pour
+                                        x& les
+                                        aider à surmonter les défis liés à leur situation
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="card">
+                            <div class="col-md-12 content-card" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="icon-box">
+                                    <div class="icon">
+                                        <img src="../assets/img/accueil4.png" width="87" height="87">
+                                    </div>
+                                    <h4>Promotion de l'excellence
+                                        en milieu scolaire</h4>
+                                    <p>
+                                        Nous nous engageons à promouvoir l'excellence chez les enfants en leur fournissant
+                                        des
+                                        opportunités d'apprentissage et de développement, des outils et des ressources pour
+                                        cultiver leur créativité, leur curiosité et leur passion, ainsi qu'un environnement
+                                        stimulant pour atteindre leur plein potentiel
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="card">
+                            <div class="col-md-12 content-card " data-aos="zoom-in" data-aos-delay="100">
+                                <div class="icon-box">
+                                    <div class="icon">
+                                        <img src="../assets/img/accueil5.png" width="87" height="87">
+                                    </div>
+                                    <h4>Coaching de la jeunesse
+                                        et leadership transformationnel</h4>
+                                    <p>
+                                        Nous offrons un coaching en leadership transformationnel pour les jeunes, en les
+                                        aidant
+                                        à développer les compétences de communication, de collaboration et de pensée
+                                        critique
+                                        nécessaires pour devenir des leaders efficaces et inspirants, capables de
+                                        transformer
+                                        leur environnement et de créer un impact positif dans le monde
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="card">
+                            <div class="col-md-12 content-card offset-lg-1  mt-3" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="icon-box">
+                                    <div class="icon">
+                                        <img src="../assets/img/accueil6.png" width="87" height="87">
+                                    </div>
+                                    <h4>Coaching conjugal</h4>
+                                    <p>
+                                        Nous offrons un coaching personnalisé pour aider les couples à améliorer leur
+                                        communication, à renforcer leur lien émotionnel et à résoudre les conflits de
+                                        manière
+                                        constructive, afin de construire des relations durables et épanouissantes
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="card">
+                            <div class="col-md-12 content-card offset-lg-1  mt-3" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="icon-box">
+                                    <div class="icon">
+                                        <img src="../assets/img/accueil7.png" width="87" height="87">
+                                    </div>
+                                    <h4>Assistance aux personnes
+                                        du troisième âge</h4>
+                                    <p>
+                                        Nous offrons un coaching personnalisé pour aider les couples à améliorer leur
+                                        communication, à renforcer leur lien émotionnel et à résoudre les conflits de
+                                        manière
+                                        constructive, afin de construire des relations durables et épanouissantes
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="arrow">
+            <div class="arrow-left">&#139</div>
+            <div class="arrow-right">&#155</div>
+        </div>
+    
     </div>
 </section>
 <!-- END SECTION 3 -->

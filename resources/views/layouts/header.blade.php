@@ -49,6 +49,52 @@
             top: 2rem;
             font-size: xx-large;
         }
+
+        .p-carousel {
+            display: flex;
+            justify-content: start;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .p-carousel-container {
+            margin: auto;
+            border: 1px solid #000;
+            ;
+            overflow: hidden;
+        }
+
+        .content {
+            flex-shrink: 0;
+            width: 350px;
+            text-align: center;
+            background-color: lightblue;
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .arrow {
+            display: flex;
+            justify-content: center;
+            font-size: xx-large;
+        } 
+
+        .arrow-left,
+        .arrow-right {
+            margin: 1rem 2rem;
+            cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, .5);
+            border-radius: 5px;
+            padding: 5px 15px;
+        }
+
+        .arrow-left:hover,
+        .arrow-right:hover {
+            background: #000;
+            color: white;
+        }
+
         
 
     </style>
@@ -746,11 +792,6 @@
             src="https://www.paypal.com/sdk/js?client-id=AX7Ktk5ONRdhBYWFFZTzYjw7wFOZXfgpepQD__diAmPTn4WjKTjkH-IB7iNTn-ajosAo84xMaqoruvMJ&currency=USD">
         </script>
         <script src="app.js"></script>
-<<<<<<< HEAD
-       
-
-
-=======
         
         <script>
             var liens = document.querySelectorAll(".navbar li.dropdown");
@@ -804,8 +845,53 @@
             // Appel de la fonction de gestion initiale pour déterminer l'état initial de la fenêtre
             handleScreenResize();
 
+            
+        const carouselContainer = document.querySelector(".p-carousel-container");
+        const carousel = document.querySelector(".p-carousel");
+        const contents = document.querySelectorAll(".content");
+        const contentWidth = contents[0].offsetWidth + 20;
+        const previous = document.querySelector(".arrow-left");
+        const next = document.querySelector(".arrow-right");
+
+        const numVisible = 3; // Nombre d'éléments visibles à la fois
+
+        let currentIndex = 0;
+
+        function moveCarousel() {
+            currentIndex++;
+            if (currentIndex + numVisible > contents.length) {
+                currentIndex = 0;
+            }
+
+            carousel.style.transform = `translateX(-${currentIndex * contentWidth}px)`;
+        }
+
+        previous.onclick = function () {
+            currentIndex--;
+
+            if (currentIndex >= 0) {
+                carousel.style.transform = `translateX(-${currentIndex * contentWidth}px)`;
+            } else {
+                currentIndex = 0;
+            }
+        };
+
+
+        next.onclick = function () {
+            currentIndex++;
+            const numItems = contents.length;
+            const itemsPerPage = 3;
+            const maxIndex = Math.max(0, numItems - itemsPerPage);
+
+            if (currentIndex <= maxIndex) {
+               carousel.style.transform = `translateX(-${currentIndex * contentWidth}px)`;
+            } else {
+                currentIndex = 0;
+                carousel.style.transform = `translateX(0px)`;
+            } 
+        };
+
         </script>
->>>>>>> 22d55aedeec80f2eb37268bfc2973ad99439fe95
     </body>
 
     </html>
