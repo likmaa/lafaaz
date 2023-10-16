@@ -24,7 +24,7 @@
             </div>
 
             <div class="col-lg-3 mt-4">
-                <h5>Partage sur :</h5>
+                <h5>Partagez sur :</h5>
                 <div class="card mt-5 mb-3" style="max-width: 540px;">
                     <div class="row">
                         <div class="col-md-8 col-9">

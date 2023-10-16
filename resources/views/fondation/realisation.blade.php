@@ -23,9 +23,10 @@
         @foreach($realisations->chunk(3) as $sousrealisations)
         <div class="row">
             @foreach($sousrealisations as $realisation)
-            <div class="col-lg-4 mb-5">
-                <div class="card align-items-center text-center">
+            <div class="col-lg-4">
+                <div class="card mb-5 m-3">
                     <img class="img-fluid w-100" src="{{$realisation->image}}">
+
                     <div class="card-body pt-5">
                         <h5 class="card-title">{{$realisation->titre}}</h5>
                         <div class="py-2">

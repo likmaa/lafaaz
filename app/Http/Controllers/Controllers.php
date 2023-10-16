@@ -20,9 +20,10 @@ class Controllers extends Controller
     
     public function index()
     {
-        $projets = Gprojet::orderBy('created_at', 'DESC')->limit(4)->get();
+        $projets = Gprojet::orderBy('created_at', 'DESC')->limit(3)->get();
         $actus = Gactualite::orderBy('created_at', 'DESC')->limit(3)->get();
         $dons = Gtdona::orderBy('created_at', 'DESC')->limit(3)->get();
+
         return view('fondation.welcome', ['projets' => $projets, 'actus' => $actus, 'dons' => $dons,]);
     }
 
