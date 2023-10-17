@@ -89,6 +89,16 @@
             height: 120vh;
         }
 
+        .nav-button {
+            border: 2px solid #fff;
+            transition: all ease-in-out 0.5s;
+        }
+
+        .nav-button:hover {
+            background: whitesmoke;
+            color: black !important;
+        }
+
         @media screen and (max-width: 768px) {
             .gallery {
                 margin: 0 10%;
@@ -404,25 +414,27 @@
                                 <li><a class="nav-link scrollto" href="{{ route('membre') }}">Adhésion</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown"><a class="nav-link" href="#"><span>Programme</span> <i
+                        <li class="dropdown"><a class="nav-link" href="#"><span>Programmes</span> <i
                                     class="bi bi-chevron-down"></i></a>
                             <ul class="d-lg-none d-md-none">
                                 <li><a href="{{ route('progas2') }}">Enfance indigente</a></li>
                                 <li><a href="{{ route('proged') }}">Coaching de la jeunesse</a></li>
+                                <li><a href="{{ route('progco') }}">Coaching pour les couples</a></li>
                                 <li><a href="{{ route('progas1') }}">Assistance aux personnes du troisième âge</a>
                                 </li>
                             </ul>
 
                         </li>
 
-                        @guest
-                            <li><a class="nav-link scrollto" href="{{ route('register') }}">Inscription</a></li>
-                            <li><a class="nav-link scrollto" href="{{ route('login') }}">Connexion</a></li>
-                        @else
-                            <li><a href="{{ route('home') }}">Tableau de bord</a></li>
-                        @endguest
                         <li><a class="nav-link scrollto" href="{{ route('actu1') }}">Actualités</a></li>
                         <li><a class="nav-link scrollto" href="{{ route('faq') }}">FAQ</a></li>
+                        
+                        @guest
+                        <li><a class="nav-link scrollto" href="{{ route('login') }}">Connexion</a></li>
+                            <li><a class="nav-link scrollto px-3 py-2 rounded-pill nav-button" href="{{ route('register') }}">Inscription</a></li>
+                        @else
+                            <li><a class="nav-link scrollto"  href="{{ route('home') }}">Tableau de bord</a></li>
+                        @endguest
                     </ul>
                     <i class="bi bi-list mobile-nav-toggle"></i>
                 </nav>
@@ -460,7 +472,7 @@
 
             <div class="my-5">
                 <h3 class="text-success custom-border pb-3 fw-lighter" style="font-size: large;"><i
-                        class="bi bi-chevron-right fst-italic mb-4"></i> Programme</h3>
+                        class="bi bi-chevron-right fst-italic mb-4"></i> Programmes</h3>
                 <div>
                     <ul class="list-unstyled row ms-2">
                         <li class="col-lg-3 custom-border ms-4 mt-4 my-2 me-0 pb-2" style="font-size: small;"><a
@@ -470,6 +482,7 @@
                                 âge</a></li>
                         <li class="col-lg-3 custom-border ms-4 mt-4 my-2 me-0 pb-2" style="font-size: small;"><a
                                 class="text-dark" href="{{ route('proged') }}">Coaching de la jeunesse</a></li>
+                        <li class="col-lg-3 custom-border ms-4 mt-4 my-2 me-0 pb-2" style="font-size: small;"><a class="text-dark" href="{{ route('progco') }}">Coaching pour les couples</a></li>
                     </ul>
                 </div>
             </div>

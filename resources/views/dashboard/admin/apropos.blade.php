@@ -134,7 +134,7 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Témoignage Donateur</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{route('aapropos')}}" method="post">
+            <form action="{{route('addona')}}" method="post">
                 @csrf
                 <div class="modal-body px-4">
                     <div class="row my-4">

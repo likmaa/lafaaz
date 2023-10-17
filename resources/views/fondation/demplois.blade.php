@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-12 align-self-end">
                     <h2>
-                        Detail sur l'offre d'emploi
+                        <a href="{{ route('emplois') }}" class="text-light">Offre d'emploi</a> / {{ $emploie->titre }}
                     </h2>
                 </div>
             </div>

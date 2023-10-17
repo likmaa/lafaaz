@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-12 align-self-end">
                     <h2>
-                        Detail sur l'actualité <br>
+                        <a href="{{ route('actu1') }}" class="text-light">Actualités</a> / {{ $actu->titre }}
 
                     </h2>
                 </div>
@@ -22,9 +22,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="card-title text-body-secondary my-4 text-center">{{$actu->titre}}</h3>
                 <div class="row my-4">
                     <img src="{{$actu->image}}" class="img-fluid" alt="{{$actu->titre}}">
+                    <h3 class="card-title text-body-secondary my-4 text-center">{{$actu->titre}}</h3>
                 </div>
             </div>
             <div class="col-lg-9">

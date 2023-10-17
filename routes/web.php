@@ -92,7 +92,7 @@ Route::middleware(['checkRole:ADMIN'])->group(function () {
     Route::get('/presentation-de-la-fondation', [App\Http\Controllers\Dashboard::class, 'aapropos'])->name('aapropos');
     Route::post('/presentation-de-la-fondation', [App\Http\Controllers\Dashboard::class, 'addona'])->name('addona');
     Route::post('/presentation-de-la-fondations', [App\Http\Controllers\Dashboard::class, 'addfaq'])->name('addfaq');
-    Route::post('/presentation-de-la-fondation', [App\Http\Controllers\Dashboard::class, 'addtbenevol'])->name('addtbenevol');
+    Route::post('/presentation-de-la-fondation-2', [App\Http\Controllers\Dashboard::class, 'addtbenevol'])->name('addtbenevol');
 });
 
 //Zone des contributeurs

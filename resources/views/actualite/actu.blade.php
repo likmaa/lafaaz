@@ -25,8 +25,8 @@
             @foreach($actus->chunk(3) as $sousactus)
             <div class="row">
                 @foreach($sousactus as $actu)
-                <div class="col mb-5 m-3">
-                    <div class="card">
+                <div class="col-lg-4">
+                    <div class="card mb-5 m-3"">
                         <img src="{{$actu->image}}" class="card-img-top" height="200" alt="...">
                         <div class="card-body">
                             <p class="card-text"><small class="text-body-secondary">

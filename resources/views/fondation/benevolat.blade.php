@@ -23,21 +23,26 @@
         <div class="row">
             @foreach($benevol as $benev)
             <div class="col-lg-6">
-                <div class="card mb-3 p-3">
+                <div class="card mb-3">
                     <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="{{$benev->image}}" class="img-fluid rounded-start" alt="...">
+                        <div class="col-md-5">
+                            <img src="{{$benev->image}}" class="img-fluid rounded-start w-100" style="height: 300px" alt="...">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-7">
                             <div class="card-body px-3">
-                                <h5 class="card-title text-body-secondary">{{$benev->titre}}</h5>
-                                <p class="card-text">
+                                <h5 class="card-title text-body-secondary px-2">{{$benev->titre}}</h5>
+                                <p class="card-text px-2">
                                Référence : {{$benev->reference}}  <br>
-                               Expérience : {{$benev->experience}} an
+                               Expérience : {{$benev->experience}} 
+                                            @if ((int)$benev->experience >1)
+                                            ans
+                                            @else  
+                                            an
+                                            @endif
                                 <hr>
                                 </p>
                                 <p class="card-text"><small class="text-body-secondary">
-                                        <a class="" href="{{route('dbenevol', $benev->experience)}}">
+                                        <a class="px-2" href="{{route('dbenevol', $benev->id)}}">
                                             Lire l'intégralité </a></small></p>
                             </div>
                         </div>

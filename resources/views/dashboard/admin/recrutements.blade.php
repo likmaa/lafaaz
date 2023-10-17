@@ -139,7 +139,7 @@
 								<td class="cell"><span class="badge bg-success">Bénévolats</span></td>
 								<td class="cell">
 
-									<a class="btn-sm app-btn-secondary" href="#">Voir</a>
+									<a class="btn-sm app-btn-secondary" href="{{ route('dbenevol', $benevolat->id) }}">Voir</a>
 									<a class="btn-sm app-btn-secondary" href="{{route('Destroyrecrute', $benevolat->id)}}">Supprimer</a>
 								</td>
 							</tr>
@@ -173,7 +173,7 @@
 							<select id="inputState" name="typeoff" class="form-select">
 								<option selected>Choose...</option>
 								<option value="Stage">Stages</option>
-								<option value="Emploie">Emploie</option>
+								<option value="Emploie">Emplois</option>
 								<option value="Benevolat">Bénévolats</option>
 							</select>
 						</div>

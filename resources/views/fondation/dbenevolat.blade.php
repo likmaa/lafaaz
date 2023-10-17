@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-12 align-self-end">
                     <h2>
-                        Détail sur l'offre de Bénevolat
+                        <a href="{{ route('benevol') }}" class="text-light">Offre de Bénevolat</a> / {{ $benev->titre }}
                     </h2>
                 </div>
             </div>
@@ -50,7 +50,12 @@
                                 <h5 class="card-title text-body-secondary">Expérience</h5>
 
                                 <p class="card-text pt-2 lead">
-                                {{$benev->experience}} an
+                                {{$benev->experience}} 
+                                @if ((int)$benev->experience >1)
+                                ans
+                                @else 
+                                an
+                                @endif
                                 </p>
                             </div>
                         </div>
