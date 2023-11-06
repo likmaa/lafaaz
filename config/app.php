@@ -57,6 +57,10 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'kkiapay_public' => env('KKIAPAY_PUBLIC', '1283ee43a7e00476a6c179aa602b83f234d4a934'),
+    'kkiapay_private' => env('KKIAPAY_PRIVATE', 'pk_c2de13cd86ce0d570eae427b4922bf482f0f6c0ee7ff3037533fd798c7593d2d'),
+    'kkiapay_secret' => env('KKIAPAY_SECRET', 'sk_12f88592671f34217b2c8095e5883e53b58bc548eb982ef89e7099ff75bd42f7'),
+
     'asset_url' => env('ASSET_URL'),
 
     /*

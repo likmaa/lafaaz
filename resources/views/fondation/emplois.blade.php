@@ -31,6 +31,7 @@
                                 <div class="col-md-5 text-center">
                                     <img src="{{$emploie->image}}" class="rounded w-100 h-100" alt="...">
                                 </div>
+
                                 <div class="col-md-7">
                                     <div class="card-body">
                                         <h4 class="card-title text-body-secondary px-2">{{$emploie->titre}}</h4>
@@ -59,7 +60,9 @@
                 <div class="row">
                     @foreach($projets as $projet)
                     <div class="col-lg-12 border px-0 mb-3">
-                        <img src="{{ $projet->image }}" class="card-img-top" height="200" alt="...">
+                        <div class="card-img-top" style="height: 250px; background: url('{{{ $projet->image }}'); background-size:cover; background-repeat: no-repeat"></div>
+                        
+                        <!-- <img src="{{ $projet->image }}" class="card-img-top" height="200" alt="..."> -->
                         <div class="card bg-white py-2 px-3">
                             <div class="card-body py-2">
                                 <h6 class="card-title text-body-secondary">{{$projet->titre}}</h6>

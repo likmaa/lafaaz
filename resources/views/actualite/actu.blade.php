@@ -7,10 +7,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 align-self-end">
-                    <h2>
-                        Actualités<br>
-                        <!-- la Fondation les Amis de A à Z -->
-                    </h2>
+                    <h1 class="text-light mt-5 ms-4" style="font-size: small;">
+                        <a class="text-light" href="{{ route('Accueil') }}">Accueil</a> / <a class="text-light" href="#">Actualités</a>
+                    </h1>
                 </div>
             </div>
         </div>
@@ -26,8 +25,10 @@
             <div class="row">
                 @foreach($sousactus as $actu)
                 <div class="col-lg-4">
-                    <div class="card mb-5 m-3"">
-                        <img src="{{$actu->image}}" class="card-img-top" height="200" alt="...">
+                    <div class="card mb-5 m-3">
+                    <div class="card-img-top" style="height: 250px; background: url('{{$actu->image}}'); background-size:cover; background-repeat: no-repeat"></div>
+
+                        <!-- <img src="{{$actu->image}}" class="card-img-top" height="200" alt="..."> -->
                         <div class="card-body">
                             <p class="card-text"><small class="text-body-secondary">
                                     Publié le : {{$actu->created_at}}</small></p>

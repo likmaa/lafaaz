@@ -6,16 +6,16 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="card-title text-body-secondary my-4 text-center">{{$projet->titre}}</h3>
                 <div class="row my-4">
                     <img src="{{$projet->image}}" class="img-fluid" alt="...">
                 </div>
             </div>
 
             <div class="col-lg-9">
+                <h3 class="card-title text-body-secondary my-4">{{$projet->titre}}</h3>
 
                 <p class="card-text lead">
-                    {{$projet->description}}
+                    {!!$projet->description!!}
                 </p>
 
                 <p class="card-text lead mt-5">

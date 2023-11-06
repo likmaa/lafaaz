@@ -24,6 +24,8 @@
             @foreach($stages as $stage)
             <div class="col-lg-3 my-4">
                 <div class="card">
+                    <div class="card-img-top" style="height: 250px; background: url('{{$stage->image}}'); background-size:cover; background-repeat: no-repeat"></div>
+
                     <img src="{{$stage->image}}" class="card-img-top w-100 h-100" alt="...">
                     <div class="card-body">
                         <hr class="py-2">

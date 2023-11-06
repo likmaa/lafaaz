@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gactualite;
-use App\Models\Gbenevole;
 use App\Models\Gfaq;
+use App\Models\User;
 use App\Models\Gfile;
+use App\Models\Gtdona;
 use App\Models\Gprojet;
+use App\Models\Gbenevole;
+use App\Models\Gactualite;
+use App\Models\Grejoindre;
 use App\Models\Grealisation;
 use App\Models\Grecrutement;
-use App\Models\Grejoindre;
-use App\Models\Gtdona;
-use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class Dashboard extends Controller
 {
@@ -60,20 +62,32 @@ class Dashboard extends Controller
 
         return view('dashboard.admin.contributeurs', ['utilisateurs' => $utilisateurs, 'admins' => $admins, 'contributeurs' => $contributeurs, 'abonnes' => $abonnes]);
     }
+
     public function dcompte($id)
     {
         $dcompte = User::findOrFail($id);
         return view('dashboard.admin.dcompte', compact('dcompte'));
     }
+    
     public function aprojets()
     {
         $projets = Gprojet::paginate(8);
         return view('dashboard.admin.projets', ['projets' => $projets]);
     }
+
+    public function deleteprojet(Gprojet $projet)
+    {        
+        if($projet->delete())
+        {
+            return redirect()->back()->with('success', "Projet " . $projet->titre . " supprimé avec succès !");
+        }
+    }
+    
     public function agprojets()
     {
         return view('dashboard.admin.gestprojet');
     }
+
     public function arecrutements()
     {
         $stages = Grecrutement::where('typeoff', 'stage')->paginate(8);
@@ -135,45 +149,109 @@ class Dashboard extends Controller
     public function addactu(Request $request)
     {
         $image = $request->file('image');
-        $image_name = time() . "." . $image->extension();
-        $image->move(public_path('uploads/actualite/'), $image_name);
-
+        $image_name = $image->store("public/uploads/actualite");
+        $image_name = explode("public", $image_name)[1];
 
         Gactualite::create([
             'titre' => $request->titre,
-            'image' => '/uploads/actualite/' . $image_name,
+            'image' => $image_name,
             'description' => $request->description,
         ]);
+
         return redirect()->back()->with('success', 'Actualité ajouté avec success');
     }
 
+    // Affichage du formulaire de modification
+    public function afficherModification(Gprojet $projet)
+    {
+        return view('dashboard.admin.updateProjet', ['projet' => $projet]);
+    }
+
+    // Modification
+    public function modifier(Request $request, $id)
+    {
+        $projet = Gprojet::findOrFail($id);
+        $projet->titre = $request->input("titre");
+        $projet->description = $request->input("description");
+        $projet->date = $request->input("date");
+
+        if($request->hasFile("image"))
+        {
+            $image = $request->file('image');
+            $image_name = $image->store("public/uploads/projet");
+            $image_name = explode("public", $image_name)[1];
+            $projet->image = $image_name;
+        }
+
+        $projet->save();
+
+        return redirect(route("projets"))->with('success', 'Actualité ajouté avec success');
+    }
+
     //ajout des réalisations
+    
     public function addrealisation(Request $request)
     {
         $image = $request->file('image');
-        $image_name = time() . "." . $image->extension();
-        $image->move(public_path('uploads/realisation/'), $image_name);
+        $image_name = $image->store("public/uploads/realisation");
+        $image_name = explode("public", $image_name)[1];
 
         $fichier = $request->file('fichier');
-        $fichier_name = time() . "." . $fichier->extension();
-        $fichier->move(public_path('uploads/realisation/'), $fichier_name);
+        $fichier_name = $fichier->store("public/uploads/realisation");
+        $fichier_name = explode("public", $fichier_name)[1];
 
 
         Grealisation::create([
             'titre' => $request->titre,
-            'image' => '/uploads/realisation/' . $image_name,
-            'fichier' => '/uploads/realisation/' . $fichier_name,
+            'image' => $image_name,
+            'fichier' => $fichier_name,
         ]);
         return redirect()->back()->with('success', 'Réalisation ajouté avec success');
     }
 
-    //ajout des recrutements
+    // modification des réalisations
+    
+    public function updaterealisation(Request $request, Grealisation $realisation)
+    {
+        $image_name = $realisation->image;
+        $fichier_name = $realisation->fichier;
+
+        if ($request->has("image")) {
+            $image = $request->file('image');
+            $image_name = $image->store("public/uploads/realisation");
+            $image_name = explode("public", $image_name)[1];
+
+            if(Storage::exists("public/" . $realisation->image)) {
+                Storage::delete("public/" . $realisation->image);
+            }
+        }
+
+        if($request->has("fichier"))
+        {
+            $fichier = $request->file('fichier');
+            $fichier_name = $fichier->store("public/uploads/realisation");
+            $fichier_name = explode("public", $fichier_name)[1];
+
+            if(Storage::exists("public/" . $realisation->fichier)) {
+                Storage::delete("public/" . $realisation->fichier);
+            }
+        }        
+
+        $realisation->update([
+            'titre' => $request->titre,
+            'image' => $image_name,
+            'fichier' => $fichier_name,
+        ]);
+
+        return redirect()->back()->with('success', 'Réalisation #153' . $realisation->id . ' mise à jour avec success');
+    } 
+    
+    // ajout des recrutements
     public function addrecrutement(Request $request)
     {
         $image = $request->file('image');
         $image_name = time() . "." . $image->extension();
         $image->move(public_path('uploads/recrutement/'), $image_name);
-
 
         Grecrutement::create([
             'titre' => $request->titre,
@@ -206,6 +284,7 @@ class Dashboard extends Controller
             'image' => '/uploads/projet/' . $image_name,
             'description' => $request->description,
         ]);
+
         return redirect()->back()->with('success', 'Projet ajouté avec success');
     }
 
@@ -266,33 +345,32 @@ class Dashboard extends Controller
     }
 
     // Gestion des mise à jour
+    
     //Mise à jour du profil
     public function UpdateProfil(User $maj, Request $request)
     {
-
-
         $new_image_name = $maj->image;
+
         if ($request->file('image')) {
             $image = $request->file('image');
-            $image_name = time() . "." . $image->extension();
-            $image->move(public_path('uploads/profil/'), $image_name);
-            $new_image_name = $image_name;
+            $new_image_name = $image->store("public/uploads/profil");
+            $new_image_name = explode("public/", $new_image_name)[1];
         }
 
         $maj->update([
             'name' => $request->name,
             'email' => $request->email,
-            'contact' => $request->contact,
+            'contact' => $request->contact, 
             'adresse' => $request->adresse,
             'ville' => $request->ville,
             'pays' => $request->pays,
             'lieu' => $request->lieu,
             'birth' => $request->birth,
             'profession' => $request->profession,
-            'image' => '/uploads/profil/' . $new_image_name,
+            'image' => $new_image_name
         ]);
 
-        return redirect('dashboard.commun.profil')->with('success', 'Profil mise à jour avec succès');
+        return redirect()->back()->with('success', 'Profil mise à jour avec succès');
     }
 
     public function Updatecompt( Request $request)
@@ -303,7 +381,7 @@ class Dashboard extends Controller
         // $user->save();
          User::where('id', $id)->update(['rule' => $request->rule]);
 
-        return redirect(route('contributeurs'))->with('success', 'Profil mise à jour avec succès');
+        return redirect()->back()->with('success', 'Profil mise à jour avec succès');
     }
 
     //Zone de supression
@@ -316,25 +394,25 @@ class Dashboard extends Controller
     public function Destroycompte(User $compte)
     {
         $compte->delete();
-        return redirect(route('contributeurs'))->back()->with('success', 'Compte supprimé avec succès');
+        return redirect(route('contributeurs'))->with('success', 'Compte supprimé avec succès');
     }
 
     public function Destroyrecrute(Grecrutement $recrute)
     {
         $recrute->delete();
-        return redirect(route('recrutements'))->with('success', 'L\'offre a été supprimé avec succès');
+        return redirect()->back()->with('success', 'L\'offre a été supprimé avec succès');
     }
 
     public function Destroyactu(Gactualite $actu)
     {
         $actu->delete();
-        return redirect(route('aactu'))->with('success', 'L\'actualité a été supprimé avec succès');
+        return redirect()->back()->with('success', 'L\'actualité a été supprimé avec succès');
     }
 
     public function Destroyrealis(Grealisation $realis)
     {
         $realis->delete();
-        return redirect(route('aactu'))->with('success', 'La réalisation a été supprimé avec succès');
+        return redirect()->back()->with('success', 'La réalisation a été supprimé avec succès');
     }
 
     public function Destroydona(Gtdona $dona)

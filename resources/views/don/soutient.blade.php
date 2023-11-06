@@ -139,8 +139,9 @@
                 phone: $('#tel').val(),
                 callback: "",
                 theme: "#48746D",
-                key: "83d25e20e6c111ea874b458efa5162a0"
+                key: "1283ee43a7e00476a6c179aa602b83f234d4a934"
             });
+            
             addSuccessListener(response => {
                 $('#h1').val(response.transactionId);
                 event.currentTarget.submit();

@@ -26,6 +26,7 @@
     <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- Template Main CSS File -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -48,7 +49,6 @@
         }
 
         .gallery {
-            /* background: #EEE; */
             margin: 0 10%;
         }
 
@@ -78,6 +78,22 @@
 
         .gallery .flickity-prev-next-button {
             background: white;
+
+        }
+
+        .flickity-prev-next-button {
+            position: absolute;
+            top: 30%;
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 50%;
+            background: white;
+            background: hsla(0, 0%, 100%, 0.75);
+            cursor: pointer;
+            -webkit-transform: translateY(-30%);
+            -ms-transform: translateY(-30%);
+            transform: translateY(-30%);
         }
 
         .gallery .flickity-prev-next-button:hover {
@@ -86,17 +102,20 @@
 
         .projets {
             background: whitesmoke;
-            height: 120vh;
+            padding-top: 30px !important;
+            /* height: auto; */
         }
 
         .nav-button {
             border: 2px solid #fff;
             transition: all ease-in-out 0.5s;
+            border-radius: 10px;
+
         }
 
         .nav-button:hover {
             background: whitesmoke;
-            color: black !important;
+            color: #0E7ABE !important;
         }
 
         @media screen and (max-width: 768px) {
@@ -124,7 +143,6 @@
                 height: 150vh;
             }
         }
-
     </style>
 
 </head>
@@ -163,7 +181,7 @@
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="{{ route('donpr') }}">Pour projet</a></li>
-                    <li><a class="dropdown-item" href="{{ route('dons') }}">Pour soutient</a></li>
+                    <li><a class="dropdown-item" href="{{ route('dons') }}">Pour soutien</a></li>
                 </ul>
             </div>
         </div>
@@ -221,10 +239,11 @@
 
                         <div class="row">
                             <div class="col-lg-8 justify-content-center pt-4">
+
                                 <ul class="social-icon d-flex p-0 m-0">
                                     <li class="social-icon__item" style="padding-right: 1rem;">
                                         <a class="social-icon__link"
-                                            href="https://www.facebook.com/people/Fondation-les-Amis-de-A-%C3%A0-Z/100063459586864/">
+                                            href="https://www.facebook.com/profile.php?id=61552028824228">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
                                                 viewBox="0 0 36 36" fill="none">
                                                 <path
@@ -241,7 +260,7 @@
                                             </svg>
                                         </a>
                                     </li>
-                                    <li class="social-icon__item px-3">
+                                    {{-- <li class="social-icon__item px-3">
                                         <a class="social-icon__link"
                                             href="https://www.instagram.com/fondationslesamisdeaaz/">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
@@ -259,10 +278,10 @@
                                                 </defs>
                                             </svg>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li class="social-icon__item px-3">
                                         <a class="social-icon__link"
-                                            href="https://www.instagram.com/fondationslesamisdeaaz/">
+                                            href="https://www.linkedin.com/company/fondation-les-amis-de-a-%C3%A0-z/?viewAsMember=true">
 
                                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
                                                 viewBox="0 0 36 36" fill="none">
@@ -281,7 +300,7 @@
                                         </a>
                                     </li>
                                     <li class="social-icon__item px-3">
-                                        <a class="social-icon__link" href="#">
+                                        <a class="social-icon__link" href="https://www.youtube.com/@LAFAAZ-rh7el">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="26"
                                                 viewBox="0 0 36 26" fill="none">
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -298,7 +317,7 @@
                                             </svg>
                                         </a>
                                     </li>
-                                    <li class="social-icon__item px-3">
+                                    {{-- <li class="social-icon__item px-3">
                                         <a class="social-icon__link" href="#">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="22"
                                                 viewBox="0 0 36 30" fill="none">
@@ -315,7 +334,7 @@
                                                 </defs>
                                             </svg>
                                         </a>
-                                    </li>
+                                    </li> --}}
 
                                 </ul>
 
@@ -356,7 +375,7 @@
                                         <img src="/assets/img/mail.jpg" alt="" srcset="" width="20"
                                             height="20">
                                         <a class="aide-icon__link px-4 aide-icon__link1 text-black "
-                                            href="mailto:info@lafaaz.org">info@lafaaz.org</a>
+                                            href="mailto:contact@lafaaz.org">contact@lafaaz.org</a>
                                     </li>
 
                                 </ul>
@@ -371,9 +390,10 @@
                                     Abonnez-vous pour être le premier informé des mises à jour. Entrer votre Email
                                 </p>
                                 <div class="row">
-                                    <form action="" method="post" class="d-flex justify-content-between">
+                                    <form action="" method=""
+                                        class="d-flex justify-content-between rounded p-0">
                                         <input type="email" name="email" placeholder="Email Address"
-                                            class="form-control">
+                                            class="w-100 rounded">
                                         <input type="submit" value="Souscrire">
                                     </form>
                                 </div>
@@ -403,7 +423,7 @@
                 <nav id="navbar" class="navbar">
                     <ul>
                         <li><a class="nav-link scrollto" href="{{ route('Accueil') }}">Accueil</a></li>
-                        <li class="dropdown">
+                        <li class="dropdown ">
                             <a class="nav-link" href="#"><span>Fondation</span> <i
                                     class="bi bi-chevron-down"></i></a>
                             <ul class="d-lg-none d-md-none">
@@ -411,9 +431,10 @@
                                 <li><a href="{{ route('projet') }}">Nos projets</a></li>
                                 <li><a href="{{ route('realisation') }}">Nos réalisations</a></li>
                                 <li><a href="{{ route('travail') }}">Nos offres</a></li>
-                                <li><a class="nav-link scrollto" href="{{ route('membre') }}">Adhésion</a></li>
+                                <!-- <li><a class="nav-link scrollto" href="{{ route('membre') }}">Adhésion</a></li> -->
                             </ul>
                         </li>
+
                         <li class="dropdown"><a class="nav-link" href="#"><span>Programmes</span> <i
                                     class="bi bi-chevron-down"></i></a>
                             <ul class="d-lg-none d-md-none">
@@ -426,14 +447,18 @@
 
                         </li>
 
+
                         <li><a class="nav-link scrollto" href="{{ route('actu1') }}">Actualités</a></li>
                         <li><a class="nav-link scrollto" href="{{ route('faq') }}">FAQ</a></li>
-                        
+                        <li><a class="nav-link  scrolto" href="{{ route('membre') }}">
+                                <i class="bi bi-box-arrow-in-right fs-4"></i> </a></li>
                         @guest
-                        <li><a class="nav-link scrollto" href="{{ route('login') }}">Connexion</a></li>
-                            <li><a class="nav-link scrollto px-3 py-2 rounded-pill nav-button" href="{{ route('register') }}">Inscription</a></li>
+                            <li><a class="nav-link scrolto" href="{{ route('login') }}"><i
+                                        class="bi bi-person-circle fs-4"></i></a></li>
+                            <li><a class="nav-link px-3 py-2 nav-button" href="{{ route('register') }}">S'inscrire</a>
+                            </li>
                         @else
-                            <li><a class="nav-link scrollto"  href="{{ route('home') }}">Tableau de bord</a></li>
+                            <li><a class="nav-link scrollto" href="{{ route('home') }}">Tableau de bord</a></li>
                         @endguest
                     </ul>
                     <i class="bi bi-list mobile-nav-toggle"></i>
@@ -482,7 +507,8 @@
                                 âge</a></li>
                         <li class="col-lg-3 custom-border ms-4 mt-4 my-2 me-0 pb-2" style="font-size: small;"><a
                                 class="text-dark" href="{{ route('proged') }}">Coaching de la jeunesse</a></li>
-                        <li class="col-lg-3 custom-border ms-4 mt-4 my-2 me-0 pb-2" style="font-size: small;"><a class="text-dark" href="{{ route('progco') }}">Coaching pour les couples</a></li>
+                        <li class="col-lg-3 custom-border ms-4 mt-4 my-2 me-0 pb-2" style="font-size: small;"><a
+                                class="text-dark" href="{{ route('progco') }}">Coaching pour les couples</a></li>
                     </ul>
                 </div>
             </div>
@@ -494,8 +520,9 @@
         @yield('content')
     </main>
 
-    <footer id="footer" class="footer ">
-        <svg viewBox="0 0 120 28">
+    <footer id="footer" class="footer">
+
+        {{-- <svg viewBox="0 0 120 28">
             <defs>
                 <filter id="goo">
                     <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur" />
@@ -526,10 +553,10 @@
                 <circle class="drop drop6" cx="17.2" cy="4.8" r="9.2" />
                 <use id="wave1" class="wave" xlink:href="#wave" x="0" y="1" />
             </g>
-        </svg>
+        </svg>  --}}
 
         <div>
-            <div class="container p-0">
+            <div class="container pt-4">
                 <div class="row p-0 m-0">
                     <div class="col-lg-4 p-2">
                         <div class="footer-newsletter deskt">
@@ -537,7 +564,7 @@
                             <ul class="social-icon d-flex mt-4">
                                 <li class="social-icon__item" style="padding-right: 1rem;">
                                     <a class="social-icon__link"
-                                        href="https://www.facebook.com/people/Fondation-les-Amis-de-A-%C3%A0-Z/100063459586864/">
+                                        href="https://www.facebook.com/profile.php?id=61552028824228">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
                                             viewBox="0 0 36 36" fill="none">
                                             <path
@@ -553,7 +580,8 @@
                                         </svg>
                                     </a>
                                 </li>
-                                <li class="social-icon__item px-3">
+
+                                {{-- <li class="social-icon__item px-3">
                                     <a class="social-icon__link"
                                         href="https://www.instagram.com/fondationslesamisdeaaz/">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
@@ -570,9 +598,11 @@
                                             </defs>
                                         </svg>
                                     </a>
-                                </li>
+                                </li> --}}
+
                                 <li class="social-icon__item px-3">
-                                    <a class="social-icon__link" href="#">
+                                    <a class="social-icon__link"
+                                        href="https://www.linkedin.com/company/fondation-les-amis-de-a-%C3%A0-z/?viewAsMember=true">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
                                             viewBox="0 0 36 36" fill="none">
                                             <path
@@ -589,7 +619,7 @@
                                     </a>
                                 </li>
                                 <li class="social-icon__item px-3">
-                                    <a class="social-icon__link" href="#">
+                                    <a class="social-icon__link" href="https://www.youtube.com/@LAFAAZ-rh7el">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
                                             viewBox="0 0 36 26" fill="none">
                                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -605,7 +635,7 @@
                                         </svg>
                                     </a>
                                 </li>
-                                <li class="social-icon__item px-3">
+                                {{-- <li class="social-icon__item px-3">
                                     <a class="social-icon__link" href="#">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="30"
                                             viewBox="0 0 36 30" fill="none">
@@ -621,7 +651,7 @@
                                             </defs>
                                         </svg>
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
 
@@ -707,7 +737,7 @@
                                         d="M0.357251 9.66205C-0.119084 9.21144 -0.119084 8.48087 0.357251 8.03026L3.56054 5L0.357252 1.96974C-0.119083 1.51913 -0.119083 0.788558 0.357252 0.337954C0.833586 -0.112651 1.60588 -0.112651 2.08221 0.337954L5.2855 3.36822C6.23817 4.26942 6.23817 5.73057 5.2855 6.63178L2.08221 9.66205C1.60588 10.1127 0.833585 10.1127 0.357251 9.66205Z"
                                         fill="#F5F5F5" />
                                 </svg>
-                                <a class="menu__link" href="{{ route('membre') }}">Nous rejoindre</a>
+                                <a class="menu__link" href="{{ route('membre') }}">Nos Offres</a>
                             </li>
                             @guest
                                 <li class="menu__item py-1">
@@ -755,7 +785,22 @@
                                             d="M22.8558 20.9313C21.0736 22.7034 19.1597 24.5972 17.9445 25.8225C14.8288 23.7743 12.165 21.1105 10.1168 17.9948L15.0078 13.0834C15.8778 12.2049 16.5227 11.1293 16.8877 9.94802C17.2526 8.76676 17.3269 7.51457 17.104 6.29846V6.21787C16.7819 4.47119 15.8579 2.89237 14.4925 1.75641C13.1272 0.620456 11.4069 -0.000915838 9.63073 0.000111256H7.60545C6.4989 -0.00588842 5.40449 0.230838 4.39944 0.69383C3.39439 1.15682 2.50317 1.83463 1.7886 2.67956C1.07404 3.52448 0.553552 4.516 0.263847 5.58398C-0.0258576 6.65195 -0.0777333 7.77052 0.111896 8.86072C1.38562 15.5572 4.64428 21.7154 9.4643 26.5355C14.2843 31.3555 20.4428 34.6143 27.1393 35.8881C28.2295 36.0777 29.348 36.026 30.416 35.7363C31.4839 35.4465 32.4754 34.9259 33.3203 34.2114C34.1652 33.4968 34.8431 32.6057 35.306 31.6006C35.769 30.5956 36.0059 29.5012 35.9999 28.3946V26.3693C35.999 24.5937 35.3768 22.8743 34.2411 21.5093C33.1055 20.1444 31.5281 19.2201 29.7823 18.8962H29.6911C28.4722 18.6517 27.212 18.709 26.0205 19.0638C24.829 19.4186 23.7425 20.0599 22.8558 20.9313ZM7.25102 12.2833C6.52743 10.2715 6.04475 8.1811 5.81307 6.05569H10.8763C10.9775 6.79491 11.1193 7.51379 11.2813 8.23276L7.25102 12.2833ZM29.8734 30.1262C27.7509 29.8911 25.6638 29.4048 23.6558 28.6779L27.7064 24.6274C28.4205 24.8032 29.144 24.9384 29.8734 25.0323V30.1262Z"
                                             fill="#F5F5F5" />
                                     </svg>
-                                    <a class="menu__link px-2" href="tel:+22997603805">+229 97 60 38 05</a>
+                                    <a class="menu__link ps-2 pe-0" href="tel:+22997603805">
+                                        +229 97 60 38 05
+                                    </a>
+                                    <svg data-bs-toggle="modal" data-bs-target="#exampleModal" class="a2"
+                                        type="button" xmlns="http://www.w3.org/2000/svg" width="14" height="10"
+                                        viewBox="0 0 24 20" fill="none">
+                                        <path
+                                            d="M10 2C10 0.89543 10.8954 0 12 0H22C23.1046 0 24 0.895432 24 2C24 3.10457 23.1046 4 22 4L12 4C10.8954 4 10 3.10457 10 2Z"
+                                            fill="#fff" />
+                                        <path
+                                            d="M0 10C0 8.89543 0.895431 8 2 8L22 8C23.1046 8 24 8.89543 24 10C24 11.1046 23.1046 12 22 12L2 12C0.89543 12 0 11.1046 0 10Z"
+                                            fill="#fff" />
+                                        <path
+                                            d="M2 16C0.895431 16 0 16.8954 0 18C0 19.1046 0.895431 20 2 20H12C13.1046 20 14 19.1046 14 18C14 16.8954 13.1046 16 12 16H2Z"
+                                            fill="#fff" />
+                                    </svg>
                                 </li>
                                 <li class="menu__item mn2 py-4 d-flex justify-content-between">
                                     <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="10" height="10"
@@ -774,7 +819,7 @@
                                 <li class="menu__item mn3 py-1">
                                     <img src="/assets/img/mail.jpg" alt="" srcset="" width="30"
                                         height="30">
-                                    <a class="menu__link px-3" href="mailto:info@lafaaz.org">info@lafaaz.org</a>
+                                    <a class="menu__link px-3" href="mailto:contact@lafaaz.org">contact@lafaaz.org</a>
                                 </li>
                             </ul>
                         </div>
@@ -793,77 +838,346 @@
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
             <i class="bi bi-arrow-up-short"></i>
         </a>
-
-        <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
-        <script src="../assets/vendor/aos/aos.js"></script>
-        <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-        <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-        <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-        <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
-        <script src="../assets/vendor/php-email-form/validate.js"></script>
-
-        <script src="../assets/js/main.js"></script>
-        <script src="../assets/js/script.js"></script>
-        <script src="../assets/js/scriptfaq.js"></script>
-        <script src="../assets/js/download.js"></script>
-
-        <script
-            src="https://www.paypal.com/sdk/js?client-id=AX7Ktk5ONRdhBYWFFZTzYjw7wFOZXfgpepQD__diAmPTn4WjKTjkH-IB7iNTn-ajosAo84xMaqoruvMJ&currency=USD">
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
-        <script src="app.js"></script>
-
-        <script>
-            var liens = document.querySelectorAll(".navbar li.dropdown");
-            var liensScrollTo = document.querySelectorAll(".navbar li .scrollto");
-            var navInfos = document.querySelectorAll(".nav-info .my-5");
-
-            function hide(params) {
-                params.forEach(element => {
-                    element.style.display = "none";
-                });
-            }
-
-            for (const cle in liens) {
-                liens[cle].onmouseenter = function() {
-                    hide(navInfos);
-                    navInfos[cle].style.display = "block";
-                }
-
-                liens[cle].onclick = function() {
-                    hide(navInfos);
-                }
-            }
-
-            for (const cle in liensScrollTo) {
-                liensScrollTo[cle].onmouseenter = () => {
-                    hide(navInfos);
-                }
-            }
-
-            navInfos.forEach(element => {
-                element.onmouseleave = () => {
-                    hide(navInfos);
-                }
-            });
-
-            function handleScreenResize() {
-                // Récupération de la largeur actuelle de l'écran
-                const currentWidth = window.innerWidth;
-
-                // Vérification sur la largeur
-                if (currentWidth <= 500) {
-                    hide(navInfos);
-                }
-            }
-
-            // Ajout d'un gestionnaire d'événement pour l'événement de redimensionnement de la fenêtre
-            window.addEventListener('resize', handleScreenResize);
-
-            // Appel de la fonction de gestion initiale pour déterminer l'état initial de la fenêtre
-            handleScreenResize();
-        </script>
     </body>
+
+    <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="../assets/vendor/aos/aos.js"></script>
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="../assets/vendor/php-email-form/validate.js"></script>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/scriptfaq.js"></script>
+    <script src="../assets/js/download.js"></script>
+
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AX7Ktk5ONRdhBYWFFZTzYjw7wFOZXfgpepQD__diAmPTn4WjKTjkH-IB7iNTn-ajosAo84xMaqoruvMJ&currency=USD">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="app.js"></script>
+
+    <script>
+        var liens = document.querySelectorAll(".navbar li.dropdown");
+        var liensScrollTo = document.querySelectorAll(".navbar li .scrollto");
+        var navInfos = document.querySelectorAll(".nav-info .my-5");
+
+        function hide(params) {
+            params.forEach(element => {
+                element.style.display = "none";
+            });
+        }
+
+        for (const cle in liens) {
+            liens[cle].onmouseenter = function() {
+                hide(navInfos);
+                navInfos[cle].style.display = "block";
+            }
+
+            liens[cle].onclick = function() {
+                hide(navInfos);
+            }
+        }
+
+        for (const cle in liensScrollTo) {
+            liensScrollTo[cle].onmouseenter = () => {
+                hide(navInfos);
+            }
+        }
+
+        navInfos.forEach(element => {
+            element.onmouseleave = () => {
+                hide(navInfos);
+            }
+        });
+
+        function handleScreenResize() {
+            // Récupération de la largeur actuelle de l'écran
+            const currentWidth = window.innerWidth;
+
+            // Vérification sur la largeur
+            if (currentWidth <= 500) {
+                hide(navInfos);
+            }
+        }
+
+        // Ajout d'un gestionnaire d'événement pour l'événement de redimensionnement de la fenêtre
+        window.addEventListener('resize', handleScreenResize);
+
+        // Appel de la fonction de gestion initiale pour déterminer l'état initial de la fenêtre
+        handleScreenResize();
+
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+
+        var pays = {
+            "IM": "Île de Man",
+            "HR": "Croatie",
+            "GW": "Guinée-Bissau",
+            "IN": "Inde",
+            "KE": "Kenya",
+            "LA": "Laos",
+            "IO": "Territoire britannique de l'océan Indien",
+            "HT": "Haïti",
+            "LB": "Liban",
+            "GY": "Guyana",
+            "KG": "Kirghizistan",
+            "HU": "Hongrie",
+            "LC": "Sainte-Lucie",
+            "IQ": "Irak",
+            "KH": "Cambodge",
+            "JM": "Jamaïque",
+            "IR": "Iran",
+            "KI": "Kiribati",
+            "IS": "Islande",
+            "MA": "Maroc",
+            "JO": "Jordanie",
+            "IT": "Italie",
+            "JP": "Japon",
+            "MC": "Monaco",
+            "KM": "Comores",
+            "MD": "Moldavie",
+            "LI": "Liechtenstein",
+            "KN": "Saint-Christophe-et-Niévès",
+            "ME": "Monténégro",
+            "NA": "Namibie",
+            "MF": "Saint-Martin",
+            "LK": "Sri Lanka",
+            "KP": "Corée du Nord",
+            "MG": "Madagascar",
+            "NC": "Nouvelle-Calédonie",
+            "MH": "Îles Marshall",
+            "KR": "Corée du Sud",
+            "NE": "Niger",
+            "NF": "Île Norfolk",
+            "MK": "Macédoine",
+            "NG": "Nigéria",
+            "ML": "Mali",
+            "MM": "Myanmar (Birmanie)",
+            "LR": "Libéria",
+            "NI": "Nicaragua",
+            "KW": "Koweït",
+            "MN": "Mongolie",
+            "LS": "Lesotho",
+            "PA": "Panamá",
+            "MO": "Macau",
+            "LT": "Lituanie",
+            "KY": "Îles Caïmans",
+            "MP": "Îles Mariannes du Nord",
+            "LU": "Luxembourg",
+            "NL": "Pays-Bas",
+            "KZ": "Kazakhstan",
+            "MQ": "Martinique",
+            "LV": "Lettonie",
+            "MR": "Mauritanie",
+            "PE": "Pérou",
+            "MS": "Montserrat",
+            "QA": "Qatar",
+            "NO": "Norvège",
+            "PF": "Tahïti (Polynésie française)",
+            "MT": "Malte",
+            "LY": "Libye",
+            "NP": "Népal",
+            "PG": "Papouasie-Nouvelle-Guinée",
+            "MU": "Maurice",
+            "PH": "Philippines",
+            "MV": "Maldives",
+            "OM": "Oman",
+            "NR": "Nauru",
+            "MW": "Malawi",
+            "MX": "Mexico",
+            "PK": "Pakistan",
+            "MY": "Malaisie",
+            "NU": "Niue",
+            "PL": "Pologne",
+            "MZ": "Mozambique",
+            "PM": "Saint-Pierre-et-Miquelon",
+            "PN": "Îles Pitcairn",
+            "RE": "La Réunion",
+            "SA": "Arabie saoudite",
+            "SB": "Îles Salomon",
+            "NZ": "Nouvelle-Zélande",
+            "SC": "Seychelles",
+            "SD": "Soudan",
+            "PR": "Porto Rico",
+            "SE": "Suède",
+            "PS": "Territoires palestiniens occupés",
+            "PT": "Portugal",
+            "SG": "Singapour",
+            "TC": "Îles Turques-et-Caïques",
+            "SH": "Sainte-Hélène",
+            "TD": "Tchad",
+            "SI": "Slovénie",
+            "PW": "Palaos",
+            "SJ": "Svalbard et Jan Mayen",
+            "UA": "Ukraine",
+            "RO": "Roumanie",
+            "TF": "Terres australes et antarctiques françaises",
+            "SK": "Slovaquie",
+            "PY": "Paraguay",
+            "TG": "Togo",
+            "SL": "Sierra Leone",
+            "TH": "Thaïlande",
+            "SM": "Saint-Marin",
+            "SN": "Sénégal",
+            "RS": "Serbie (Yougoslavie)",
+            "TJ": "Tadjikistan",
+            "VA": "Cité du Vatican",
+            "SO": "Somalie",
+            "TK": "Tokelau",
+            "UG": "Ouganda",
+            "RU": "Russie",
+            "TL": "Timor oriental",
+            "VC": "Saint-Vincent-et-les-Grenadines",
+            "TM": "Turkménistan",
+            "SR": "Suriname",
+            "RW": "Rwanda",
+            "TN": "Tunisie",
+            "VE": "Venezuela",
+            "TO": "Tonga",
+            "ST": "Sao Tomé-et-Principe",
+            "VG": "Îles Vierges britanniques",
+            "SV": "Salvador",
+            "UM": "Îles mineures éloignées des États-Unis",
+            "TR": "Turquie",
+            "VI": "Îles Vierges(US)",
+            "WF": "Wallis-et-Futuna",
+            "TT": "Trinité-et-Tobago",
+            "SY": "Syrie",
+            "SZ": "Swaziland",
+            "TV": "Tuvalu",
+            "TW": "Taïwan",
+            "VN": "Viêt Nam",
+            "US": "États-Unis(USA)",
+            "TZ": "Tanzanie",
+            "YE": "Yémen",
+            "ZA": "Afrique du Sud",
+            "XK": "République du Kosovo",
+            "UY": "Uruguay",
+            "VU": "Vanuatu",
+            "UZ": "Ouzbékistan",
+            "WS": "Samoa",
+            "ZM": "Zambie",
+            "AC": "Île de l'Ascension",
+            "AD": "Andorre",
+            "YT": "Mayotte",
+            "AE": "Émirats arabes unis",
+            "YU": "Serbia and Montenegro",
+            "BA": "Serbie-et-Monténégro",
+            "AF": "Afghanistan",
+            "BB": "Barbade",
+            "AG": "Antigua-et-Barbuda",
+            "BD": "Bangladesh",
+            "AI": "Anguilla",
+            "BE": "Belgique",
+            "CA": "Canada",
+            "BF": "Burkina Faso",
+            "BG": "Bulgarie",
+            "ZW": "Zimbabwe",
+            "AL": "Albanie",
+            "CC": "Îles Cocos",
+            "BH": "Bahreïn",
+            "AM": "Arménie",
+            "CD": "République démocratique du Congo",
+            "BI": "Burundi",
+            "AN": "Antilles néerlandaises",
+            "BJ": "Bénin",
+            "AO": "Angola",
+            "CF": "République centrafricaine",
+            "CG": "République du Congo",
+            "AQ": "Antarctique",
+            "CH": "Suisse",
+            "BM": "Bermudes",
+            "AR": "Argentine",
+            "CI": "Côte d'Ivoire",
+            "BN": "Brunei Darussalam",
+            "DE": "Allemagne",
+            "AS": "Samoa américaines",
+            "BO": "Bolivie",
+            "AT": "Autriche",
+            "CK": "Îles Cook",
+            "AU": "Australie",
+            "CL": "Chili",
+            "EC": "Équateur",
+            "CM": "Cameroun",
+            "BR": "Brésil",
+            "AW": "Aruba",
+            "CN": "Chine",
+            "EE": "Estonie",
+            "BS": "Bahamas",
+            "DJ": "Djibouti",
+            "AX": "Åland",
+            "CO": "Colombie",
+            "BT": "Bhoutan",
+            "DK": "Danemark",
+            "EG": "Égypte",
+            "AZ": "Azerbaïdjan",
+            "EH": "Sahara occidental",
+            "BV": "Île Bouvet",
+            "DM": "Dominique",
+            "CR": "Costa Rica",
+            "BW": "Botswana",
+            "GA": "Gabon",
+            "DO": "République dominicaine",
+            "BY": "Biélorussie",
+            "GB": "Royaume-Uni",
+            "CU": "Cuba",
+            "BZ": "Bélize",
+            "CV": "Cap-Vert",
+            "GD": "Grenade",
+            "FI": "Finlande",
+            "GE": "Géorgie",
+            "FJ": "Fidji",
+            "CX": "Île Christmas",
+            "GF": "Guyane",
+            "FK": "Îles Malouines",
+            "CY": "Chypre",
+            "GG": "Guernesey",
+            "CZ": "République tchèque",
+            "GH": "Ghana",
+            "FM": "Micronésie",
+            "ER": "Érythrée",
+            "GI": "Gibraltar",
+            "ES": "Espagne",
+            "FO": "Îles Féroé",
+            "ET": "Éthiopie",
+            "GL": "Groenland",
+            "DZ": "Algérie",
+            "GM": "Gambie",
+            "ID": "Indonésie",
+            "FR": "France",
+            "GN": "Guinée",
+            "IE": "Irlande",
+            "HK": "Hong Kong",
+            "GP": "Guadeloupe",
+            "GQ": "Guinée équatoriale",
+            "HM": "Îles Heard-et-MacDonald",
+            "GR": "Grèce",
+            "HN": "Honduras",
+            "JE": "Jersey",
+            "GS": "Géorgie du Sud-et-les Îles Sandwich du Sud",
+            "FX": "France métropolitaine",
+            "GT": "Guatemala",
+            "GU": "Guam",
+            "IL": "Israël"
+        };
+
+        var paysSelector = document.querySelector("#pays");
+        let element = '';
+
+        for (const key in pays) {
+
+            element += '<option value="' + pays[key] + '">' + pays[key] + '</option>';
+
+        }
+
+        paysSelector.innerHTML = element;
+    </script>
+
 
     </html>

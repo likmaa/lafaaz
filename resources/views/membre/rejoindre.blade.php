@@ -13,10 +13,10 @@
                 </div>
                 @elseif(session()->has('danger'))
                 <div class="alert alert-danger mb-0" style="border-radius: unset;">
-                    {{ session('danger') }}
+                    {{ session('danger') }} <a href="{{ route('membre') }}">ici</a>.
                 </div>
                 @else
-                <form method="POST" action="{{route('membre')}}" class="border-light" enctype="multipart/form-data" id="register">
+                <form method="POST" action="{{route('addmembre')}}" class="border-light" enctype="multipart/form-data" id="register">
                     @csrf
                     <input type="hidden" value="1">
                     <input type="hidden" value="" name="ts" id="h1">
@@ -106,7 +106,11 @@
 
                         <div class="mb-3 col-lg-6">
                             <label for="exampleInputtext1" class="form-label">Pays*</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext1" aria-describedby="textHelp" name="pays" value="{{ old('pays') }}" required autocomplete="pays" autofocus>
+                            {{-- <input type="text" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext1" aria-describedby="textHelp" name="pays" value="{{ old('pays') }}" required autocomplete="pays" autofocus> --}}
+                            <select name="pays" class="form-control js-example-basic-single" id="pays" aria-label="Pays">
+                                <option value="AL">Alabama</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -195,7 +199,10 @@
 
         $("#register").submit(function(event) {
 
+            event.preventDefault();
+
             var url = $(this).attr('data-action');
+
             $.ajax({
                 url: '/membre/rejoindre',
                 method: 'POST',
@@ -206,23 +213,28 @@
                 processData: false,
                 success: function(response) {}
             });
+
             openKkiapayWidget({
                 amount: "10000",
                 position: "center",
-                name: $('#nom').val(),
+                name: $('#nom').val() + ' ' + $('#prenom').val(),
                 email: $('#email').val(),
                 phone: $('#tel').val(),
-                callback: "",
+                callback: "http://127.0.0.1:5500/membre/adhesion",
+                // sandbox: true,
                 theme: "#48746D",
-                key: "83d25e20e6c111ea874b458efa5162a0"
+                // key: "83d25e20e6c111ea874b458efa5162a0"
+                // key: "c8cd2d702dab11ecb30d13c7d805295f"
+                key: "1283ee43a7e00476a6c179aa602b83f234d4a934" 
             });
+
             addSuccessListener(response => {
                 $('#h1').val(response.transactionId);
                 event.currentTarget.submit();
             });
+
             addFailedListener(error => {});
 
-            event.preventDefault();
         });
     })
 </script>

@@ -38,11 +38,15 @@ class Controllers extends Controller
         $projets = Gprojet::paginate(8);
         return view('fondation.projet', ['projets' => $projets]);
     }
+
     public function apropos()
     {
         $benevols = Gbenevole::orderBy('created_at', 'DESC')->limit(3)->get();
-        return view('fondation.apropos', ['benevols' => $benevols]);
+        $nbre_projet = Gprojet::all()->count();
+        $nbre_don = Gdonprojet::all()->count() + Gdonsout::all()->count();
+        return view('fondation.apropos', ['benevols' => $benevols, 'nbre_projet' => $nbre_projet, 'nbre_don' => $nbre_don]);
     }
+
     public function realisation()
     {
         $realisations = Grealisation::paginate(6);
@@ -85,16 +89,34 @@ class Controllers extends Controller
     }
 
     //Actualité
+    
     public function actu1()
     {
         $actus = Gactualite::paginate(6);
         return view('actualite.actu', ['actus' => $actus]);
     }
+
     public function actu2($id)
     {
         $actu = Gactualite::findOrFail($id);
         $actus = Gactualite::orderBy('created_at', 'DESC')->limit(3)->get();
-        return view('actualite.dactu', compact('actu'), ['actus' => $actus]);
+
+        $previousActu = Gactualite::where('id', '<', $id)
+                                    ->orderBy('id', 'desc')
+                                    ->first();
+
+        $nextActu = Gactualite::where('id', '>', $id)
+                                    ->orderBy('id', 'asc')
+                                    ->first();
+
+        $autresactus = Gactualite::orderBy('created_at', 'ASC')->limit(3)->get();
+
+        return view('actualite.dactu', compact('actu'), [
+            'actus' => $actus, 
+            'autresactus' => $autresactus,
+            'previousActu' => $previousActu,
+            'nextActu' => $nextActu
+        ]);
     }
 
     public function actu4()
@@ -210,9 +232,12 @@ class Controllers extends Controller
         );
 
         $operation = $kkiapay->verifyTransaction($request->ts);
-        if (is_int($operation)) {
-            return redirect()->back()->with('danger', 'Nous rencontrons des difficultés pour confirmer votre paiement. Veuillez réessayer.');
-        }
+        // dump($operation);
+
+        // if (is_int($operation)) {
+        //     return redirect()->back()->with('danger', 'Nous rencontrons des difficultés pour confirmer votre paiement. Veuillez réessayer ');
+        // }
+
         $request->validate([
             'nom' => 'required',
             'prenom' => 'required',
@@ -263,11 +288,11 @@ class Controllers extends Controller
                 'casier' => '/uploads/rejoindre/' . $casier_name,
                 'cin' => '/uploads/rejoindre/' . $cin_name,
                 'motive' => '/uploads/rejoindre/' . $motive_name,
-            ]);
-            return redirect()->back()->with('success', 'Votre demande a été envoyer avec success');
-        } else {
+            ]); 
 
-            return redirect()->back()->with('danger', 'Nous rencontrons des difficultés pour confirmer votre paiement. Veuillez réessayer.');
+            return redirect()->back()->with('success', 'Votre demande a été envoyée avec succès');
+        } else {
+            return redirect()->back()->with('danger', 'Nous rencontrons des difficultés pour confirmer votre paiement. Veuillez réessayer ');
         }
     }
 

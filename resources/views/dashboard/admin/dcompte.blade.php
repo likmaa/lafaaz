@@ -16,7 +16,13 @@
                             <div class="row justify-content-between align-items-center">
                                 <div class="item-label mb-2"><strong>Photo</strong></div>
                                 <div class="item-data">
-                                    <img src="{{$dcompte->image}}" alt="" width="65" height="65" class="rounded-circle">
+                                    @if (is_null($dcompte->image) || $dcompte->image == '')
+                                        <img src="/asset/images/profile/user-1.jpg" alt="" width="65"
+                                            height="65" class="rounded-circle">
+                                    @else
+                                        <img src="{{ config('app.url') . '/storage/' . $dcompte->image }}"
+                                            alt="" width="65" height="65" class="rounded-circle">
+                                    @endif
                                 </div>
                             </div>
                         </div>

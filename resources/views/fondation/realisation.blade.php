@@ -7,9 +7,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 align-self-end">
-                    <h2>
-                        Les réalisations de la Fondation les Amis de A à Z
-                    </h2>
+                    <h1 class="text-light mt-5 ms-4" style="font-size: small;">
+                        <a class="text-light" href="{{ route('Accueil') }}">Accueil</a> / <a class="text-light" href="#">Nos Réalisations</a>
+                    </h1>
                 </div>
             </div>
         </div>
@@ -25,7 +25,9 @@
             @foreach($sousrealisations as $realisation)
             <div class="col-lg-4">
                 <div class="card mb-5 m-3">
-                    <img class="img-fluid w-100" src="{{$realisation->image}}">
+                    <div class="card-img-top" style="height: 250px; background: url('{{$realisation->image}}'); background-size:cover; background-repeat: no-repeat"></div>
+
+                    <!-- <img class="img-fluid w-100" style="height: 40vh" src="{{$realisation->image}}"> -->
 
                     <div class="card-body pt-5">
                         <h5 class="card-title">{{$realisation->titre}}</h5>
@@ -49,7 +51,7 @@
                 <button class="w-100 py-2"><a href="{{route('travail')}}">Collaboration</a></button>
             </div>
         </div>
-        
+
     </div>
 </section>
 <!-- END SECTION 2 -->

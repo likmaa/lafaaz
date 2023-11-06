@@ -2,23 +2,6 @@
 @section('title', 'Assistance aux orphelins')
 @section('content')
 
-<!-- SECTION 1 -->
-<section class="aboutSection1 d-none d-lg-block d-md-block d-sm-block">
-    <div class="back">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 align-self-end">
-                    <h5 class="text-light">
-                        <a class="text-light" href="{{ route('Accueil') }}">Accueil</a> / <a class="text-light" href="#">Nos programmes</a> / Assistance aux orphelins de la Fondation les Amis de A à Z
-                    </h5>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- END SECTION 1 -->
-
-
 <section class="ass3ageSection2">
     <div class="container text-uppercase py-5" style="text-align: center;">
         <h6 class="mb-4 fw-lighter">Nos programmes</h6>
@@ -27,7 +10,7 @@
         <div class="my-5 underline_blue"></div>
     
         <div class="d-flex justify-content-center align-item-center" class="background: inherit !important;">
-            <img class="img-fluid my-5" style="height: 75vh; width: 85%;" src="/assets/img/orp.jpg">
+            <img class="img-fluid my-5" onclick="console.log(this.width, this.height)" style="height: 75vh; width: 85%;" src="/assets/img/orp.jpg">
         </div>
     </div>
 
@@ -78,6 +61,12 @@
 
                 <div class="mt-4 mb-5 underline_blue"></div>
 
+                <p class="card-text pt-2 lead">
+                    <small class="text-body-secondary text-bold-500">
+                        Dans notre engagement envers les orphelins, nous avons établi des objectifs clés pour leur offrir un environnement bienveillant et des opportunités significatives. Nos quatre piliers fondamentaux sont les suivants :
+                    </small>
+                </p>
+                
                 <ol>
                     <li class="mb-4">
                         <p>
@@ -140,7 +129,7 @@
                 </p>
 
                 <ol>
-                    <li>
+                    <li class="mb-4">
                         Donner Généreusement : 
                         <p class="card-text pt-2 lead">
                             <small class="text-body-secondary text-bold-500">
@@ -150,7 +139,7 @@
                             </small>
                         </p>
                     </li>
-                    <li>
+                    <li class="mb-4">
                         Devenir Mentor : 
                         <p class="card-text pt-2 lead">
                             <small class="text-body-secondary text-bold-500">
@@ -160,7 +149,7 @@
                             </small>
                         </p>
                     </li>
-                    <li>
+                    <li class="mb-4">
                         Partager Votre Expertise : 
                         <p class="card-text pt-2 lead">
                            <small class="text-body-secondary text-bold-500">

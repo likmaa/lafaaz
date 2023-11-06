@@ -29,6 +29,11 @@
     <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
         <div class="app-card app-card-orders-table bg-white shadow-sm mb-5">
             <div class="app-card-body">
+
+                @if(session()->has('success'))
+                    <div class="alert alert-success">{{session('success')}}</div>
+                @endif
+
                 <div class="table-responsive">
                     <table class="table app-table-hover mb-0 text-left">
                         <thead>
@@ -161,6 +166,7 @@
             </ul>
         </nav>
     </div>
+    
     <!-- Les Abonnés -->
     <div class="tab-pane fade" id="orders-cancelled" role="tabpanel" aria-labelledby="orders-cancelled-tab">
         <div class="app-card app-card-orders-table bg-white mb-5">

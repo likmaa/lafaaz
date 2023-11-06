@@ -7,9 +7,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 align-self-end">
-                    <h2>
-                        Les projets en cours de la Fondation les Amis de A à Z
-                    </h2>
+                    <h1 class="text-light mt-5 ms-4" style="font-size: small;">
+                        <a class="text-light" href="{{ route('Accueil') }}">Accueil</a> / <a class="text-light" href="#">Nos Projets</a>
+                    </h1>
                 </div>
             </div>
         </div>
@@ -25,7 +25,8 @@
                 @foreach($sousprojets as $projet)
                 <div class="col-lg-4">
                     <div class="card mb-5 m-3">
-                        <img src="{{$projet->image}}" class="card-img-top" height="200" alt="...">
+                        <!-- <img src="{{$projet->image}}" class="card-img-top" height="200" alt="..."> -->
+                        <div class="card-img-top" style="height: 250px; background: url('{{$projet->image}}'); background-size:cover; background-repeat: no-repeat"></div>
 
                         <div class="card-body pt-5">
                             <p class="card-text">

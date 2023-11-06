@@ -47,7 +47,12 @@
 									</td>
 									<td class="cell"></td>
 									<td class="cell">
-										<a class="btn-sm app-btn-secondary" href="{{route('detail', $projet->id)}}">Plus</a>
+										<a class="btn-sm app-btn-secondary" href="{{route('detail', $projet->id)}}">Voir</a>
+										<a class="btn-sm app-btn-secondary" href="{{route('modifier', $projet->id)}}">Modifier</a>
+										<form action="{{ route('deleteprojet', ['projet' => $projet->id]) }}">
+											<button type="submit" class="btn-sm btn-danger">Supprimer</button>
+										</form>
+										{{-- <a class="btn-sm btn-danger" href="{{route('detail', $projet->id)}}">Supprimer</a> --}}
 									</td>
 
 								</tr>
@@ -94,7 +99,7 @@
 					<div class="row my-4">
 						<div class="col-lg-12 mb-3">
 							<label for="">Description du projet</label>
-							<textarea name="description" id="" cols="30" placeholder="Description du projet" class="form-control" rows="5"></textarea>
+							<textarea name="description" id="description" cols="30" placeholder="Description du projet" class="form-control" rows="5"></textarea>
 						</div>
 					</div>
 				</div>

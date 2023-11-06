@@ -146,7 +146,7 @@
                     <div class="row my-4">
                         <div class="col-lg-12 mb-3">
                             <label for="">Temoignage</label>
-                            <textarea class="form-control" placeholder="Temoignage" name="description" id="" cols="30" rows="5"></textarea>
+                            <textarea class="form-control" placeholder="Temoignage" name="description" id="description" cols="30" rows="5"></textarea>
                         </div>
                     </div>
                 </div>
@@ -178,7 +178,7 @@
                     <div class="row my-4">
                         <div class="col-lg-12 mb-3">
                             <label for="">Détails</label>
-                            <textarea class="form-control" required placeholder="Détails" name="description" id="" cols="30" rows="5"></textarea>
+                            <textarea class="form-control" required placeholder="Détails" name="description" id="descriptionFaq" cols="30" rows="5"></textarea>
                         </div>
                     </div>
                 </div>
@@ -213,7 +213,7 @@
                     <div class="row my-4">
                         <div class="col-lg-12 mb-3">
                             <label for="">Temoignage</label>
-                            <textarea class="form-control" placeholder="Temoignage" name="description" id="" cols="30" rows="5"></textarea>
+                            <textarea class="form-control" placeholder="Temoignage" name="description" id="descriptionTemoignage" cols="30" rows="5"></textarea>
                         </div>
                     </div>
                 </div>

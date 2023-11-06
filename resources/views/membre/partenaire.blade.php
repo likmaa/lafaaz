@@ -8,10 +8,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 align-self-end">
-                    <h2>
-                        Nos partenaires <br>
-                        la Fondation les Amis de A à Z
-                    </h2>
+                    <h1 class="text-light mt-5 ms-4" style="font-size: small;">
+                        <a class="text-light" href="{{ route('Accueil') }}">Accueil</a> / <a class="text-light" href="#">Nos partenaires</a>
+                    </h1>
                 </div>
             </div>
         </div>

@@ -2,23 +2,6 @@
 @section('title', 'Coaching couple')
 @section('content')
 
-    <!-- SECTION 1 -->
-    <section class="aboutSection1">
-        <div class="back">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 align-self-end">
-                        <h5 class="text-light">
-                            <a class="text-light" href="{{ route('Accueil') }}">Accueil</a> / <a class="text-light"
-                                href="#">Nos programmes</a> / Coaching aux couples de la Fondation les Amis de A à Z
-                        </h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END SECTION 1 -->
-
     <section class="ass3ageSection2">
         <div class="container text-uppercase py-5" style="text-align: center;">
             <h6 class="mb-4 fw-lighter">Nos programmes</h6>
@@ -55,8 +38,8 @@
                             style="text-align: center;">
                             Résultats Concrets
                         </h4>
-                        <div class="mt-4 mb-5 underline_blue"></div>
 
+                        <div class="mt-4 mb-5 underline_blue"></div>
 
                         <div class="card-text py-2 lead">
                             <small class="text-body-secondary text-bold-500">

@@ -228,7 +228,7 @@
 					<div class="row my-4">
 						<div class="col-lg-12 mb-3">
 							<label for="">Description du l'offre</label>
-							<textarea name="description" id="" cols="30" placeholder="Descriptio de l'offre" class="form-control" rows="5"></textarea>
+							<textarea name="description" id="description" cols="30" placeholder="Descriptio de l'offre" class="form-control" rows="5"></textarea>
 						</div>
 					</div>
 				</div>

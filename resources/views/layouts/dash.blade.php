@@ -8,6 +8,7 @@
     <link rel="shortcut icon" type="image/png" href="/assets/img/logoFAAZ.png" />
     <link rel="stylesheet" href="/asset/css/styles.min.css" />
     <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body class="bg-light">
@@ -229,7 +230,13 @@
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="/asset/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                                    @if (is_null(Auth::user()->image))
+                                        <img src="/asset/images/profile/user-1.jpg" alt="" width="35"
+                                            height="35" class="rounded-circle">
+                                    @else
+                                        <img src="{{ config('app.url') . '/storage/' . Auth::user()->image }}"
+                                            alt="" width="35" height="35" class="rounded-circle">
+                                    @endif
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                                     <div class="message-body">
@@ -266,6 +273,7 @@
             </div>
         </div>
     </div>
+
     <script src="/asset/libs/jquery/dist/jquery.min.js"></script>
     <script src="/asset/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/asset/js/sidebarmenu.js"></script>
@@ -273,6 +281,287 @@
     <script src="/asset/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="/asset/libs/simplebar/dist/simplebar.js"></script>
     <script src="/asset/js/dashboard.js"></script>
+
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        CKEDITOR.replace('description');
+        CKEDITOR.replace('descriptionTemoignage');
+        CKEDITOR.replace('descriptionFaq');
+
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+
+        var pays = {
+            "IM": "Île de Man",
+            "HR": "Croatie",
+            "GW": "Guinée-Bissau",
+            "IN": "Inde",
+            "KE": "Kenya",
+            "LA": "Laos",
+            "IO": "Territoire britannique de l'océan Indien",
+            "HT": "Haïti",
+            "LB": "Liban",
+            "GY": "Guyana",
+            "KG": "Kirghizistan",
+            "HU": "Hongrie",
+            "LC": "Sainte-Lucie",
+            "IQ": "Irak",
+            "KH": "Cambodge",
+            "JM": "Jamaïque",
+            "IR": "Iran",
+            "KI": "Kiribati",
+            "IS": "Islande",
+            "MA": "Maroc",
+            "JO": "Jordanie",
+            "IT": "Italie",
+            "JP": "Japon",
+            "MC": "Monaco",
+            "KM": "Comores",
+            "MD": "Moldavie",
+            "LI": "Liechtenstein",
+            "KN": "Saint-Christophe-et-Niévès",
+            "ME": "Monténégro",
+            "NA": "Namibie",
+            "MF": "Saint-Martin",
+            "LK": "Sri Lanka",
+            "KP": "Corée du Nord",
+            "MG": "Madagascar",
+            "NC": "Nouvelle-Calédonie",
+            "MH": "Îles Marshall",
+            "KR": "Corée du Sud",
+            "NE": "Niger",
+            "NF": "Île Norfolk",
+            "MK": "Macédoine",
+            "NG": "Nigéria",
+            "ML": "Mali",
+            "MM": "Myanmar (Birmanie)",
+            "LR": "Libéria",
+            "NI": "Nicaragua",
+            "KW": "Koweït",
+            "MN": "Mongolie",
+            "LS": "Lesotho",
+            "PA": "Panamá",
+            "MO": "Macau",
+            "LT": "Lituanie",
+            "KY": "Îles Caïmans",
+            "MP": "Îles Mariannes du Nord",
+            "LU": "Luxembourg",
+            "NL": "Pays-Bas",
+            "KZ": "Kazakhstan",
+            "MQ": "Martinique",
+            "LV": "Lettonie",
+            "MR": "Mauritanie",
+            "PE": "Pérou",
+            "MS": "Montserrat",
+            "QA": "Qatar",
+            "NO": "Norvège",
+            "PF": "Tahïti (Polynésie française)",
+            "MT": "Malte",
+            "LY": "Libye",
+            "NP": "Népal",
+            "PG": "Papouasie-Nouvelle-Guinée",
+            "MU": "Maurice",
+            "PH": "Philippines",
+            "MV": "Maldives",
+            "OM": "Oman",
+            "NR": "Nauru",
+            "MW": "Malawi",
+            "MX": "Mexico",
+            "PK": "Pakistan",
+            "MY": "Malaisie",
+            "NU": "Niue",
+            "PL": "Pologne",
+            "MZ": "Mozambique",
+            "PM": "Saint-Pierre-et-Miquelon",
+            "PN": "Îles Pitcairn",
+            "RE": "La Réunion",
+            "SA": "Arabie saoudite",
+            "SB": "Îles Salomon",
+            "NZ": "Nouvelle-Zélande",
+            "SC": "Seychelles",
+            "SD": "Soudan",
+            "PR": "Porto Rico",
+            "SE": "Suède",
+            "PS": "Territoires palestiniens occupés",
+            "PT": "Portugal",
+            "SG": "Singapour",
+            "TC": "Îles Turques-et-Caïques",
+            "SH": "Sainte-Hélène",
+            "TD": "Tchad",
+            "SI": "Slovénie",
+            "PW": "Palaos",
+            "SJ": "Svalbard et Jan Mayen",
+            "UA": "Ukraine",
+            "RO": "Roumanie",
+            "TF": "Terres australes et antarctiques françaises",
+            "SK": "Slovaquie",
+            "PY": "Paraguay",
+            "TG": "Togo",
+            "SL": "Sierra Leone",
+            "TH": "Thaïlande",
+            "SM": "Saint-Marin",
+            "SN": "Sénégal",
+            "RS": "Serbie (Yougoslavie)",
+            "TJ": "Tadjikistan",
+            "VA": "Cité du Vatican",
+            "SO": "Somalie",
+            "TK": "Tokelau",
+            "UG": "Ouganda",
+            "RU": "Russie",
+            "TL": "Timor oriental",
+            "VC": "Saint-Vincent-et-les-Grenadines",
+            "TM": "Turkménistan",
+            "SR": "Suriname",
+            "RW": "Rwanda",
+            "TN": "Tunisie",
+            "VE": "Venezuela",
+            "TO": "Tonga",
+            "ST": "Sao Tomé-et-Principe",
+            "VG": "Îles Vierges britanniques",
+            "SV": "Salvador",
+            "UM": "Îles mineures éloignées des États-Unis",
+            "TR": "Turquie",
+            "VI": "Îles Vierges(US)",
+            "WF": "Wallis-et-Futuna",
+            "TT": "Trinité-et-Tobago",
+            "SY": "Syrie",
+            "SZ": "Swaziland",
+            "TV": "Tuvalu",
+            "TW": "Taïwan",
+            "VN": "Viêt Nam",
+            "US": "États-Unis(USA)",
+            "TZ": "Tanzanie",
+            "YE": "Yémen",
+            "ZA": "Afrique du Sud",
+            "XK": "République du Kosovo",
+            "UY": "Uruguay",
+            "VU": "Vanuatu",
+            "UZ": "Ouzbékistan",
+            "WS": "Samoa",
+            "ZM": "Zambie",
+            "AC": "Île de l'Ascension",
+            "AD": "Andorre",
+            "YT": "Mayotte",
+            "AE": "Émirats arabes unis",
+            "YU": "Serbia and Montenegro",
+            "BA": "Serbie-et-Monténégro",
+            "AF": "Afghanistan",
+            "BB": "Barbade",
+            "AG": "Antigua-et-Barbuda",
+            "BD": "Bangladesh",
+            "AI": "Anguilla",
+            "BE": "Belgique",
+            "CA": "Canada",
+            "BF": "Burkina Faso",
+            "BG": "Bulgarie",
+            "ZW": "Zimbabwe",
+            "AL": "Albanie",
+            "CC": "Îles Cocos",
+            "BH": "Bahreïn",
+            "AM": "Arménie",
+            "CD": "République démocratique du Congo",
+            "BI": "Burundi",
+            "AN": "Antilles néerlandaises",
+            "BJ": "Bénin",
+            "AO": "Angola",
+            "CF": "République centrafricaine",
+            "CG": "République du Congo",
+            "AQ": "Antarctique",
+            "CH": "Suisse",
+            "BM": "Bermudes",
+            "AR": "Argentine",
+            "CI": "Côte d'Ivoire",
+            "BN": "Brunei Darussalam",
+            "DE": "Allemagne",
+            "AS": "Samoa américaines",
+            "BO": "Bolivie",
+            "AT": "Autriche",
+            "CK": "Îles Cook",
+            "AU": "Australie",
+            "CL": "Chili",
+            "EC": "Équateur",
+            "CM": "Cameroun",
+            "BR": "Brésil",
+            "AW": "Aruba",
+            "CN": "Chine",
+            "EE": "Estonie",
+            "BS": "Bahamas",
+            "DJ": "Djibouti",
+            "AX": "Åland",
+            "CO": "Colombie",
+            "BT": "Bhoutan",
+            "DK": "Danemark",
+            "EG": "Égypte",
+            "AZ": "Azerbaïdjan",
+            "EH": "Sahara occidental",
+            "BV": "Île Bouvet",
+            "DM": "Dominique",
+            "CR": "Costa Rica",
+            "BW": "Botswana",
+            "GA": "Gabon",
+            "DO": "République dominicaine",
+            "BY": "Biélorussie",
+            "GB": "Royaume-Uni",
+            "CU": "Cuba",
+            "BZ": "Bélize",
+            "CV": "Cap-Vert",
+            "GD": "Grenade",
+            "FI": "Finlande",
+            "GE": "Géorgie",
+            "FJ": "Fidji",
+            "CX": "Île Christmas",
+            "GF": "Guyane",
+            "FK": "Îles Malouines",
+            "CY": "Chypre",
+            "GG": "Guernesey",
+            "CZ": "République tchèque",
+            "GH": "Ghana",
+            "FM": "Micronésie",
+            "ER": "Érythrée",
+            "GI": "Gibraltar",
+            "ES": "Espagne",
+            "FO": "Îles Féroé",
+            "ET": "Éthiopie",
+            "GL": "Groenland",
+            "DZ": "Algérie",
+            "GM": "Gambie",
+            "ID": "Indonésie",
+            "FR": "France",
+            "GN": "Guinée",
+            "IE": "Irlande",
+            "HK": "Hong Kong",
+            "GP": "Guadeloupe",
+            "GQ": "Guinée équatoriale",
+            "HM": "Îles Heard-et-MacDonald",
+            "GR": "Grèce",
+            "HN": "Honduras",
+            "JE": "Jersey",
+            "GS": "Géorgie du Sud-et-les Îles Sandwich du Sud",
+            "FX": "France métropolitaine",
+            "GT": "Guatemala",
+            "GU": "Guam",
+            "IL": "Israël"
+        };
+
+        var paysSelector = document.querySelector("#pays");
+        let element = '';
+
+        for (const key in pays) {
+           
+            if(pays[key] == '<?= Auth::user()->pays ?>') {
+                element +='<option value="' + pays[key] + '" selected>' + pays[key] + '</option>';
+            }
+            else {
+                element +='<option value="' + pays[key] + '">' + pays[key] + '</option>';
+            }
+
+        }
+
+        paysSelector.innerHTML = element;
+    </script>
 </body>
 
 </html>

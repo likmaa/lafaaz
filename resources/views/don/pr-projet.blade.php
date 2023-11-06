@@ -13,7 +13,7 @@
                 </div>
                 @elseif(session()->has('danger'))
                 <div class="alert alert-danger mb-0" style="border-radius: unset;">
-                    {{ session('danger') }}
+                    {{ session('danger') }} 
                 </div>
                 @else
                 <form method="POST" action="{{route('donpr')}}" class="border-light" id="register">
@@ -55,6 +55,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+
                         </div>
 
                         <div class="mb-3 col-lg-6">
@@ -75,13 +76,13 @@
 
                             <select required name="projet" id="projet" class="form-select">
                                 <option selected>Choisir un projet</option>
-                                <option value="Assistance aux personnes du troisième âge">Assistance aux personnes du troisième âge</option>
+                                {{-- <option value="Assistance aux personnes du troisième âge">Assistance aux personnes du troisième âge</option>
                                 <option value="Assistance aux orphelins">Assistance aux orphelins</option>
                                 <option value="Coaching aux couples">Coaching aux couples</option>
-                                <option value="Education & Jeunesse">Education & Jeunesse</option>
+                                <option value="Education & Jeunesse">Education & Jeunesse</option> --}}
                                 @foreach($projets as $projet)
                                 <option value="{{$projet->titre}}">{{$projet->titre}}</option>
-                                @endforeach
+                                @endforeach 
                             </select>
                         </div>
 
@@ -145,7 +146,7 @@
                 phone: $('#tel').val(),
                 callback: "",
                 theme: "#48746D",
-                key: "83d25e20e6c111ea874b458efa5162a0"
+                key: "1283ee43a7e00476a6c179aa602b83f234d4a934"
             });
             addSuccessListener(response => {
                 $('#h1').val(response.transactionId);

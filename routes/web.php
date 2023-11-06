@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\CheckRole;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +25,8 @@ Route::get('/detail-de-l\'actualite/{id}', [App\Http\Controllers\Controllers::cl
 Route::get('/', [App\Http\Controllers\Controllers::class, 'index'])->name('Accueil');
 Route::get('/projets', [App\Http\Controllers\Controllers::class, 'projet'])->name('projet');
 Route::get('/detail/{id}', [App\Http\Controllers\Controllers::class, 'detail'])->name('detail');
+Route::get('/projets/{projet}', [App\Http\Controllers\Dashboard::class, 'afficherModification'])->name('afficherModification'); 
+Route::put('/projets/{id}', [App\Http\Controllers\Dashboard::class, 'modifier'])->name('modifier'); 
 Route::get('/apropos', [App\Http\Controllers\Controllers::class, 'apropos'])->name('apropos');
 Route::get('/realisation', [App\Http\Controllers\Controllers::class, 'realisation'])->name('realisation');
 Route::get('/offres-d\'emplois', [App\Http\Controllers\Controllers::class, 'emplois'])->name('emplois');
@@ -35,17 +36,21 @@ Route::get('/detail-sur-le-benevolat/{id}', [App\Http\Controllers\Controllers::c
 Route::get('/offres-de-stages', [App\Http\Controllers\Controllers::class, 'stage'])->name('stage');
 Route::get('/detail-sur-l\'offre-de-stage/{id}', [App\Http\Controllers\Controllers::class, 'dstage'])->name('dstage');
 Route::get('/nous-rejoindre', [App\Http\Controllers\Controllers::class, 'travail'])->name('travail');
+
 //Membres
 Route::get('/membre/partenaire', [App\Http\Controllers\Controllers::class, 'membpa'])->name('membpa');
 Route::get('/membre/adhesion', [App\Http\Controllers\Controllers::class, 'membre'])->name('membre');
-Route::post('/membre/adhesion', [App\Http\Controllers\Controllers::class, 'addmembre']);
+Route::post('/membre/adhesion', [App\Http\Controllers\Controllers::class, 'addmembre'])->name('addmembre');
+
 //Programme
 Route::get('/programme/assistance-troisieme-age', [App\Http\Controllers\Controllers::class, 'progas1'])->name('progas1');
 Route::get('/programme/assistance-aux-orphelins', [App\Http\Controllers\Controllers::class, 'progas2'])->name('progas2');
 Route::get('/programme/coaching-couple', [App\Http\Controllers\Controllers::class, 'progco'])->name('progco');
 Route::get('/programme/education-jeunesse', [App\Http\Controllers\Controllers::class, 'proged'])->name('proged');
+
 //FAQ
 Route::get('/Faq', [App\Http\Controllers\Controllers::class, 'faq'])->name('faq');
+
 //Don
 Route::get('/don/pour-projet', [App\Http\Controllers\Controllers::class, 'donpr'])->name('donpr');
 Route::post('/don/pour-projet', [App\Http\Controllers\Controllers::class, 'addproj']);
@@ -73,11 +78,13 @@ Route::middleware(['checkRole:ADMIN'])->group(function () {
 
     Route::get('/gestion-des-projets-de-dons', [App\Http\Controllers\Dashboard::class, 'aprojets'])->name('projets');
     Route::post('/gestion-des-projets-de-dons', [App\Http\Controllers\Dashboard::class, 'addprojet'])->name('addprojet');
+    Route::get('/gestion-des-projets-de-dons/{projet}', [App\Http\Controllers\Dashboard::class, 'deleteprojet'])->name('deleteprojet');
 
     Route::get('/gestion-des-actualites', [App\Http\Controllers\Dashboard::class, 'aactu'])->name('aactu');
     Route::post('/gestion-des-actualites', [App\Http\Controllers\Dashboard::class, 'addactu']);
 
     Route::post('/gestion-des-realisations', [App\Http\Controllers\Dashboard::class, 'addrealisation'])->name('addrealisation');
+    Route::put('/gestion-des-realisations/{realisation}', [App\Http\Controllers\Dashboard::class, 'updaterealisation'])->name('updaterealisation');
 
     Route::get('/gestion-des-projets-de-dons-detail', [App\Http\Controllers\Dashboard::class, 'agprojets'])->name('gestprojets');
     Route::get('/gestion-des-adhesion-a-la-fondation', [App\Http\Controllers\Dashboard::class, 'aadhesion'])->name('adhesion');
