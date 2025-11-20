@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 const nav = [
@@ -9,24 +9,31 @@ const nav = [
 ];
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <header className="border-b bg-white/80 backdrop-blur sticky top-0 z-50">
+    <header className={`header-root ${scrolled ? 'header-scrolled' : 'header-glass'}`}>
       <div className="container mx-auto px-4 py-3 flex items-center gap-6">
-        <Link to="/" className="text-xl font-bold text-primary-600">LAFAAZ</Link>
+        <Link to="/" className="text-xl font-bold font-heading tracking-tight text-primary-600">LAFAAZ</Link>
         <nav className="flex gap-4">
           {nav.map(i => (
             <NavLink
               key={i.to}
               to={i.to}
-              className={({ isActive }) => `text-sm font-medium px-2 py-1 rounded ${isActive ? 'text-primary-700' : 'text-gray-600 hover:text-primary-600'}`}
+              className={({ isActive }) => `text-sm font-medium px-2 py-1 rounded-full transition-colors ${isActive ? 'text-primary-600' : 'text-textprimary/70 hover:text-primary-600'}`}
             >
               {i.label}
             </NavLink>
           ))}
         </nav>
-        <div className="ml-auto flex gap-2">
-          <NavLink to="/login" className="text-sm px-3 py-1 rounded border hover:bg-gray-100">Connexion</NavLink>
-          <NavLink to="/register" className="text-sm px-3 py-1 rounded bg-primary-600 text-white hover:bg-primary-700">Inscription</NavLink>
+        <div className="ml-auto flex items-center gap-3">
+          <NavLink to="/login" className="btn-outline">Connexion</NavLink>
+          <NavLink to="/donate" className="btn-donate">Donner</NavLink>
         </div>
       </div>
     </header>

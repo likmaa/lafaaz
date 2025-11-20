@@ -4,6 +4,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App.jsx';
 import './styles/index.css';
+import './styles/vibes.css';
+import { applyThemeVariables } from './theme';
+
+applyThemeVariables();
 
 const queryClient = new QueryClient();
 

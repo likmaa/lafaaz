@@ -1,5 +1,6 @@
 import React from 'react';
 import Carousel from '../ui/Carousel';
+import '../../styles/vibes.css';
 
 const heroImages = [
   { src: '/assets/img/accueil1.png', alt: 'Lafaaz Fondation - Aide humanitaire' },
@@ -9,26 +10,25 @@ const heroImages = [
 
 export default function Hero() {
   return (
-    <section className="relative">
-      <Carousel images={heroImages} className="h-[500px] md:h-[600px]" autoPlay interval={5000} />
-      
-      {/* Overlay avec texte */}
-      <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-[5]">
-        <div className="text-center text-white px-4">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-            LAFAAZ Fondation
-          </h1>
-          <p className="text-xl md:text-2xl mb-6 drop-shadow-md max-w-2xl mx-auto">
-            Favoriser l'accès aux besoins quotidiens et à l'égalité des chances
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a href="/donate" className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-md font-medium transition">
-              Faire un don
-            </a>
-            <a href="/projects" className="bg-white hover:bg-gray-100 text-gray-900 px-6 py-3 rounded-md font-medium transition">
-              Nos projets
-            </a>
-          </div>
+    <section className="hero-root">
+      {/* Background carousel */}
+      <div className="hero-bg">
+        <Carousel images={heroImages} className="h-full" autoPlay interval={5000} />
+      </div>
+      {/* Overlay & halos */}
+      <div className="hero-overlay" />
+      <div className="halo halo-green" />
+      <div className="halo halo-blue" />
+      <div className="hero-content px-6 md:px-10">
+        <h1 className="font-heading text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+          Accélérer l'Accès<br className="hidden md:block" /> Aux Ressources Essentielles
+        </h1>
+        <p className="text-lg md:text-xl mb-8 text-white/90 max-w-xl leading-relaxed">
+          Une fondation engagée pour l'eau potable, la santé, l'éducation et l'autonomie communautaire.
+        </p>
+        <div className="flex flex-wrap gap-4">
+          <a href="/donate" className="btn-donate">Faire un don</a>
+          <a href="/projects" className="btn-outline">Voir nos projets</a>
         </div>
       </div>
     </section>
