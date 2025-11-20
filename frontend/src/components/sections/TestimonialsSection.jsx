@@ -2,6 +2,7 @@ import React from 'react';
 import Loading from '../ui/Loading';
 import { useQuery } from '@tanstack/react-query';
 import api from '../../services/api';
+import SectionHeader from '../ui/SectionHeader';
 
 export default function TestimonialsSection() {
   const { data, isLoading } = useQuery({
@@ -13,17 +14,17 @@ export default function TestimonialsSection() {
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-2">Ils nous soutiennent</h2>
-          <div className="w-20 h-1 bg-primary-600 mx-auto"></div>
-          <p className="text-gray-600 mt-4 max-w-xl mx-auto text-sm">Donateurs & partenaires partagent leur motivation. Les contributions seront rendues dynamiques.</p>
-        </div>
+        <SectionHeader
+          title="Ils nous soutiennent"
+          align="center"
+          subtitle="Donateurs & partenaires partagent leur motivation. Les contributions seront rendues dynamiques."
+        />
         {isLoading ? (
           <Loading text="Chargement des témoignages..." />
         ) : data?.data?.length > 0 ? (
           <div className="grid md:grid-cols-3 gap-6">
             {data.data.map(t => (
-              <div key={t.id} className="bg-gray-50 rounded-lg p-6 border hover:shadow-sm transition">
+              <div key={t.id} className="bg-gray-50 rounded-lg p-6 border hover:shadow-md transition group">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 font-bold text-xl">
                     {(t.nom || 'A')[0].toUpperCase()}
@@ -33,7 +34,7 @@ export default function TestimonialsSection() {
                     {t.montant && <p className="text-sm text-primary-600 font-medium">{t.montant} FCFA</p>}
                   </div>
                 </div>
-                <p className="text-gray-600 italic text-sm">"{t.message || 'Merci pour votre soutien.'}"</p>
+                <p className="text-gray-600 italic text-sm group-hover:text-textprimary">"{t.message || 'Merci pour votre soutien.'}"</p>
               </div>
             ))}
           </div>
