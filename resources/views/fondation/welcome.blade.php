@@ -163,7 +163,7 @@
                     <p>{!! trim($projet->extrait) !!}</p>
                     <div class="offset-lg-10 col-lg-1 me-4">
                         <a href="{{ route('detail', $projet->id) }}">
-                            <button class="px-4 py-2">Détail</button></a>
+                            <button class="px-4 py-2">Détails</button></a>
                     </div>
                 </div>
             </div>
