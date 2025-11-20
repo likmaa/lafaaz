@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
-                <h1 class="py-5 text-center text-grey-500">Donation pour projet</h1>
+                <h1 class="py-5 text-center text-grey-500">Faire un don pour un projet</h1>
                 @if(session()->has('success'))
                 <div class="alert alert-success mb-0" style="border-radius: unset;">
                     {{ session('success') }}
@@ -23,7 +23,7 @@
                     <div class="row my-2">
                         <div class="mb-3 col-lg-6 ">
                             <label for="nome" class="form-label">Nom et Prénoms*</label>
-                            <input type="text" placeholder="Ex: John Doe" class="form-control @error('name') is-invalid @enderror" id="nom" aria-describedby="textHelp" name="nom" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <input type="text" placeholder="Ex: ZANNOU Arnaud" class="form-control @error('name') is-invalid @enderror" id="nom" aria-describedby="textHelp" name="nom" value="{{ old('name') }}" autocomplete="name" autofocus>
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
 
                         <div class="mb-3 col-lg-6">
                             <label for="tel" class="form-label">Numéro de téléphone*</label>
-                            <input type="tel" placeholder="Ex: 00229 60000000" class="form-control @error('tel') is-invalid @enderror" id="tel" aria-describedby="textHelp" name="tel" value="{{ old('tel') }}" required autocomplete="tel" autofocus>
+                            <input type="tel" placeholder="Ex: +229 60000000" class="form-control @error('tel') is-invalid @enderror" id="tel" aria-describedby="textHelp" name="tel" value="{{ old('tel') }}"  autocomplete="tel">
 
                             @error('tel')
                             <span class="invalid-feedback" role="alert">
@@ -48,7 +48,7 @@
                     <div class="row my-2">
                         <div class="mb-3 col-lg-6">
                             <label for="email" class="form-label">Email*</label>
-                            <input type="email" placeholder="Ex: john@gmail.com" class="form-control @error('email') is-invalid @enderror" id="email" aria-describedby="emailHelp" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <input type="email" placeholder="Ex: arnaudzannou@gmail.com" class="form-control @error('email') is-invalid @enderror" id="email" aria-describedby="emailHelp" name="email" value="{{ old('email') }}" autocomplete="email">
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -60,7 +60,7 @@
 
                         <div class="mb-3 col-lg-6">
                             <label for="adresse" class="form-label">Addresse</label>
-                            <input type="text" placeholder="Ex: Cotonou, Bénin" class="form-control @error('adresse') is-invalid @enderror" id="adresse" aria-describedby="textHelp" name="adresse" value="{{ old('adresse') }}"  autocomplete="adresse" autofocus>
+                            <input type="text" placeholder="Ex: Cotonou, Bénin" class="form-control @error('adresse') is-invalid @enderror" id="adresse" aria-describedby="textHelp" name="adresse" value="{{ old('adresse') }}"  autocomplete="adresse">
                             @error('adresse')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -76,10 +76,7 @@
 
                             <select required name="projet" id="projet" class="form-select">
                                 <option selected>Choisir un projet</option>
-                                {{-- <option value="Assistance aux personnes du troisième âge">Assistance aux personnes du troisième âge</option>
-                                <option value="Assistance aux orphelins">Assistance aux orphelins</option>
-                                <option value="Coaching aux couples">Coaching aux couples</option>
-                                <option value="Education & Jeunesse">Education & Jeunesse</option> --}}
+                            
                                 @foreach($projets as $projet)
                                 <option value="{{$projet->titre}}">{{$projet->titre}}</option>
                                 @endforeach 
@@ -88,14 +85,14 @@
 
                         <div class="mb-3 col-lg-6">
                             <label for="montant" class="form-label">Montant*</label>
-                            <input type="number" min="100" step="100" placeholder="Ex: 10000 FCFA" class="form-control @error('montant') is-invalid @enderror" id="montant" aria-describedby="textHelp" name="montant" value="{{ old('montant') }}" required autocomplete="montant" autofocus>
+                            <input type="number" min="100" step="100" placeholder="Ex: 10000" class="form-control @error('montant') is-invalid @enderror" id="montant" aria-describedby="textHelp" name="montant" value="{{ old('montant') }}" required min="100" autocomplete="montant">
                         </div>
                     </div>
 
                     <div class="row my-2">
                         <div class="mb-3 col-lg-12">
                             <label for="message" class="form-label">Message</label>
-                            <textarea name="message" id="" placeholder="L'aide aux orphelins est un acte noble" cols="" rows="5" class="form-control @error('message') is-invalid @enderror"></textarea>
+                            <textarea name="message" id="" placeholder="C'est toujours un plaisir et un honneur d'aider et de soutenir les orphelins" cols="" rows="5" class="form-control @error('message') is-invalid @enderror"></textarea>
 
                             @error('message')
                             <span class="invalid-feedback" role="alert">
@@ -106,7 +103,7 @@
                     </div>
 
                     <div id="paypal-button-container">
-                        <button class=" mt-5 py-2 w-100" type="submit">Faite le don</button>
+                        <button class=" mt-5 py-2 w-100" type="submit">Faire un don</button>
                     </div>
 
                     <p id="result-message"></p>

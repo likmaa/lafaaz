@@ -180,7 +180,9 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+                            {{--
                             <p class="form-label my-3"> Télecharger un exemplaire de la lettre de motivation à adresser au Président de CA de la fondation <a href="">ici</a>.</p>
+                            --}}
                         </div>
                     </div>
                     <button class=" mt-5 py-2 w-100">Payer les frais d’adhésion 10.000CFA</button>

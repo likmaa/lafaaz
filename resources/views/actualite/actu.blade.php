@@ -26,7 +26,7 @@
                 @foreach($sousactus as $actu)
                 <div class="col-lg-4">
                     <div class="card mb-5 m-3">
-                    <div class="card-img-top" style="height: 250px; background: url('{{$actu->image}}'); background-size:cover; background-repeat: no-repeat"></div>
+                    <div class="card-img-top" style="height: 250px; background: url('{{config('filesystems.disks.public.url') .$actu->image}}'); background-size:cover; background-repeat: no-repeat"></div>
 
                         <!-- <img src="{{$actu->image}}" class="card-img-top" height="200" alt="..."> -->
                         <div class="card-body">

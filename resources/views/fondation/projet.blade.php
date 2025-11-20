@@ -26,12 +26,12 @@
                 <div class="col-lg-4">
                     <div class="card mb-5 m-3">
                         <!-- <img src="{{$projet->image}}" class="card-img-top" height="200" alt="..."> -->
-                        <div class="card-img-top" style="height: 250px; background: url('{{$projet->image}}'); background-size:cover; background-repeat: no-repeat"></div>
+                        <div class="card-img-top" style="height: 250px; background: url('{{config('filesystems.disks.public.url') . $projet->image}}'); background-size:cover; background-repeat: no-repeat"></div>
 
                         <div class="card-body pt-5">
                             <p class="card-text">
                                 <small class="text-body-secondary">
-                                    Débuter le : {{$projet->date}}
+                                    Débuté le : {{$projet->date}}
                                 </small>
                             </p>
                             <h5 class="card-title my-4">
@@ -56,7 +56,7 @@
 
         <div class="row align-items-center mt-5 pt-2">
             <div class="col-lg-3 mb-5 offset-lg-4">
-                <button class="w-100"> <a href="{{route('travail')}}">Collaboration</a></button>
+                <button class="w-100"> <a href="{{route('travail')}}">Nous rejoindre</a></button>
             </div>
         </div>
     </div>

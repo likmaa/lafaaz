@@ -48,7 +48,7 @@
 
         <div class="row align-items-center mt-5 pt-2">
             <div class="col-lg-3 mb-5 offset-lg-4">
-                <button class="w-100 py-2"><a href="{{route('travail')}}">Collaboration</a></button>
+                <button class="w-100 py-2"><a href="{{route('travail')}}">Nous rejoindre</a></button>
             </div>
         </div>
 

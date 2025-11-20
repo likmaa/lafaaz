@@ -23,8 +23,8 @@
             <div class="col-lg-8 col-md-7">
                 <div class="col-lg-12">
                     <div class="row my-4 mx-lg-0 mx-2 mx-md-0">
-                        <img src="{{$actu->image}}" class="img-fluid d-lg-block d-none d-md-block" style="height: 80vh; object-fit: cover; object-position: center;" alt="{{$actu->titre}}">
-                        <img src="{{$actu->image}}" class="img-fluid d-lg-none d-block d-md-none" style="height: 40vh; object-fit: cover; object-position: center;" alt="{{$actu->titre}}">
+                        <img src="{{config('filesystems.disks.public.url') .$actu->image}}" class="img-fluid d-lg-block d-none d-md-block" style="height: 80vh; object-fit: cover; object-position: center;" alt="{{$actu->titre}}">
+                        <img src="{{config('filesystems.disks.public.url') .$actu->image}}" class="img-fluid d-lg-none d-block d-md-none" style="height: 40vh; object-fit: cover; object-position: center;" alt="{{$actu->titre}}">
                         <h2 class="card-title text-body-secondary my-4">{{ $actu->titre }}</h2>
                         <p class="card-text lead">
                             <h6 class="text-bold fw-light">Publié le {{$actu->created_at}}</h6>
@@ -78,8 +78,8 @@
                         <a class="text-dark" href="{{route('actu2' , $actu->id)}}">
 
                             <div class="row mx-lg-0 mx-md-0 mx-sm-2 mb-4 mb-lg-0 mb-md-0 mb-sm-0 mx-3">
-                                <img src="{{$actu->image}}" style="object-fit: cover; object-position: center; height: 100%;" class="col-lg-4 d-lg-block d-none px-lg-0" alt="...">
-                                <img src="{{$actu->image}}" style="object-fit: cover; object-position: center;" class="col-lg-4 d-lg-none d-block mb-2 px-lg-0" height="200" alt="...">
+                                <img src="{{config('filesystems.disks.public.url') .$actu->image}}" style="object-fit: cover; object-position: center; height: 100%;" class="col-lg-4 d-lg-block d-none px-lg-0" alt="...">
+                                <img src="{{config('filesystems.disks.public.url') .$actu->image}}" style="object-fit: cover; object-position: center;" class="col-lg-4 d-lg-none d-block mb-2 px-lg-0" height="200" alt="...">
                                 <div class="col-lg-8 d-flex flex-column justify-content-center align-item-center">
                                     @php 
                                         $titre = (strlen($actu->titre) > 40) ? substr($actu->titre, 0, 40) . '...' : substr($actu->titre, 0, 40);
@@ -207,7 +207,7 @@
             @foreach($autresactus as $actu)
             <div class="col-lg-4 col-md-4 mt-4">
                 <div class="card mb-5 ms-lg-0 ms-md-0 ms-sm-0 ms-2 me-lg-5 me-md-1 me-2 mt-3">
-                    <img src="{{$actu->image}}" class="card-img-top" height="200" alt="...">
+                    <img src="{{config('filesystems.disks.public.url') .$actu->image}}" class="card-img-top" height="200" alt="...">
                     <div class="card-body">
                         <p class="card-text"><small class="text-body-secondary">
                                 Publié le : {{$actu->created_at}}</small></p>

@@ -146,7 +146,7 @@
         <div class="container" data-aos="fade-up">
             <div class="text-center ">
                 <h2 class="fw-500 text-center justify-content-center col-lg-4 offset-lg-4 col-12">
-                    <span>Projets récents</span>
+                    <span>Nos projets</span>
                 </h2>
                 <div class="underline_green"></div>
             </div>
@@ -156,13 +156,11 @@
         <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
             @foreach ($projets as $projet)
             <div class="gallery-cell">
-                <img src="{{ $projet->image }}" alt="">
+                <div class="card-img-top" style="height: 50vh; background: url('{{config('filesystems.disks.public.url') . $projet->image}}'); background-size:cover; background-repeat: no-repeat;"></div>
                 <div class="content mt-3 py-3 px-3 mx-3">
-                    <h3>Projet : {{ $projet->titre }}</h3>
-                    @php
-                    $extraitDescription = substr(trim($projet->description), 0, 100);
-                    @endphp
-                    <p>{!! $extraitDescription !!}...</p>
+                    <h5>Projet : {{ $projet->titre }}</h5>
+                   
+                    <p>{!! trim($projet->extrait) !!}</p>
                     <div class="offset-lg-10 col-lg-1 me-4">
                         <a href="{{ route('detail', $projet->id) }}">
                             <button class="px-4 py-2">Détail</button></a>
@@ -181,7 +179,7 @@
 
         <div class="text-center  ">
             <h2 class="fw-500 text-center justify-content-center col-lg-4 offset-lg-4 col-12">
-                <span>Actualités</span>
+                <span>Nos actualités</span>
             </h2>
 
             <div class="underline_blue"></div>
@@ -191,12 +189,12 @@
             @foreach ($actus as $actu)
             <div class="col-lg-4">
                 <div class="card mb-5 m-3">
-                    <div class="card-img-top" style="height: 250px; background: url('{{$actu->image}}'); background-size:cover; background-repeat: no-repeat"></div>
+                    <div class="card-img-top" style="height: 250px; background: url('{{config('filesystems.disks.public.url') . $actu->image}}'); background-size:cover; background-repeat: no-repeat"></div>
 
                     <!-- <img src="{{ $actu->image }}" class="card-img-top" height="200" alt="..."> -->
                     <div class="card-body">
                         <p class="card-text"><small class="text-body-secondary">
-                                Publié le : {{ $actu->date }}</small></p>
+                                Publié le : {{ $actu->created_at }}</small></p>
                         <h5 class="card-title my-4">
                             {{ $actu->titre }}
                         </h5>
@@ -259,9 +257,9 @@
                                 <path d="M7.50012 6C8.13484 5.9999 8.74583 6.24123 9.20916 6.67504C9.6725 7.10885 9.95348 7.70265 9.99512 8.336L10.0001 8.542C9.99012 12.097 8.76012 15.156 6.29512 17.765C6.2281 17.839 6.14699 17.8988 6.05654 17.9411C5.96609 17.9833 5.86812 18.0071 5.76838 18.0109C5.66863 18.0148 5.56911 17.9987 5.47566 17.9636C5.38221 17.9286 5.2967 17.8752 5.22414 17.8066C5.15159 17.7381 5.09345 17.6557 5.05314 17.5644C5.01283 17.4731 4.99115 17.3746 4.98938 17.2748C4.9876 17.175 5.00577 17.0758 5.04282 16.9832C5.07987 16.8905 5.13504 16.8061 5.20512 16.735C6.84512 14.998 7.86512 13.061 8.28212 10.876C7.93863 10.9884 7.57485 11.025 7.21585 10.9833C6.85685 10.9415 6.51117 10.8225 6.20263 10.6342C5.89409 10.446 5.63003 10.1932 5.42864 9.89305C5.22725 9.59294 5.09333 9.25274 5.0361 8.89588C4.97887 8.53903 4.99969 8.174 5.09713 7.82597C5.19457 7.47794 5.36631 7.15517 5.60052 6.87991C5.83473 6.60465 6.12584 6.38345 6.45378 6.23154C6.78172 6.07964 7.1387 6.00064 7.50012 6ZM16.5001 6C17.1348 5.9999 17.7458 6.24123 18.2092 6.67504C18.6725 7.10885 18.9535 7.70265 18.9951 8.336L19.0001 8.542C18.9901 12.102 17.7621 15.156 15.2951 17.765C15.2281 17.839 15.147 17.8988 15.0565 17.9411C14.9661 17.9833 14.8681 18.0071 14.7684 18.0109C14.6686 18.0148 14.5691 17.9987 14.4757 17.9636C14.3822 17.9286 14.2967 17.8752 14.2241 17.8066C14.1516 17.7381 14.0935 17.6557 14.0531 17.5644C14.0128 17.4731 13.9911 17.3746 13.9894 17.2748C13.9876 17.175 14.0058 17.0758 14.0428 16.9832C14.0799 16.8905 14.135 16.8061 14.2051 16.735C15.8481 14.997 16.8671 13.063 17.2831 10.876C16.9397 10.9884 16.5759 11.025 16.217 10.9833C15.858 10.9416 15.5124 10.8225 15.2038 10.6344C14.8953 10.4462 14.6313 10.1934 14.4299 9.89335C14.2284 9.59331 14.0945 9.25317 14.0372 8.89637C13.9799 8.53957 14.0006 8.17459 14.098 7.82657C14.1953 7.47856 14.3669 7.15578 14.601 6.88048C14.8351 6.60519 15.1261 6.38391 15.454 6.23191C15.7818 6.07991 16.1387 6.00079 16.5001 6Z" fill="#1C1B1F" />
                             </svg>
                         </div>
-                        <p class="description">
+                        <div class="description">
                             {!! $don->description !!}
-                        </p>
+                        </div>
                         <h4 class="title pt-2 d-flex">
                             <a class="pt-1 ps-4">{{ $don->titre }} </a>
                         </h4>

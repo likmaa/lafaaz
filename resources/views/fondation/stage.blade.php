@@ -8,7 +8,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 align-self-end">
-                    <h2>
+                    <h1 class="text-light mt-5 ms-4" style="font-size: small;">
+                        h2
                         Nos offres de Stage
                     </h2>
                 </div>
@@ -24,11 +25,10 @@
             @foreach($stages as $stage)
             <div class="col-lg-3 my-4">
                 <div class="card">
-                    <div class="card-img-top" style="height: 250px; background: url('{{$stage->image}}'); background-size:cover; background-repeat: no-repeat"></div>
+                    <div class="card-img-top" style="height: 250px; background: url('{{config('filesystems.disks.public.url') . $stage->image}}'); background-size:cover; background-repeat: no-repeat"></div>
 
-                    <img src="{{$stage->image}}" class="card-img-top w-100 h-100" alt="...">
                     <div class="card-body">
-                        <hr class="py-2">
+                        <hr class="py-1">
                         <h6 class="card-title text-body-secondary">{{$stage->titre}}</h6>
                         <h6 class="card-title text-body-secondary">Référence : {{$stage->reference}}</h6>
                         <h6 class="card-title text-body-secondary">Expire le : {{$stage->expire}}</h6>

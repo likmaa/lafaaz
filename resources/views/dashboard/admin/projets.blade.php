@@ -48,7 +48,7 @@
 									<td class="cell"></td>
 									<td class="cell">
 										<a class="btn-sm app-btn-secondary" href="{{route('detail', $projet->id)}}">Voir</a>
-										<a class="btn-sm app-btn-secondary" href="{{route('modifier', $projet->id)}}">Modifier</a>
+										<a class="btn-sm app-btn-secondary" href="{{route('afficherModification', $projet->id)}}">Modifier</a>
 										<form action="{{ route('deleteprojet', ['projet' => $projet->id]) }}">
 											<button type="submit" class="btn-sm btn-danger">Supprimer</button>
 										</form>
@@ -94,8 +94,15 @@
 						<div class="col-lg-12 mb-3">
 							<label for="">Image d'apercu du projet</label>
 							<input name="image" type="file" class="form-control" placeholder="Image d'apercu projet" aria-label="Image">
-						</div>
+						</div> 
 					</div>
+					<div class="row my-4">
+						<div class="col-lg-12 mb-3">
+							<label for="">Extrait du projet</label>
+							<input name="extrait" type="text" class="form-control" placeholder="Extrait du projet" aria-label="Extrait">
+						</div> 
+					</div>
+					
 					<div class="row my-4">
 						<div class="col-lg-12 mb-3">
 							<label for="">Description du projet</label>

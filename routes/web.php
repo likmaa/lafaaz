@@ -19,14 +19,42 @@ use App\Http\Middleware\CheckRole;
 Route::get('/actualite', [App\Http\Controllers\Controllers::class, 'actu1'])->name('actu1');
 Route::get('/detail-de-l\'actualite/{id}', [App\Http\Controllers\Controllers::class, 'actu2'])->name('actu2');
 
+// Modification des actualités dans la partie d'administration
+Route::get('/actualites/{actu}', [App\Http\Controllers\Dashboard::class, 'afficherModificationActu'])->name('afficherModificationActu'); 
+Route::put('/actualites/{id}', [App\Http\Controllers\Dashboard::class, 'modifierActu'])->name('modifierActu'); 
+
+// Modification des réalisations dans la partie d'administration
+Route::get('/realisations/{realisation}', [App\Http\Controllers\Dashboard::class, 'afficherModificationReal'])->name('afficherModificationReal'); 
+Route::put('/realisations/{id}', [App\Http\Controllers\Dashboard::class, 'modifierRealisation'])->name('modifierRealisation'); 
+
+// Modification des donateurs dans la partie d'administration
+Route::get('/donateurs/{donateur}', [App\Http\Controllers\Dashboard::class, 'afficherModificationDon'])->name('afficherModificationDon'); 
+Route::put('/donateurs/{id}', [App\Http\Controllers\Dashboard::class, 'modifierDonateur'])->name('modifierDonateur'); 
+
+// Modification des faqs dans la partie d'administration
+Route::get('/faqs/{faq}', [App\Http\Controllers\Dashboard::class, 'afficherModificationFaq'])->name('afficherModificationFaq'); 
+Route::put('/faqs/{id}', [App\Http\Controllers\Dashboard::class, 'modifierFaq'])->name('modifierFaq'); 
+
+// Modification des bénévoles dans la partie d'administration
+Route::get('/benevoles/{benevole}', [App\Http\Controllers\Dashboard::class, 'afficherModificationBen'])->name('afficherModificationBen'); 
+Route::put('/benevoles/{id}', [App\Http\Controllers\Dashboard::class, 'modifierBenevole'])->name('modifierBenevole'); 
+
 // Route::get('/actualite/2023', [App\Http\Controllers\Controllers::class, 'actu4'])->name('actu4');
 
 //Fondation
 Route::get('/', [App\Http\Controllers\Controllers::class, 'index'])->name('Accueil');
+Route::get('/accueil', [App\Http\Controllers\Controllers::class, 'index'])->name('Accueil2');
 Route::get('/projets', [App\Http\Controllers\Controllers::class, 'projet'])->name('projet');
-Route::get('/detail/{id}', [App\Http\Controllers\Controllers::class, 'detail'])->name('detail');
+Route::get('/details/{id}', [App\Http\Controllers\Controllers::class, 'detail'])->name('detail');
+
+// Modification des projets dans la partie d'administration
 Route::get('/projets/{projet}', [App\Http\Controllers\Dashboard::class, 'afficherModification'])->name('afficherModification'); 
-Route::put('/projets/{id}', [App\Http\Controllers\Dashboard::class, 'modifier'])->name('modifier'); 
+Route::put('/projets/{id}', [App\Http\Controllers\Dashboard::class, 'modifierProjet'])->name('modifierProjet'); 
+
+// Modification des recrutements dans la partie d'administration
+Route::get('/offres/{offre}', [App\Http\Controllers\Dashboard::class, 'afficherModificationOffre'])->name('afficherModificationOffre'); 
+Route::put('/offres/{id}', [App\Http\Controllers\Dashboard::class, 'modifierOffre'])->name('modifierOffre');
+
 Route::get('/apropos', [App\Http\Controllers\Controllers::class, 'apropos'])->name('apropos');
 Route::get('/realisation', [App\Http\Controllers\Controllers::class, 'realisation'])->name('realisation');
 Route::get('/offres-d\'emplois', [App\Http\Controllers\Controllers::class, 'emplois'])->name('emplois');

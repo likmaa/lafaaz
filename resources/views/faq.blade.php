@@ -29,9 +29,9 @@
                 <span class="accordian_title">{{$faq->titre}}</span>
             </div>
             <div class="accordian_body">
-                <p class="accordian_description">
-                    {{$faq->description}}
-                </p>
+                <div class="accordian_description">
+                    {!! $faq->description !!}
+                </div>
             </div>
         </div>
         @endforeach

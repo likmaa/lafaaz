@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
-                <h1 class="py-5 text-center text-grey-500">Donation pour soutient</h1>
+                <h1 class="py-5 text-center text-grey-500">Donation pour soutien</h1>
                 @if(session()->has('success'))
                 <div class="alert alert-success mb-0" style="border-radius: unset;">
                     {{ session('success') }}
@@ -23,7 +23,7 @@
                     <div class="row my-2">
                         <div class="mb-3 col-lg-6 ">
                             <label for="nom" class="form-label">Nom*</label>
-                            <input type="text" placeholder="Ex: John" class="form-control @error('name') is-invalid @enderror" id="nom" aria-describedby="textHelp" name="nom" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <input type="text" placeholder="Ex: ZANNOU" class="form-control @error('name') is-invalid @enderror" id="nom" aria-describedby="textHelp" name="nom" value="{{ old('name') }}" autocomplete="name" autofocus>
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
 
                         <div class="mb-3 col-lg-6 ">
                             <label for="prenom" class="form-label">Prenoms*</label>
-                            <input type="text" placeholder="Ex: Doe" class="form-control @error('prenom') is-invalid @enderror" id="prenom" aria-describedby="textHelp" name="prenom" value="{{ old('prenom') }}" required autocomplete="prenom" autofocus>
+                            <input type="text" placeholder="Ex: Arnaud" class="form-control @error('prenom') is-invalid @enderror" id="prenom" aria-describedby="textHelp" name="prenom" value="{{ old('prenom') }}" autocomplete="prenom">
 
                             @error('prenom')
                             <span class="invalid-feedback" role="alert">
@@ -47,7 +47,7 @@
                     <div class="row my-2">
                         <div class="mb-3 col-lg-6">
                             <label for="tel" class="form-label">Numéro de téléphone*</label>
-                            <input type="tel" placeholder="Ex: 00229 60000000" class="form-control @error('tel') is-invalid @enderror" id="tel" aria-describedby="textHelp" name="tel" value="{{ old('tel') }}" required autocomplete="tel" autofocus>
+                            <input type="tel" placeholder="Ex: +229 60000000" class="form-control @error('tel') is-invalid @enderror" id="tel" aria-describedby="textHelp" name="tel" value="{{ old('tel') }}" autocomplete="tel">
 
                             @error('tel')
                             <span class="invalid-feedback" role="alert">
@@ -58,7 +58,7 @@
 
                         <div class="mb-3 col-lg-6">
                             <label for="email" class="form-label">Email*</label>
-                            <input type="email" placeholder="Ex: john@gmail.com" class="form-control @error('email') is-invalid @enderror" id="email" aria-describedby="emailHelp" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <input type="email" placeholder="Ex: arnaudzannou@gmail.com" class="form-control @error('email') is-invalid @enderror" id="email" aria-describedby="emailHelp" name="email" value="{{ old('email') }}" autocomplete="email">
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -71,7 +71,7 @@
                     <div class="row my-2">
                         <div class="mb-3 col-lg-6">
                             <label for="exampleInputtext4" class="form-label">Adresse</label>
-                            <input type="text" placeholder="Ex: Cotonou, Bénin" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext4" aria-describedby="textHelp" name="adresse" value="{{ old('adresse') }}"  autocomplete="adresse" autofocus>
+                            <input type="text" placeholder="Ex: Cotonou, Bénin" class="form-control @error('name') is-invalid @enderror" id="exampleInputtext4" aria-describedby="textHelp" name="adresse" value="{{ old('adresse') }}"  autocomplete="adresse">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -80,7 +80,7 @@
                         </div>
                         <div class="mb-3 col-lg-6">
                             <label for="montant" class="form-label">Montant*</label>
-                            <input type="number" placeholder="Ex: 10.000 FCFA" class="form-control @error('name') is-invalid @enderror" id="montant" aria-describedby="textHelp" name="montant" value="{{ old('montant') }}" required autocomplete="montant" step="100" min="100" autofocus>
+                            <input type="number" placeholder="Ex: 10000" class="form-control @error('name') is-invalid @enderror" id="montant" aria-describedby="textHelp" name="montant" value="{{ old('montant') }}" required autocomplete="montant" step="100" min="100">
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -93,7 +93,7 @@
                     <div class="row my-2">
                         <div class="mb-3 col-lg-12">
                             <label for="message" class="form-label">Message</label>
-                            <textarea name="description" placeholder="Ex: L'aide aux orphelins est un aide noble" id="" cols="" rows="5" class="form-control @error('name') is-invalid @enderror"></textarea>
+                            <textarea name="description" placeholder="Ex: C'est toujours un plaisir et un honneur d'aider et de soutenir les orphelins" id="" cols="" rows="5" class="form-control @error('name') is-invalid @enderror"></textarea>
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">

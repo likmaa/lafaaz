@@ -37,6 +37,10 @@
     <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
         <div class="app-card app-card-orders-table shadow-sm mb-5 bg-white">
             <div class="app-card-body">
+                @if(session()->has('success'))
+                    <div class="alert alert-success">{{session('success')}}</div>
+                @endif
+
                 <div class="table-responsive">
                     <table class="table app-table-hover mb-0 text-left">
                         <thead>
@@ -54,7 +58,8 @@
                                 <td class="cell">{{$don->titre}}</td>
                                 <td class="cell"><span class="badge bg-success">Donateur</span></td>
                                 <td class="cell">
-                                    <a class="btn-sm app-btn-secondary" href="#">Voir</a>
+                                    <a class="btn-sm app-btn-secondary" href="{{ route('Accueil') }}">Voir</a>
+                                    <a class="btn-sm app-btn-primary" href="{{ route('afficherModificationDon', $don->id) }}">Modifier</a>
                                     <a class="btn-sm app-btn-secondary" href="{{route('Destroydona', $don->id)}}">Supprimer</a>
                                 </td>
                             </tr>
@@ -63,7 +68,6 @@
                     </table>
                     {!! $dons->links() !!}
                 </div>
-
             </div>
         </div>
     </div>
@@ -88,7 +92,8 @@
                                 <td class="cell">{{$faq->titre}}</td>
                                 <td class="cell"><span class="badge bg-warning">Faq</span></td>
                                 <td class="cell">
-                                    <a class="btn-sm app-btn-secondary" href="#">Voir</a>
+                                    <a class="btn-sm app-btn-secondary" href="{{ route("faq") }}">Voir</a>
+                                    <a class="btn-sm app-btn-secondary" href="{{ route("afficherModificationFaq", $faq->id) }}">Modifier</a>
                                     <a class="btn-sm app-btn-secondary" href="{{route('Destroyfaq', $faq->id)}}">Supprimer</a>
                                 </td>
                             </tr>
@@ -107,7 +112,7 @@
             <div class="col-6 col-md-4 col-xl-3 col-xxl-2">
                 <div class="app-card app-card-doc shadow-sm h-100">
                     <div class="app-card-thumb-holder p-3">
-                        <img src="{{$benevol->image}}" alt="" width="75" height="75" class="rounded-circle">
+                        <img src="{{ config('filesystems.disks.public.url') . $benevol->image }}" alt="" width="75" height="75" class="rounded-circle">
                     </div>
                     <div class="app-card-body p-3 has-card-actions">
 
@@ -115,7 +120,10 @@
                             {{$benevol->titre}}
                         </h4>
                         <div class="float-end my-3">
-                            <a href="#file-link" data-bs-toggle="modal" data-bs-target="#exampleModal4" class="badge bg-secondary" style="cursor: pointer;">Voir</a>
+                            {{-- apropos --}}
+                            {{-- #file-link --}}
+                            <a href="{{ route('apropos') }}" data-bs-toggle="modal" data-bs-target="#exampleModal4" class="badge bg-secondary" style="cursor: pointer;">Voir</a>
+                            <a href="{{route('afficherModificationBen', $benevol->id)}}" class="badge bg-primary" style="cursor: pointer;">Modifier</a>
                             <a href="{{route('Destroybenev', $benevol->id)}}" class="badge bg-danger" style="cursor: pointer;">Supprimer</a>
                         </div>
                     </div>

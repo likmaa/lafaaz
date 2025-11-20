@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="col-md-2 text-center pt-3">
-                            <img src="{{$emploie->image}}" class="rounded" alt="..." width="95" height="95">
+                            <img src="{{config('filesystems.disks.public.url') . $emploie->image}}" class="rounded" alt="..." width="95" height="95">
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                                 </p>
 
                                 <p class="card-text pt-2 lead">
-                                    {{$emploie->description}}
+                                    {!!$emploie->description!!}
 
                                 </p>
                                 <p class="card-text pt-2 lead">

@@ -31,7 +31,7 @@
                         <h5 class="card-title text-body-secondary my-4"> Description de la mission</h5>
 
                         <p class="card-text pt-2 lead">
-                        {{$benev->description}}
+                        {!!$benev->description!!}
 
                         </p>
                     </div>

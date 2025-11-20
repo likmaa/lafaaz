@@ -147,11 +147,11 @@ class Controllers extends Controller
         }
 
         $request->validate([
-            'nom' => 'required',
+            
             'projet' => 'required',
             'montant' => 'required|string|min:100',
-            'tel' => 'required',
-            'email' => 'required',
+          
+           
         ]);
         
         if ($operation->status) {
@@ -190,11 +190,10 @@ class Controllers extends Controller
         }
 
         $request->validate([
-            'nom' => 'required',
-            'prenom' => 'required',
+            
+            
             'montant' => 'required|string|min:100',
-            'tel' => 'required',
-            'email' => 'required',
+           
         ]);
 
         if ($operation->status) {
@@ -223,25 +222,30 @@ class Controllers extends Controller
     {
         return view('membre.rejoindre');
     }
+
     public function addmembre(Request $request)
     {
+        
+        // dump($request->all());
         $kkiapay = new \Kkiapay\Kkiapay(
             config('app.kkiapay_public'),
             config('app.kkiapay_private'),
             config('app.kkiapay_secret')
-        );
+        ); 
 
         $operation = $kkiapay->verifyTransaction($request->ts);
         // dump($operation);
 
         // if (is_int($operation)) {
+        //     // dd("int pas pres");
+
         //     return redirect()->back()->with('danger', 'Nous rencontrons des difficultés pour confirmer votre paiement. Veuillez réessayer ');
         // }
 
         $request->validate([
             'nom' => 'required',
-            'prenom' => 'required',
-            'postal' => 'required',
+            'prenom' => 'required', 
+            'postal' => 'required', 
             'ville' => 'required',
             'pays' => 'required',
             'tel' => 'required',
@@ -251,27 +255,26 @@ class Controllers extends Controller
             'profession' => 'required',
         ]);
 
-        $casier_name = "required";
-        $cin_name = "required";
-        $motive_name = "required";
-
-
         if ($operation->status) {
+
+            // dd("pres");
 
             if ($request->file('cin')) {
                 $cin = $request->file('cin');
-                $cin_name = time() . "." . $cin->extension();
-                $cin->move(public_path('uploads/rejoindre/'), $cin_name);
+                $cin_name = $cin->store("public/uploads/rejoindre");
+                $cin_name = explode("public/", $cin_name)[1];
             }
+
             if ($request->file('casier')) {
                 $casier = $request->file('casier');
-                $casier_name = time() . "." . $casier->extension();
-                $casier->move(public_path('uploads/rejoindre/'), $casier_name);
+                $casier_name = $casier->store("public/uploads/rejoindre");
+                $casier_name = explode("public/", $casier_name)[1];
             }
+            
             if ($request->file('motive')) {
                 $motive = $request->file('motive');
-                $motive_name = time() . "." . $motive->extension();
-                $motive->move(public_path('uploads/rejoindre/'), $motive_name);
+                $motive_name = $motive->store("public/uploads/rejoindre");
+                $motive_name = explode("public/", $motive_name)[1];
             }
 
             Grejoindre::create([
@@ -285,14 +288,17 @@ class Controllers extends Controller
                 'adresse' => $request->adresse,
                 'birth' => $request->birth,
                 'profession' => $request->profession,
-                'casier' => '/uploads/rejoindre/' . $casier_name,
-                'cin' => '/uploads/rejoindre/' . $cin_name,
-                'motive' => '/uploads/rejoindre/' . $motive_name,
-            ]); 
+                'casier' => $casier_name,
+                'cin' => $cin_name,
+                'motive' => $motive_name,
+            ]);
 
-            return redirect()->back()->with('success', 'Votre demande a été envoyée avec succès');
-        } else {
-            return redirect()->back()->with('danger', 'Nous rencontrons des difficultés pour confirmer votre paiement. Veuillez réessayer ');
+            return redirect()->back()->with('success', 'Votre demande a été envoyée avec success');
+        } 
+        else {
+            // dd("pas pres"); 
+
+            return redirect()->back()->with('danger', 'Nous rencontrons des difficultés pour confirmer votre paiement. Veuillez réessayer.');
         }
     }
 

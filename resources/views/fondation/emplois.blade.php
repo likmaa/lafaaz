@@ -29,7 +29,7 @@
                         <div class="card mb-3 bg-white">
                             <div class="row g-0">
                                 <div class="col-md-5 text-center">
-                                    <img src="{{$emploie->image}}" class="rounded w-100 h-100" alt="...">
+                                    <img src="{{config('filesystems.disks.public.url') . $emploie->image}}" class="rounded w-100 h-100" alt="...">
                                 </div>
 
                                 <div class="col-md-7">
@@ -60,15 +60,14 @@
                 <div class="row">
                     @foreach($projets as $projet)
                     <div class="col-lg-12 border px-0 mb-3">
-                        <div class="card-img-top" style="height: 250px; background: url('{{{ $projet->image }}'); background-size:cover; background-repeat: no-repeat"></div>
+                        <div class="card-img-top" style="height: 250px; background: url('{{ config('filesystems.disks.public.url') . $projet->image }}'); background-size:cover; background-repeat: no-repeat"></div>
                         
-                        <!-- <img src="{{ $projet->image }}" class="card-img-top" height="200" alt="..."> -->
                         <div class="card bg-white py-2 px-3">
                             <div class="card-body py-2">
                                 <h6 class="card-title text-body-secondary">{{$projet->titre}}</h6>
                                 <p class="card-text">
                                     <small class="text-body-secondary">Date de lancement : {{$projet->date}}</small>
-                                    <br> <a href="{{route('detail', $projet->id)}}">voir plus</a>
+                                    <br> <a href="{{route('detail', $projet->id)}}">Voir plus</a>
                                 </p>
                             </div>
                         </div>

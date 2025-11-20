@@ -8,6 +8,7 @@ use App\Models\Gdonsout;
 use App\Models\Grealisation;
 use App\Models\Grecrutement;
 use App\Models\Grejoindre;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -30,13 +31,14 @@ class HomeController extends Controller
     public function index()
     {
         $rejoindre = Grejoindre::orderBy('created_at', 'DESC')->limit(5)->get();
-        $soutien = Gdonsout::orderBy('created_at', 'DESC')->limit(5)->get();
+        $utilisateurs = User::orderBy('created_at', 'DESC')->limit(5)->get();
+       // $soutien = Gdonsout::orderBy('created_at', 'DESC')->limit(5)->get();
         $projets = Gdonprojet::orderBy('created_at', 'DESC')->limit(5)->get();
         $realisations = Grealisation::orderBy('created_at', 'DESC')->limit(4)->get();
         $actus = Gactualite::orderBy('created_at', 'DESC')->limit(4)->get();
         $stages = Grecrutement::where('typeoff', 'stage')->limit(4)->get();
         $emploies = Grecrutement::where('typeoff', 'emploie')->limit(4)->get();
         $benevolats = Grecrutement::where('typeoff', 'benevolat')->limit(4)->get();
-        return view('dashboard.commun.home', ['realisations' => $realisations, 'actus' => $actus,'stages' => $stages, 'emploies' => $emploies, 'benevolats' => $benevolats ,'rejoindre' => $rejoindre, 'soutien' => $soutien, 'projets' => $projets]);
+        return view('dashboard.commun.home', ['realisations' => $realisations, 'actus' => $actus,'stages' => $stages, 'emploies' => $emploies, 'benevolats' => $benevolats ,'rejoindre' => $rejoindre, 'utilisateurs' => $utilisateurs, 'projets' => $projets]);
     }
 }

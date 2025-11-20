@@ -7,7 +7,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="row my-4">
-                    <img src="{{$projet->image}}" class="img-fluid" alt="...">
+                    <div class="card-img-top" style="height: 80vh; background: url('{{config('filesystems.disks.public.url') . $projet->image}}'); background-size:cover; background-repeat: no-repeat;"></div>
+                    {{-- <img src="{{config('filesystems.disks.public.url') . $projet->image}}" class="img-fluid" alt="..."> --}}
                 </div>
             </div>
 
@@ -83,7 +84,8 @@
             @foreach($projets as $projet)
             <div class="col-lg-4 mb-4">
                 <div class="card">
-                    <img src="{{$projet->image}}" class="card-img-top" height="200" alt="...">
+                    <div class="card-img-top" style="height: 30vh; background: url('{{config('filesystems.disks.public.url') . $projet->image}}'); background-size:cover; background-repeat: no-repeat;"></div>
+                    {{-- <img src="{{config('filesystems.disks.public.url') . $projet->image}}" class="card-img-top" height="" alt="..."> --}}
                     <div class="card-body">
                         <p class="card-text"><small class="text-body-secondary">
                                 Débute le : {{$projet->date}}</small></p>

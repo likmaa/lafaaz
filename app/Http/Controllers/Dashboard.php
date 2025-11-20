@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gfaq;
-use App\Models\User;
-use App\Models\Gfile;
-use App\Models\Gtdona;
-use App\Models\Gprojet;
-use App\Models\Gbenevole;
 use App\Models\Gactualite;
-use App\Models\Grejoindre;
+use App\Models\Gbenevole;
+use App\Models\Gfaq;
+use App\Models\Gfile;
+use App\Models\Gprojet;
 use App\Models\Grealisation;
 use App\Models\Grecrutement;
+use App\Models\Grejoindre;
+use App\Models\Gtdona;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use SebastianBergmann\CodeCoverage\Report\Xml\Project;
@@ -157,35 +157,8 @@ class Dashboard extends Controller
             'image' => $image_name,
             'description' => $request->description,
         ]);
-
+        
         return redirect()->back()->with('success', 'Actualité ajouté avec success');
-    }
-
-    // Affichage du formulaire de modification
-    public function afficherModification(Gprojet $projet)
-    {
-        return view('dashboard.admin.updateProjet', ['projet' => $projet]);
-    }
-
-    // Modification
-    public function modifier(Request $request, $id)
-    {
-        $projet = Gprojet::findOrFail($id);
-        $projet->titre = $request->input("titre");
-        $projet->description = $request->input("description");
-        $projet->date = $request->input("date");
-
-        if($request->hasFile("image"))
-        {
-            $image = $request->file('image');
-            $image_name = $image->store("public/uploads/projet");
-            $image_name = explode("public", $image_name)[1];
-            $projet->image = $image_name;
-        }
-
-        $projet->save();
-
-        return redirect(route("projets"))->with('success', 'Actualité ajouté avec success');
     }
 
     //ajout des réalisations

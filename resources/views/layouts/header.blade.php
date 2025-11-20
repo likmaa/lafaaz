@@ -54,7 +54,6 @@
 
         .gallery-cell {
             width: 70%;
-            height: 75vh;
             margin: 0 4vw;
             border-radius: 20px;
             overflow: hidden;
@@ -125,7 +124,6 @@
 
             .gallery-cell {
                 width: 98%;
-                height: 80vh;
                 margin: 0 1vw;
             }
 
@@ -156,7 +154,7 @@
                     </a>
                 </h1>
             </div>
-            <div class="contact-info col-lg-5 offset-lg-5 col-12 d-flex align-items-center justify-content-center">
+            <div class="contact-info col-lg-6 offset-lg-4 col-12 d-flex align-items-center justify-content-center">
                 <i class="bi bi-telephone d-flex align-items-center px-5 text-500">
                     <a href="tel:+22997603805" class="a1"> +229 97 60 38 05</a>
                     <svg data-bs-toggle="modal" data-bs-target="#exampleModal" class="a2" type="button"
@@ -180,8 +178,8 @@
                 </button>
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="{{ route('donpr') }}">Pour projet</a></li>
-                    <li><a class="dropdown-item" href="{{ route('dons') }}">Pour soutien</a></li>
+                    <li><a class="dropdown-item" href="{{ route('donpr') }}">Pour un projet</a></li>
+                    <li><a class="dropdown-item" href="{{ route('dons') }}">Soutien au fonctionnement</a></li>
                 </ul>
             </div>
         </div>
@@ -450,8 +448,7 @@
 
                         <li><a class="nav-link scrollto" href="{{ route('actu1') }}">Actualités</a></li>
                         <li><a class="nav-link scrollto" href="{{ route('faq') }}">FAQ</a></li>
-                        <li><a class="nav-link  scrolto" href="{{ route('membre') }}">
-                                <i class="bi bi-box-arrow-in-right fs-4"></i> </a></li>
+                        <li><a class="nav-link scrollto" href="{{ route('membre') }}">Adhésion</a></li>
                         @guest
                             <li><a class="nav-link scrolto" href="{{ route('login') }}"><i
                                         class="bi bi-person-circle fs-4"></i></a></li>
@@ -788,19 +785,7 @@
                                     <a class="menu__link ps-2 pe-0" href="tel:+22997603805">
                                         +229 97 60 38 05
                                     </a>
-                                    <svg data-bs-toggle="modal" data-bs-target="#exampleModal" class="a2"
-                                        type="button" xmlns="http://www.w3.org/2000/svg" width="14" height="10"
-                                        viewBox="0 0 24 20" fill="none">
-                                        <path
-                                            d="M10 2C10 0.89543 10.8954 0 12 0H22C23.1046 0 24 0.895432 24 2C24 3.10457 23.1046 4 22 4L12 4C10.8954 4 10 3.10457 10 2Z"
-                                            fill="#fff" />
-                                        <path
-                                            d="M0 10C0 8.89543 0.895431 8 2 8L22 8C23.1046 8 24 8.89543 24 10C24 11.1046 23.1046 12 22 12L2 12C0.89543 12 0 11.1046 0 10Z"
-                                            fill="#fff" />
-                                        <path
-                                            d="M2 16C0.895431 16 0 16.8954 0 18C0 19.1046 0.895431 20 2 20H12C13.1046 20 14 19.1046 14 18C14 16.8954 13.1046 16 12 16H2Z"
-                                            fill="#fff" />
-                                    </svg>
+                                    
                                 </li>
                                 <li class="menu__item mn2 py-4 d-flex justify-content-between">
                                     <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="10" height="10"
@@ -1171,8 +1156,14 @@
         let element = '';
 
         for (const key in pays) {
+            
+            if(key == "BJ") {
+                element += '<option value="' + pays[key] + '" selected>' + pays[key] + '</option>';
+            }
+            else {
+                element += '<option value="' + pays[key] + '">' + pays[key] + '</option>';
+            }
 
-            element += '<option value="' + pays[key] + '">' + pays[key] + '</option>';
 
         }
 

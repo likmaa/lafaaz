@@ -7,10 +7,10 @@
     <div class="back"> 
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 align-self-end">
-                    <h2>
+                <div class="col-lg-12 align-self-end mb-5">
+                    <h5 class="text-light">
                         <a class="text-light" href="{{ route('stage') }}">Offre de Stage</a> / {{ $stage->titre }}
-                    </h2>
+                    </h5>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="col-md-2 text-center pt-3">
-                            <img src="{{$stage->image}}" class="rounded" alt="..." width="95" height="95">
+                            <img src="{{config('filesystems.disks.public.url') . $stage->image}}" class="rounded" alt="..." width="95" height="95">
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                                 </p>
 
                                 <p class="card-text pt-2 lead">
-                                    {{$stage->description}}
+                                    {!!$stage->description!!}
 
                                 </p>
                                 <p class="card-text pt-2 lead">
