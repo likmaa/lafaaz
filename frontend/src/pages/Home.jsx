@@ -1,115 +1,112 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import api from '../services/api';
-import Hero from '../components/sections/Hero';
+import React, { useEffect, useState } from 'react';
 import CausesSection from '../components/sections/CausesSection';
-import StatsSection from '../components/sections/StatsSection';
+import ImpactSection from '../components/sections/ImpactSection';
 import CTASection from '../components/sections/CTASection';
-import TestimonialsSection from '../components/sections/TestimonialsSection';
-import PartnersSection from '../components/sections/PartnersSection';
-import ProjectCard from '../components/ui/ProjectCard';
-import NewsCard from '../components/ui/NewsCard';
-import Loading from '../components/ui/Loading';
+import BackgroundVideo from '../components/layout/BackgroundVideo';
 
-export default function Home() {
-  const projets = useQuery({
-    queryKey: ['home-projects'],
-    queryFn: async () => (await api.get('/projets?limit=3')).data,
-    staleTime: 1000 * 60
-  });
+function Typewriter({
+  phrases = [],
+  typingSpeed = 80,
+  deletingSpeed = 50,
+  pauseAtEnd = 1200,
+}) {
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [index, setIndex] = useState(0);
 
-  const actus = useQuery({
-    queryKey: ['home-actus'],
-    queryFn: async () => (await api.get('/actualites?limit=3')).data,
-    staleTime: 1000 * 60
-  });
+  useEffect(() => {
+    if (!phrases.length) return;
+    const current = phrases[index % phrases.length];
 
-  const temoignages = useQuery({
-    queryKey: ['home-temoignages'],
-    queryFn: async () => (await api.get('/temoignages?limit=3')).data,
-    staleTime: 1000 * 60
-  });
+    let timeout;
+    if (!isDeleting) {
+      if (text.length < current.length) {
+        timeout = setTimeout(() => {
+          setText(current.slice(0, text.length + 1));
+        }, typingSpeed);
+      } else {
+        timeout = setTimeout(() => setIsDeleting(true), pauseAtEnd);
+      }
+    } else {
+      if (text.length > 0) {
+        timeout = setTimeout(() => {
+          setText(current.slice(0, text.length - 1));
+        }, deletingSpeed);
+      } else {
+        setIsDeleting(false);
+        setIndex((i) => (i + 1) % phrases.length);
+      }
+    }
 
-  const stats = useQuery({
-    queryKey: ['stats'],
-    queryFn: async () => (await api.get('/stats')).data,
-    staleTime: 1000 * 60 * 5
-  });
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, index, phrases, typingSpeed, deletingSpeed, pauseAtEnd]);
 
   return (
-    <div className="-mt-6">
-      {/* Hero Section */}
-      <Hero />
+    <span>
+      {text}
+      <span className="ml-1 align-middle inline-block w-[2px] h-[1em] bg-white animate-pulse" />
+    </span>
+  );
+}
 
-      {/* CTA Section */}
-      <CTASection />
+// Page d'accueil
+export default function Home() {
+  return (
+    <>
+      {/* Hero Section avec vidéo, gradient, titre et description */}
+      <div className="relative w-full" style={{ minHeight: '100vh' }}>
+        {/* Vidéo en arrière-plan */}
+        <BackgroundVideo
+          webmSrc="/assets/video/kk1_hq.webm"
+          mp4Src="/assets/video/kk1_hq.mp4"
+          poster={null}
+        />
+        
+        {/* Gradient bleu dans le Hero uniquement - se termine au même bleu que CausesSection */}
+        <div className="absolute inset-0 w-full bg-gradient-to-t from-[#0284c7] via-[#0284c7] via-40% to-transparent to-70% pointer-events-none z-0" />
 
-      {/* Causes Section */}
+        {/* Hero content */}
+        <div className="relative z-10 min-h-[70vh] md:min-h-[80vh] flex items-start">
+          {/* Descend le titre avant le milieu et aligne à droite */}
+          <div className="container mx-auto px-12 md:px-20 w-full pt-[26vh] md:pt-[30vh] ml-auto">
+            <h1 className="text-white text-left font-extrabold tracking-tight leading-tight text-5xl sm:text-6xl md:text-8xl">
+              <Typewriter
+                phrases={["Make a difference", "Faisons la différence"]}
+                typingSpeed={80}
+                deletingSpeed={50}
+                pauseAtEnd={1200}
+              />
+            </h1>
+          </div>
+
+          {/* Descriptif court en bas à droite */}
+          <div className="absolute bottom-2 right-12 md:right-20 max-w-lg text-white/90 text-sm md:text-base leading-relaxed text-left space-y-3">
+            <p>
+              À La FAAZ, nous propulsons les initiatives solidaires avec 
+              un accompagnement humain et efficace.
+              Nous ne nous contentons pas de financer la solidarité : nous la structurons. 
+            </p>
+            <p>
+              La FAAZ offre aux porteurs de projets l'expertise nécessaire 
+              pour réussir et aux donateurs la garantie d'un impact réel, 
+              le tout dans une approche de proximité absolue.
+            </p>
+            <p>
+              Priorités: enfance indigente, excellence scolaire, dignité des aînés.
+              Des actions concrètes et mesurables, ici et maintenant.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Section Nos Causes */}
       <CausesSection />
 
-      {/* Stats Section */}
-      <StatsSection stats={stats.data} />
+      {/* Section Impact (placeholder, ready for vibes) */}
+      <ImpactSection />
 
-      {/* Derniers Projets */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h2 className="text-3xl font-bold mb-2">Derniers projets</h2>
-              <div className="w-20 h-1 bg-primary-600"></div>
-            </div>
-            <Link to="/projects" className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center gap-1">
-              Voir tous les projets
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-          
-          {projets.isLoading ? (
-            <Loading text="Chargement des projets..." />
-          ) : projets.data?.data?.length > 0 ? (
-            <div className="grid md:grid-cols-3 gap-6">
-              {projets.data.data.map(p => <ProjectCard key={p.id} project={p} />)}
-            </div>
-          ) : (
-            <p className="text-center text-gray-500 py-8">Aucun projet disponible pour le moment.</p>
-          )}
-        </div>
-      </section>
-
-      {/* Actualités */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h2 className="text-3xl font-bold mb-2">Actualités</h2>
-              <div className="w-20 h-1 bg-primary-600"></div>
-            </div>
-            <Link to="/news" className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center gap-1">
-              Toutes les actualités
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-          
-          {actus.isLoading ? (
-            <Loading text="Chargement des actualités..." />
-          ) : actus.data?.data?.length > 0 ? (
-            <div className="grid md:grid-cols-3 gap-6">
-              {actus.data.data.map(a => <NewsCard key={a.id} news={a} />)}
-            </div>
-          ) : (
-            <p className="text-center text-gray-500 py-8">Aucune actualité disponible pour le moment.</p>
-          )}
-        </div>
-      </section>
-
-      {/* Sections Témoignages & Partenaires */}
-      <TestimonialsSection />
-      <PartnersSection />
-    </div>
+      {/* Section CTA */}
+      <CTASection />
+    </>
   );
 }

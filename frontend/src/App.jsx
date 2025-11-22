@@ -5,9 +5,9 @@ import Footer from './components/layout/Footer.jsx';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
       <Header />
-      <main className="flex-1 container mx-auto px-4 py-6">
+      <main className="flex-1 relative z-10">
         <RoutesIndex />
       </main>
       <Footer />

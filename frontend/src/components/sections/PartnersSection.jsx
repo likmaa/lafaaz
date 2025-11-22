@@ -13,7 +13,7 @@ const partners = [
 
 export default function PartnersSection() {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16">
       <div className="container mx-auto px-4">
         <SectionHeader
           title="Nos partenaires"
@@ -22,7 +22,7 @@ export default function PartnersSection() {
         />
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {partners.map(p => (
-            <div key={p.id} className="group border rounded-lg p-4 bg-white flex flex-col items-center justify-center hover:shadow-lg transition relative overflow-hidden">
+            <div key={p.id} className="group border rounded-lg p-4 flex flex-col items-center justify-center hover:shadow-lg transition relative overflow-hidden bg-transparent">
               <div className="absolute inset-0 opacity-0 group-hover:opacity-5 bg-gradient-to-br from-primary-500 to-secondary-500 transition" />
               <div className="w-14 h-14 bg-gray-100 rounded flex items-center justify-center mb-3 shadow-sm group-hover:shadow-md transition">
                 <span className="text-xs text-gray-400 group-hover:text-primary-600">Logo</span>
