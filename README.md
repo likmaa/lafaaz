@@ -7,6 +7,17 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Lafaaz — Présentation
+
+Lafaaz est une application web basée sur le framework Laravel. Ce dépôt contient le backend Laravel ainsi que l'interface frontend modernisée avec Vite et Tailwind CSS.
+
+### What's new (22 novembre 2025)
+- Commit: a522997 — feat(frontend): update CTA, Impact, Causes, Hero, Header styles and layouts; remove image overlays
+- Principales améliorations :
+	- Refonte de l'accueil : nouvelle section Hero (background vidéo optimisé, typewriter), Causes (grille 5 cartes), Impact (statistiques), CTA (carrousel interactif)
+	- Améliorations d'accessibilité et styles (vibes.css) et suppression des overlays d'images
+	- Build Vite et optimisation assets
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
@@ -64,3 +75,38 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Quick start (frontend)
+
+Development (with live reload):
+
+```bash
+# Install dependencies
+npm ci
+
+# Start dev server (Vite)
+npm run dev
+```
+
+Build for production (frontend):
+
+```bash
+npm ci --silent && npm run build
+```
+
+Notes:
+- The project relies on Laravel + Vite. Built frontend assets will be available in `dist/` (if you use standalone build) or integrated into the Laravel asset pipeline depending on your environment.
+- For the full Laravel app, run the usual backend setup:
+```bash
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+php artisan storage:link
+php artisan serve
+```
+
+Deployment tips:
+- Use a deployment pipeline (Forge, Envoyer, GitHub Actions) to run `composer install`, run DB migrations, and `npm ci && npm run build` if you manage frontend assets on the server.
+- Create a tag (e.g. `v1.0.0`) when you're ready to cut a release.
+
